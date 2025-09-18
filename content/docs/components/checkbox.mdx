@@ -1,0 +1,99 @@
+---
+title: Checkbox
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { CheckboxShowcase } from '../../components/specificComponentShowcase/CheckboxShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Checkboxes are the reliable workhorses of form inputs. They let users make multiple selections or toggle binary options with confidence.
+
+<ComponentShowcase component={<CheckboxShowcase />} code={`import { Checkbox } from "@/components/ui/checkbox"
+
+const TermsForm = () => {
+  const [isAgreed, setIsAgreed] = React.useState(false)
+
+  return (
+    <div className="flex items-center space-x-2">
+      <Checkbox
+        checked={isAgreed}
+        onCheckedChange={setIsAgreed}
+      />
+      <label className="text-sm">
+        I agree to the terms and conditions
+      </label>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'checkbox'} />
+
+## Usage
+
+Here's how to implement checkboxes in your forms:
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox"
+
+const MyForm = () => {
+  const [preferences, setPreferences] = React.useState({
+    newsletter: false,
+    notifications: true
+  })
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center space-x-2">
+        <Checkbox
+          checked={preferences.newsletter}
+          onCheckedChange={(checked) =>
+            setPreferences(prev => ({ ...prev, newsletter: checked }))
+          }
+        />
+        <label>Subscribe to newsletter</label>
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <Checkbox
+          checked={preferences.notifications}
+          onCheckedChange={(checked) =>
+            setPreferences(prev => ({ ...prev, notifications: checked }))
+          }
+        />
+        <label>Enable notifications</label>
+      </div>
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `checked` | `boolean` | No | The current checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | No | Callback when checkbox state changes |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Controlled Component**: Full control over checked state
+- **Accessibility**: Proper keyboard navigation and screen reader support
+- **Custom Styling**: Easy to customize appearance
+- **Theme Integration**: Adapts to your design system
+
+## Common Issues
+
+1. **"Checkbox not responding!"** - Make sure you're handling the onCheckedChange callback
+2. **"State not updating!"** - Remember to update your component's state in the callback
+3. **"Styling not working!"** - The component uses custom styling, check your CSS setup
+
+## Contributing
+
+Checkboxes are fundamental to forms! Help us improve their accessibility and user experience.
+
+Checkboxes - because sometimes you need more than just yes or no! ☑️

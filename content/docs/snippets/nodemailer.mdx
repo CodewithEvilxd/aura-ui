@@ -1,0 +1,74 @@
+---
+title: Advanced Nodemailer Setup
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+
+Because sending emails shouldn't be as complicated as rocket science. Unless you're sending emails to Mars.
+## Installation
+<InstallationCommand component={'nodemailer-setup'} />
+
+## What's Included?
+
+A robust Nodemailer setup that handles all the email-sending complexities so you don't have to. It's like having a personal email butler, but without the fancy uniform.
+
+### Features
+
+- **Rate Limiting**: Because spamming is so 1999
+- **Retry Mechanism**: For when the first try doesn't work (and the second, and the third...)
+- **Gmail Integration**: Because who doesn't love Gmail? (Except for the spam folder)
+- **Type Safety**: Full TypeScript support (because we're not savages)
+
+## Usage
+
+1. Create your email templates using one of these approaches:
+   - Write a function that returns HTML (similar to React components)
+   - Use plain text strings for simple messages
+   - Leverage React Email Templates for more complex designs
+2. Import and use your template in the email service configuration
+3. Configure your email settings and you're ready to send professional, well-formatted emails
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file in your project root:
+
+```
+CLIENT_ID=your-client-id
+CLIENT_SECRET=your-client-secret
+REDIRECT_URI=your-redirect-uri
+REFRESH_TOKEN=your-refresh-token
+SENDERS_ADDRESS=your-email@gmail.com
+ORGANIZATION_NAME=your-orgs-name
+```
+
+### Dependencies
+
+This setup includes:
+- `nodemailer`: The email-sending library that makes your life easier
+- `googleapis`: For Gmail OAuth2 authentication (because security is cool)
+- `@types/nodemailer`: Because TypeScript is life
+
+## Best Practices
+
+1. **Rate Limiting**: Don't be that person who gets their email account suspended
+2. **Retry Logic**: Because sometimes the first try isn't the charm
+3. **Error Handling**: Catch those errors before they catch you
+4. **Security**: Keep those credentials safe (or don't, we're not your mom)
+
+## Why Use This?
+
+- **Reliability**: Because losing emails is so 2000s
+- **Security**: OAuth2 authentication (because passwords are so last century)
+- **Performance**: Rate limiting and connection pooling
+- **Developer Experience**: TypeScript support and clear error messages
+
+## Common Use Cases
+
+- **Welcome Emails**: Because first impressions matter
+- **Password Resets**: For when users forget their passwords (which is always)
+- **Notifications**: Because users love getting spammed (they don't)
+- **Marketing**: For when you want to test how fast users can click "Unsubscribe"
+
+Remember: A good email setup is like a good friend - it's there when you need it, and it doesn't spam you with cat videos! 📧 

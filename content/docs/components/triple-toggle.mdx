@@ -1,0 +1,110 @@
+---
+title: Triple Toggle
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TripleToggleShowcase } from '../../components/specificComponentShowcase/TripleToggleShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+The Triple Toggle - a toggle component that's not satisfied with just being on or off. It needs more drama in its life because sometimes a regular toggle just isn't extra enough. Perfect for scenarios where you need multiple options, like choosing between different subscription plans or billing cycles.
+
+<ComponentShowcase component={<TripleToggleShowcase />} code={`
+import { TripleToggle } from "@/components/ui/triple-toggle"
+
+const PlanToggle = () => {
+  const [plan, setPlan] = React.useState("Free");
+
+  return (
+    <TripleToggle
+      options={{
+        main: "Free",
+        grouped: {
+          title: "Premium",
+          subOptions: ["Monthly", "Yearly"]
+        }
+      }}
+      value={plan}
+      toggleOptions={setPlan}
+    />
+  )
+}`} />
+
+
+## Installation
+
+First, make sure you have the required dependencies. This component is a bit high-maintenance:
+
+
+<InstallationCommand component={'triple-toggle'} />
+
+
+## Usage
+
+Here's how to use this drama queen of a component:
+
+```tsx
+import { TripleToggle } from "@/components/ui/triple-toggle"
+
+// Your component
+const MyComponent = () => {
+  const [value, setValue] = React.useState("Monthly")
+
+  return (
+    <TripleToggle
+      options={{
+        main: "Monthly",
+        grouped: {
+          title: "Billing",
+          subOptions: ["Yearly", "Lifetime"]
+        }
+      }}
+      value={value}
+      toggleOptions={setValue}
+    />
+  )
+}
+```
+
+## Props
+
+The component accepts the following props:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `options` | `{ main: string, grouped: { title: string, subOptions: [string, string] } }` | Yes | Configuration object that defines the toggle's options and structure. |
+| `value` | `string` | Yes | The currently selected value. |
+| `toggleOptions` | `(value: string) => void` | Yes | Callback function that handles value changes. |
+| `className` | `string` | No | Additional CSS classes for custom styling. |
+
+### Options Object Structure
+
+```tsx
+{
+  main: string,           // The main option (e.g., "Monthly" in a pricing toggle)
+  grouped: {
+    title: string,        // The title that appears on hover (e.g., "Premium")
+    subOptions: [string, string]  // Two sub-options (e.g., ["Monthly", "Yearly"])
+  }
+}
+```
+
+## Features
+
+- **Smooth Animations**: Because we're not savages who use abrupt transitions
+- **Responsive Design**: It looks good on all screen sizes, unlike some of your ex's selfies
+- **Accessible**: It's keyboard-friendly, because not everyone uses a mouse (shocking, I know)
+- **Dark Mode Support**: It works in the dark, unlike your plants`1
+
+## Common Issues
+
+1. **"The toggle isn't moving!"** - Double-check that all required props are provided correctly
+
+2. **"The animations are janky!"** - Ensure you have the latest version of `motion` installed
+
+3. **"It's not working in dark mode!"** - Verify your theme configuration is properly set up
+
+## Contributing
+
+Found a bug? Want to make it even more extra? Feel free to submit a PR. Just make sure your code is as clean as your browser history (which we all know is spotless, right?).
+
+The Triple Toggle is designed to be both powerful and user-friendly - a reliable choice for your multi-option selection needs! 🎯

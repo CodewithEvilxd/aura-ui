@@ -1,0 +1,151 @@
+---
+title: Text Animation
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TextAnimation } from '@/../registry/components/ui/text-animation.tsx'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+The Text Animation - a component that brings your text to life with smooth, customizable animations. Whether you want to animate characters, words, or entire lines, this component has got you covered. It's like having a personal animator for your text content!
+
+<ComponentShowcase showRefresh={true} component={<TextAnimation text={'Welcome to our amazing platform!'} />} code={`const AnimatedText = () => {
+  return (
+    <TextAnimation
+      text="Welcome to our amazing platform!"
+      by="chars"
+      direction="bottom"
+      blur={true}
+      fade={true}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+
+<InstallationCommand component={'text-animation'} />
+
+
+## Usage
+
+Here's how to bring your text to life:
+
+```tsx
+import { TextAnimation } from "@/components/ui/text-animation"
+
+// Your component
+const MyComponent = () => {
+  return (
+    <TextAnimation
+      text="Hello, World!"
+      by="chars"
+      direction="bottom"
+      blur={true}
+      fade={true}
+    />
+  )
+}
+```
+
+## Props
+
+The component comes with a variety of animation options:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text content to animate |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+| `delay` | `number` | No | Initial delay before animation starts (in seconds) |
+| `duration` | `number` | No | Duration of the animation (in seconds) |
+| `startDelay` | `number` | No | Delay before the animation sequence begins |
+| `staggerChildren` | `number` | No | Delay between each element's animation |
+| `by` | `'words' \| 'chars' \| 'lines' \| 'none'` | No | How to split the text for animation |
+| `blur` | `boolean` | No | Whether to include blur effect in animation |
+| `fade` | `boolean` | No | Whether to include fade effect in animation |
+| `ease` | `'easeInOut' \| 'easeIn' \| 'easeOut'` | No | Animation easing function |
+| `direction` | `'top' \| 'bottom' \| 'right' \| 'left'` | No | Direction of the animation |
+| `animationDirection` | `'default' \| 'reverse'` | No | Whether to animate from start to end or vice versa |
+
+## Animation Variations
+
+Here are some examples of different animation styles you can create:
+
+### Word-by-Word Animation
+<ComponentShowcase showRefresh={true} component={<TextAnimation text="Animate each word with style" by="words" direction="bottom" blur={true} fade={true} />} code={`const WordAnimation = () => {
+  return (
+    <TextAnimation
+      text="Animate each word with style"
+      by="words"
+      direction="bottom"
+      blur={true}
+      fade={true}
+    />
+  )
+}`} />
+
+### Character-by-Character Animation
+<ComponentShowcase showRefresh={true} component={<TextAnimation text="Typewriter effect" by="chars" direction="right" blur={true} fade={true} />} code={`const CharAnimation = () => {
+  return (
+    <TextAnimation
+      text="Typewriter effect"
+      by="chars"
+      direction="right"
+      blur={true}
+      fade={true}
+    />
+  )
+}`} />
+
+### Line-by-Line Animation
+<ComponentShowcase showRefresh={true} component={<TextAnimation text={`First line
+Second line
+Third line`} by="lines" direction="top" blur={true} fade={true} />} code={`const LineAnimation = () => {
+  return (
+    <TextAnimation
+      text={\`First line
+Second line
+Third line\`}
+      by="lines"
+      direction="top"
+      blur={true}
+      fade={true}
+    />
+  )
+}`} />
+
+### No Animation Split
+<ComponentShowcase showRefresh={true} component={<TextAnimation text="Animate as one piece" by="none" direction="bottom" blur={true} fade={true} />} code={`const NoSplitAnimation = () => {
+  return (
+    <TextAnimation
+      text="Animate as one piece"
+      by="none"
+      direction="bottom"
+      blur={true}
+      fade={true}
+    />
+  )
+}`} />
+
+## Features
+
+- **Multiple Animation Modes**: Animate by characters, words, lines, or as a whole
+- **Customizable Effects**: Combine blur and fade effects for stunning results
+- **Directional Control**: Animate from any direction
+- **Timing Control**: Fine-tune delays and durations
+- **Responsive Design**: Looks great on all screen sizes
+
+## Common Issues
+
+1. **"The animation isn't starting!"** - Check if you've provided the required `text` prop
+
+2. **"The animation looks choppy!"** - Try adjusting the `duration` and `staggerChildren` values
+
+3. **"The text is not splitting correctly!"** - Verify the `by` prop matches your intended animation style
+
+## Contributing
+
+Found a bug or have an improvement in mind? We welcome your contributions! Just make sure your code follows our standards and includes appropriate tests.
+
+The Text Animation component is your go-to solution for adding that extra flair to your text content! ✨ 

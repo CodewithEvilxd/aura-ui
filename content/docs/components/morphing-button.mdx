@@ -1,0 +1,166 @@
+---
+title: Morphing Button
+description: A button that morphs between different shapes with smooth 3D animations and particle effects.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { MorphingButtonShowcase } from '../../components/specificComponentShowcase/MorphingButtonShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Morphing Buttons take button interactions to a whole new level! These buttons transform their shape on hover with stunning 3D effects, particle animations, and smooth morphing transitions. Perfect for creating engaging call-to-action buttons that capture user attention.
+
+<ComponentShowcase component={<MorphingButtonShowcase />} code={`import { MorphingButton } from "@/components/ui/morphing-button"
+
+const MorphingButtonDemo = () => {
+  return (
+    <div className="space-x-4">
+      <MorphingButton variant="circle">
+        Circle Morph
+      </MorphingButton>
+      <MorphingButton variant="star">
+        Star Morph
+      </MorphingButton>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'morphing-button'} />
+
+## Usage
+
+```tsx
+import { MorphingButton } from "@/components/ui/morphing-button"
+
+export function Example() {
+  return (
+    <MorphingButton variant="circle" onClick={() => console.log('Clicked!')}>
+      Click me to morph!
+    </MorphingButton>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `variant` | `"circle" \| "square" \| "diamond" \| "star"` | No | The shape to morph into on hover (default: "circle") |
+| `morphOnHover` | `boolean` | No | Whether to enable morphing on hover (default: true) |
+| `children` | `React.ReactNode` | Yes | The button content |
+
+## Morph Variants
+
+### Circle Morph
+Transforms into a perfect circle with smooth scaling.
+
+```tsx
+<MorphingButton variant="circle">
+  Circle Button
+</MorphingButton>
+```
+
+### Square Morph
+Becomes a square with rotation and scaling effects.
+
+```tsx
+<MorphingButton variant="square">
+  Square Button
+</MorphingButton>
+```
+
+### Diamond Morph
+Transforms into a diamond shape with 45-degree rotation.
+
+```tsx
+<MorphingButton variant="diamond">
+  Diamond Button
+</MorphingButton>
+```
+
+### Star Morph
+Morphs into a star shape with spinning animation.
+
+```tsx
+<MorphingButton variant="star">
+  Star Button
+</MorphingButton>
+```
+
+## Features
+
+- **Shape Morphing**: 4 different morph variants (circle, square, diamond, star)
+- **3D Effects**: Perspective transforms and depth
+- **Particle Animations**: Floating particles on hover
+- **Gradient Backgrounds**: Beautiful color transitions
+- **Ripple Effects**: Interactive click feedback
+- **Smooth Transitions**: Hardware-accelerated animations
+- **Customizable**: Easy to style and extend
+
+## Advanced Usage
+
+### With Custom Content
+
+```tsx
+<MorphingButton variant="star" className="px-8 py-4">
+  <div className="flex items-center space-x-2">
+    <span>🚀</span>
+    <span>Launch App</span>
+  </div>
+</MorphingButton>
+```
+
+### Different Variants Grid
+
+```tsx
+<div className="grid grid-cols-2 gap-4">
+  <MorphingButton variant="circle" className="w-full">
+    <span>🎯</span> Target
+  </MorphingButton>
+
+  <MorphingButton variant="square" className="w-full">
+    <span>📦</span> Package
+  </MorphingButton>
+
+  <MorphingButton variant="diamond" className="w-full">
+    <span>💎</span> Premium
+  </MorphingButton>
+
+  <MorphingButton variant="star" className="w-full">
+    <span>⭐</span> Favorite
+  </MorphingButton>
+</div>
+```
+
+### Static Button (No Morph)
+
+```tsx
+<MorphingButton variant="circle" morphOnHover={false}>
+  Static Button
+</MorphingButton>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses `transform-gpu` for smooth animations
+- **Optimized Rendering**: Minimal re-renders and efficient state management
+- **Hardware Acceleration**: CSS transforms for 60fps animations
+- **Memory Efficient**: Lightweight particle system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS 3D transform support
+- **Fallback**: Graceful degradation to standard button styling
+
+## Accessibility
+
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Screen Reader Support**: Proper ARIA labels and roles
+- **Focus Management**: Clear focus indicators and states
+- **Reduced Motion**: Respects user's motion preferences
+
+Morphing Buttons - where functionality meets spectacular visual effects! 🎨✨

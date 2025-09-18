@@ -1,0 +1,141 @@
+---
+title: Modal
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ModalShowcase } from '../../components/specificComponentShowcase/ModalShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Modals are the dramatic entrances of the UI world. They command attention, deliver important content, and provide focused interaction spaces.
+
+<ComponentShowcase component={<ModalShowcase />} code={`import { Modal } from "@/components/ui/modal"
+import { Button } from "@/components/ui/button"
+
+const ConfirmDialog = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>
+        Open Modal
+      </Button>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Confirm Action"
+      >
+        <p>Are you sure you want to proceed?</p>
+        <div className="flex justify-end space-x-2 mt-4">
+          <Button variant="outline" onClick={() => setIsOpen(false)}>
+            Cancel
+          </Button>
+          <Button onClick={() => setIsOpen(false)}>
+            Confirm
+          </Button>
+        </div>
+      </Modal>
+    </>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'modal'} />
+
+## Usage
+
+Here's how to create modal dialogs:
+
+```tsx
+import { Modal } from "@/components/ui/modal"
+import { Button } from "@/components/ui/button"
+
+const MyModal = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="My Modal"
+      >
+        <div className="space-y-4">
+          <p>Modal content goes here.</p>
+          <Button onClick={() => setIsOpen(false)}>Close</Button>
+        </div>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `isOpen` | `boolean` | Yes | Controls modal visibility |
+| `onClose` | `() => void` | Yes | Callback when modal should close |
+| `title` | `string` | No | Modal title/header text |
+| `children` | `React.ReactNode` | Yes | Modal content |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Backdrop**: Click outside to close
+- **Keyboard Support**: ESC key to close
+- **Focus Management**: Proper focus trapping
+- **Responsive**: Adapts to different screen sizes
+- **Accessible**: ARIA attributes and screen reader support
+
+## Common Issues
+
+1. **"Modal not closing!"** - Make sure onClose callback updates isOpen state
+2. **"Content not showing!"** - Check that children prop has content
+3. **"Styling issues!"** - Modal uses fixed positioning, ensure proper z-index
+
+## Advanced Usage
+
+### Custom Close Button
+```tsx
+<Modal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+>
+  <div className="flex justify-between items-center mb-4">
+    <h2>Custom Header</h2>
+    <button onClick={() => setIsOpen(false)}>×</button>
+  </div>
+  <p>Modal content...</p>
+</Modal>
+```
+
+### Form Modal
+```tsx
+<Modal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Edit Profile"
+>
+  <form onSubmit={handleSubmit}>
+    {/* Form fields */}
+    <div className="flex justify-end space-x-2 mt-4">
+      <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
+        Cancel
+      </Button>
+      <Button type="submit">Save</Button>
+    </div>
+  </form>
+</Modal>
+```
+
+## Contributing
+
+Modals are complex but essential! Help us improve their accessibility and user experience.
+
+Modals - because sometimes you need to break the fourth wall! 🎭

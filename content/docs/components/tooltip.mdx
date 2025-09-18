@@ -1,0 +1,77 @@
+---
+title: Tooltip
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TooltipShowcase } from '../../components/specificComponentShowcase/TooltipShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Tooltips are the helpful whispers in your interface. They provide context, explanations, and guidance without cluttering your design.
+
+<ComponentShowcase component={<TooltipShowcase />} code={`import { Tooltip } from "@/components/ui/tooltip"
+
+const HelpButton = () => {
+  return (
+    <Tooltip content="Click here to save your changes" position="top">
+      <button className="p-2 rounded bg-blue-500 text-white">
+        Save
+      </button>
+    </Tooltip>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'tooltip'} />
+
+## Usage
+
+Here's how to add helpful tooltips:
+
+```tsx
+import { Tooltip } from "@/components/ui/tooltip"
+
+const MyComponent = () => {
+  return (
+    <div className="space-x-4">
+      <Tooltip content="This is a helpful tip!" position="top">
+        <button>Hover me</button>
+      </Tooltip>
+
+      <Tooltip content="Information on the right" position="right">
+        <span>ℹ️</span>
+      </Tooltip>
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `content` | `string` | Yes | The tooltip text to display |
+| `children` | `React.ReactNode` | Yes | The element that triggers the tooltip |
+| `position` | `"top" \| "bottom" \| "left" \| "right"` | No | Tooltip position relative to trigger |
+| `className` | `string` | No | Additional CSS classes for the tooltip |
+
+## Features
+
+- **Multiple Positions**: Top, bottom, left, and right positioning
+- **Auto-positioning**: Smart positioning to stay within viewport
+- **Hover Trigger**: Shows on mouse hover, hides on mouse leave
+- **Customizable Styling**: Easy to match your design system
+
+## Common Issues
+
+1. **"Tooltip not showing!"** - Make sure you're hovering over the trigger element
+2. **"Wrong position!"** - Check the position prop and available space
+3. **"Styling conflicts!"** - Ensure your CSS doesn't interfere with tooltip positioning
+
+## Contributing
+
+Tooltips enhance UX significantly! Help us improve their positioning and accessibility.
+
+Tooltips - because sometimes users need a little extra help! 💡

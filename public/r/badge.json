@@ -1,0 +1,13 @@
+{
+  "name": "badge",
+  "title": "Badge",
+  "description": "An enhanced badge component with shadows, multiple sizes, and interactive capabilities",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/components/ui/badge.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  \"inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 cursor-pointer shadow-sm hover:shadow-md active:scale-95\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"border-transparent bg-primary text-primary-foreground hover:bg-primary/80 shadow-primary/20\",\n        secondary:\n          \"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-secondary/20\",\n        destructive:\n          \"border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80 shadow-destructive/20\",\n        outline: \"text-foreground border-border hover:bg-accent hover:text-accent-foreground shadow-border/20\",\n        success:\n          \"border-transparent bg-green-500 text-white hover:bg-green-600 shadow-green-500/20\",\n        warning:\n          \"border-transparent bg-yellow-500 text-white hover:bg-yellow-600 shadow-yellow-500/20\",\n      },\n      size: {\n        sm: \"px-2 py-0.5 text-xs\",\n        default: \"px-3 py-1 text-xs\",\n        lg: \"px-4 py-1.5 text-sm\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof badgeVariants> {\n  onClick?: () => void\n}\n\nfunction Badge({ className, variant, size, onClick, ...props }: BadgeProps) {\n  return (\n    <div\n      className={cn(badgeVariants({ variant, size }), className)}\n      onClick={onClick}\n      {...props}\n    />\n  )\n}\n\nexport { Badge, badgeVariants }"
+    }
+  ]
+}

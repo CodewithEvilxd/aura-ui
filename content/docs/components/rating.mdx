@@ -1,0 +1,222 @@
+---
+title: Rating
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { RatingShowcase } from '../../components/specificComponentShowcase/RatingShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Rating components are the digital applause meters of your application. They capture user sentiment with beautiful star interfaces, hover effects, and smooth animations.
+
+<ComponentShowcase component={<RatingShowcase />} code={`import { Rating } from "@/components/ui/rating"
+
+const RatingExample = () => {
+  const [rating, setRating] = useState(0)
+
+  return (
+    <div className="space-y-4">
+      <Rating
+        value={rating}
+        onChange={setRating}
+        size="lg"
+      />
+      <p className="text-sm text-muted-foreground">
+        Rating: {rating}/5
+      </p>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'rating'} />
+
+## Usage
+
+Rating components provide interactive star ratings:
+
+```tsx
+import { Rating } from "@/components/ui/rating"
+
+const ProductRating = () => {
+  const [rating, setRating] = useState(4)
+
+  return (
+    <Rating
+      value={rating}
+      onChange={setRating}
+      size="lg"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `value` | `number` | No | Current rating value (0-5) |
+| `onChange` | `(value: number) => void` | No | Callback when rating changes |
+| `max` | `number` | No | Maximum rating value (default: 5) |
+| `size` | `"sm" \| "default" \| "lg"` | No | Size variant |
+| `readonly` | `boolean` | No | Whether rating is read-only |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Interactive Stars**: Click to set rating
+- **Hover Effects**: Visual feedback on hover
+- **Smooth Animations**: Beautiful transitions
+- **Size Variants**: Small, default, and large
+- **Read-only Mode**: Display ratings without interaction
+- **Customizable**: Extensive styling options
+- **Accessible**: Keyboard navigation support
+
+## Variants
+
+### Interactive Rating
+```tsx
+const [rating, setRating] = useState(3)
+
+<Rating
+  value={rating}
+  onChange={setRating}
+  size="lg"
+/>
+```
+
+### Read-only Rating
+```tsx
+<Rating
+  value={4.5}
+  readonly
+  size="default"
+/>
+```
+
+### Small Rating
+```tsx
+<Rating
+  value={2}
+  size="sm"
+/>
+```
+
+## Advanced Usage
+
+### With Labels
+```tsx
+const LabeledRating = () => {
+  const [rating, setRating] = useState(0)
+  const labels = {
+    1: "Poor",
+    2: "Fair",
+    3: "Good",
+    4: "Very Good",
+    5: "Excellent"
+  }
+
+  return (
+    <div className="space-y-2">
+      <Rating value={rating} onChange={setRating} />
+      <p className="text-sm text-muted-foreground">
+        {rating > 0 ? labels[rating as keyof typeof labels] : "Rate this product"}
+      </p>
+    </div>
+  )
+}
+```
+
+### Average Rating Display
+```tsx
+const AverageRating = ({ average }: { average: number }) => {
+  return (
+    <div className="flex items-center space-x-2">
+      <Rating value={average} readonly size="sm" />
+      <span className="text-sm text-muted-foreground">
+        ({average.toFixed(1)})
+      </span>
+    </div>
+  )
+}
+```
+
+## Common Use Cases
+
+### Product Reviews
+```tsx
+const ProductReview = () => {
+  const [rating, setRating] = useState(0)
+  const [review, setReview] = useState("")
+
+  const handleSubmit = () => {
+    // Submit rating and review
+  }
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Rate this product
+        </label>
+        <Rating value={rating} onChange={setRating} />
+      </div>
+      <textarea
+        value={review}
+        onChange={(e) => setReview(e.target.value)}
+        placeholder="Write your review..."
+        className="w-full p-3 border rounded-md"
+      />
+      <button
+        onClick={handleSubmit}
+        disabled={rating === 0}
+        className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+      >
+        Submit Review
+      </button>
+    </div>
+  )
+}
+```
+
+### User Feedback
+```tsx
+const FeedbackForm = () => {
+  const [overall, setOverall] = useState(0)
+  const [quality, setQuality] = useState(0)
+  const [value, setValue] = useState(0)
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Overall Experience
+        </label>
+        <Rating value={overall} onChange={setOverall} />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Quality
+        </label>
+        <Rating value={quality} onChange={setQuality} />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Value for Money
+        </label>
+        <Rating value={value} onChange={setValue} />
+      </div>
+    </div>
+  )
+}
+```
+
+## Contributing
+
+Rating components capture the voice of your users! Help us improve their animations, add half-star support, and enhance the rating experience.
+
+Rating - because every opinion deserves to shine! ⭐✨

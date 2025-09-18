@@ -1,0 +1,244 @@
+---
+title: File Upload
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { FileUploadShowcase } from '../../components/specificComponentShowcase/FileUploadShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+File upload components are the digital gateways of your application. They provide intuitive drag-and-drop interfaces for file management, with validation, progress tracking, and seamless user experience.
+
+<ComponentShowcase component={<FileUploadShowcase />} code={`import { FileUpload } from "@/components/ui/file-upload"
+
+const FileUploadExample = () => {
+  const [files, setFiles] = useState<File[]>([])
+
+  return (
+    <FileUpload
+      onFilesChange={setFiles}
+      accept="image/*,.pdf,.doc,.docx"
+      multiple
+      maxSize={5}
+      placeholder="Drop images or documents here"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'file-upload'} />
+
+## Usage
+
+File upload components provide drag-and-drop file management:
+
+```tsx
+import { FileUpload } from "@/components/ui/file-upload"
+
+const DocumentUpload = () => {
+  const [files, setFiles] = useState<File[]>([])
+
+  const handleFilesChange = (newFiles: File[]) => {
+    setFiles(newFiles)
+    // Process files (upload to server, validate, etc.)
+  }
+
+  return (
+    <FileUpload
+      onFilesChange={handleFilesChange}
+      accept="image/*,.pdf,.doc,.docx"
+      multiple
+      maxSize={10}
+      placeholder="Drop your files here or click to browse"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `onFilesChange` | `(files: File[]) => void` | No | Callback when files change |
+| `accept` | `string` | No | Accepted file types (default: "*") |
+| `multiple` | `boolean` | No | Allow multiple file selection |
+| `maxSize` | `number` | No | Maximum file size in MB (default: 10) |
+| `placeholder` | `string` | No | Placeholder text |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Drag & Drop**: Intuitive file dropping interface
+- **File Validation**: Size and type validation
+- **Multiple Files**: Support for multiple file selection
+- **Visual Feedback**: Clear upload area with hover states
+- **File Preview**: Display selected files with details
+- **Error Handling**: User-friendly error messages
+- **Accessible**: Keyboard navigation and screen reader support
+
+## Advanced Usage
+
+### With Upload Progress
+```tsx
+const UploadWithProgress = () => {
+  const [files, setFiles] = useState<File[]>([])
+  const [uploading, setUploading] = useState(false)
+  const [progress, setProgress] = useState(0)
+
+  const handleUpload = async () => {
+    setUploading(true)
+    setProgress(0)
+
+    for (let i = 0; i < files.length; i++) {
+      const formData = new FormData()
+      formData.append('file', files[i])
+
+      try {
+        await uploadFile(formData, (progress) => {
+          setProgress(((i + progress / 100) / files.length) * 100)
+        })
+      } catch (error) {
+        console.error('Upload failed:', error)
+      }
+    }
+
+    setUploading(false)
+    setProgress(100)
+  }
+
+  return (
+    <div className="space-y-4">
+      <FileUpload
+        onFilesChange={setFiles}
+        multiple
+        maxSize={50}
+      />
+
+      {files.length > 0 && (
+        <div className="space-y-2">
+          <button
+            onClick={handleUpload}
+            disabled={uploading}
+            className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+          >
+            {uploading ? 'Uploading...' : 'Upload Files'}
+          </button>
+
+          {uploading && (
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div
+                className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+### Image Preview
+```tsx
+const ImageUpload = () => {
+  const [files, setFiles] = useState<File[]>([])
+  const [previews, setPreviews] = useState<string[]>([])
+
+  const handleFilesChange = (newFiles: File[]) => {
+    setFiles(newFiles)
+
+    // Create preview URLs for images
+    const newPreviews = newFiles
+      .filter(file => file.type.startsWith('image/'))
+      .map(file => URL.createObjectURL(file))
+
+    setPreviews(newPreviews)
+  }
+
+  return (
+    <div className="space-y-4">
+      <FileUpload
+        onFilesChange={handleFilesChange}
+        accept="image/*"
+        multiple
+        maxSize={5}
+        placeholder="Drop images here or click to browse"
+      />
+
+      {previews.length > 0 && (
+        <div className="grid grid-cols-3 gap-4">
+          {previews.map((preview, index) => (
+            <img
+              key={index}
+              src={preview}
+              alt={`Preview ${index + 1}`}
+              className="w-full h-24 object-cover rounded-lg"
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+## Common Patterns
+
+### Document Upload
+```tsx
+<FileUpload
+  accept=".pdf,.doc,.docx,.txt"
+  maxSize={10}
+  placeholder="Drop documents here"
+/>
+```
+
+### Image Upload
+```tsx
+<FileUpload
+  accept="image/*"
+  multiple
+  maxSize={5}
+  placeholder="Drop images here"
+/>
+```
+
+### Single File Upload
+```tsx
+<FileUpload
+  multiple={false}
+  accept=".json"
+  placeholder="Select a JSON file"
+/>
+```
+
+## File Validation
+
+### Size Validation
+```tsx
+const validateFileSize = (file: File, maxSizeMB: number) => {
+  const maxSizeBytes = maxSizeMB * 1024 * 1024
+  return file.size <= maxSizeBytes
+}
+```
+
+### Type Validation
+```tsx
+const validateFileType = (file: File, acceptedTypes: string[]) => {
+  return acceptedTypes.some(type => {
+    if (type.startsWith('.')) {
+      return file.name.toLowerCase().endsWith(type.toLowerCase())
+    }
+    return file.type.match(type)
+  })
+}
+```
+
+## Contributing
+
+File upload components bridge the digital and physical worlds! Help us improve their drag-and-drop experience, add more validation options, and enhance their accessibility.
+
+File Upload - because every file deserves a smooth journey! 📁✨

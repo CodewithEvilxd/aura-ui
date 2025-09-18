@@ -1,0 +1,110 @@
+---
+title: Animated Search Input
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { AnimatedSearchInputShowcase } from '../../components/specificComponentShowcase/AnimatedSearchInputShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+The Animated Search Input - because regular search inputs are so 2010. This component is like having a search bar that's been to acting school - it knows how to make an entrance and keep your users entertained while they type. Perfect for when you want to add a little flair to your search experience.
+
+<ComponentShowcase component={<AnimatedSearchInputShowcase />} code={`
+'use client'
+
+import React from 'react'
+import { AnimatedSearchInput } from '@/registry/components/ui/animated-search-input'
+
+export const AnimatedSearchInputShowcase = () => {
+  const [value, setValue] = React.useState("");
+
+  const placeholders =[
+    "Search for anything...",
+    "Try 'react components'",
+    "Or maybe 'UI libraries'?",
+    "How about 'animated inputs'?"
+  ]
+
+  return (
+    <AnimatedSearchInput
+      placeholders={placeholders}
+      value={value}
+      setValue={setValue}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies. This component is a bit of a performer - it needs its animation library:
+
+
+<InstallationCommand component={'animated-search-input'} />
+
+
+## Usage
+
+Here's how to add some drama to your search experience:
+
+```tsx
+'use client'
+
+import React from 'react' 
+import { AnimatedSearchInput } from "@/components/ui/animated-search-input"
+
+// Your component
+export const MyComponent = () => {
+  const [value, setValue] = React.useState("");
+
+  const placeholders = [
+    "Search for anything...",
+    "Try 'react components'",
+    "Or maybe 'UI libraries'?",
+    "How about 'animated inputs'?"
+  ]
+
+  return (
+    <AnimatedSearchInput
+      placeholders={placeholders}
+      value={value}
+      setValue={setValue}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}
+```
+
+## Props
+
+The component comes with a few options to make your search bar the star of the show:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `placeholders` | `string[]` | Yes | An array of placeholder texts that will animate in sequence. The more, the merrier! |
+| `value` | `string` | Yes | The current value of the input. It's like the script for our little performance |
+| `setValue` | `(val: string) => void` | Yes | Function to update the input value. The director of our show |
+| `haltDuration` | `number` | No | How long to pause between placeholder animations (in seconds). For dramatic effect |
+| `enableTabCompletion` | `boolean` | No | Whether to allow tab completion of the current placeholder. Like having a helpful understudy |
+| `className` | `string` | No | Additional CSS classes. For when you need that extra pizzazz |
+
+## Features
+
+- **Animated Placeholders**: Smooth transitions between different placeholder texts
+- **Tab Completion**: Press tab to complete the current placeholder. It's like having a mind reader
+- **Responsive Design**: Looks good on all screens, unlike some of your ex's selfies
+- **Dark Mode Ready**: Works in the light and the dark, just like a good spy
+- **Accessible**: Works with keyboard and screen readers, because not everyone uses a mouse
+
+## Common Issues
+
+1. **"The animations aren't working!"** - Make sure you've provided an array of `placeholders`. It's like trying to perform without a script
+
+2. **"The input isn't updating!"** - Check if you've properly set up the `value` and `setValue` props. It's like having actors without a stage
+
+3. **"The placeholders are too fast/slow!"** - Adjust the `haltDuration` prop. Sometimes you need to find the right tempo for your performance
+
+## Contributing
+
+Found a bug? Want to make it even more dramatic? Feel free to submit a PR. Just make sure your code is as clean as your browser history (which we all know is spotless, right?).
+
+The Animated Search Input - because sometimes your search bar needs to be the center of attention! 🎭 

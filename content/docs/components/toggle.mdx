@@ -1,0 +1,80 @@
+---
+title: Toggle
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ToggleShowcase } from '../../components/specificComponentShowcase/ToggleShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+The Toggle - a classic binary switch that's been around since the dawn of UI design. Simple, elegant, and always ready to flip between states. It's like a light switch, but for your digital world.
+
+<ComponentShowcase component={<ToggleShowcase />} code={`const ThemeToggle = () => {
+  const [isDark, setIsDark] = React.useState(false);
+
+  return (
+    <Toggle
+      isOn={isDark}
+      toggleOn={() => setIsDark(!isDark)}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+
+<InstallationCommand component={'toggle'} />
+
+
+## Usage
+
+Here's how to implement this trusty component:
+
+```tsx
+import { Toggle } from "@/components/ui/toggle"
+
+// Your component
+const MyComponent = () => {
+  const [isEnabled, setIsEnabled] = React.useState(false)
+
+  return (
+    <Toggle
+      isOn={isEnabled}
+      toggleOn={() => setIsEnabled(!isEnabled)}
+    />
+  )
+}
+```
+
+## Props
+
+The component accepts these straightforward props:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `isOn` | `boolean` | Yes | The current state of the toggle (true for on, false for off) |
+| `toggleOn` | `() => void` | Yes | Callback function that handles the toggle state change |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Smooth Animations**: Elegant transitions that make state changes feel natural
+- **Responsive Design**: Looks crisp on any screen size
+- **Accessible**: Fully keyboard navigable and screen reader friendly
+- **Dark Mode Support**: Adapts to your theme preferences with style
+
+## Common Issues
+
+1. **"The toggle isn't moving!"** - Make sure you've provided both `isOn` and `toggleOn` props
+
+2. **"The animations are janky!"** - Check if you have the latest version of `motion` installed
+
+3. **"It's not working in dark mode!"** - Verify your theme configuration is properly set up
+
+## Contributing
+
+Found a bug or have an improvement in mind? We welcome your contributions! Just make sure your code follows our standards and includes appropriate tests.
+
+The Toggle is a reliable workhorse of UI components - simple, effective, and always ready to serve! 🎯
+

@@ -1,0 +1,139 @@
+---
+title: Accordion
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/../registry/components/ui/accordion'
+
+The Accordion - because sometimes your content needs to do yoga. This component is like a well-organized closet - everything's there, but it's not all hanging out at once. Perfect for FAQs, settings panels, or that one section of your app where you've crammed way too much information.
+
+<ComponentShowcase component={
+  <Accordion type="single" collapsible className="w-[80%]">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it really that simple?</AccordionTrigger>
+        <AccordionContent>
+          Yes. Yes it is. No magic tricks, no hidden complexity. Just pure, unadulterated accordion goodness.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Can I customize it?</AccordionTrigger>
+        <AccordionContent>
+          Absolutely! It's like a chameleon, but for your UI. Change colors, sizes, animations - it's all fair game.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>What about accessibility?</AccordionTrigger>
+        <AccordionContent>
+          Built-in keyboard navigation, ARIA attributes, and screen reader support. We've got your back, and your users' too.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+}
+code={`'use client'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+
+export function AccordionShowcase() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it really that simple?</AccordionTrigger>
+        <AccordionContent>
+          Yes. Yes it is. No magic tricks, no hidden complexity. Just pure, unadulterated accordion goodness.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Can I customize it?</AccordionTrigger>
+        <AccordionContent>
+          Absolutely! It's like a chameleon, but for your UI. Change colors, sizes, animations - it's all fair game.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>What about accessibility?</AccordionTrigger>
+        <AccordionContent>
+          Built-in keyboard navigation, ARIA attributes, and screen reader support. We've got your back, and your users' too.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies. The accordion is a bit of a social butterfly - it likes to have its friends around:
+
+
+<InstallationCommand component={'accordion'} />
+
+
+## Usage
+
+Here's how to make your content do the accordion dance:
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it really that simple?</AccordionTrigger>
+        <AccordionContent>
+          Yes. Yes it is. No magic tricks, no hidden complexity. Just pure, unadulterated accordion goodness.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Can I customize it?</AccordionTrigger>
+        <AccordionContent>
+          Absolutely! It's like a chameleon, but for your UI. Change colors, sizes, animations - it's all fair game.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>What about accessibility?</AccordionTrigger>
+        <AccordionContent>
+          Built-in keyboard navigation, ARIA attributes, and screen reader support. We've got your back, and your users' too.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}
+```
+
+## Props
+
+The accordion comes with a few tricks up its sleeve:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `type` | `"single" \| "multiple"` | No | Whether to allow one or multiple items to be open at once. It's like choosing between monogamy and polyamory, but for your UI |
+| `collapsible` | `boolean` | No | Whether all items can be closed. Sometimes you need a break from all that expanding and collapsing |
+| `defaultValue` | `string \| string[]` | No | The default open item(s). Because even accordions need a starting point |
+| `value` | `string \| string[]` | No | The controlled value. For when you want to be the boss of your accordion |
+| `onValueChange` | `(value: string \| string[]) => void` | No | Callback when the value changes. It's like having a spy in your accordion |
+
+## Features
+
+- **Smooth Animations**: Transitions so smooth, they make butter jealous
+- **Keyboard Navigation**: Full keyboard support because not everyone uses a mouse (and that's okay!)
+- **Accessible**: ARIA attributes and screen reader support included, because we're not monsters
+- **Customizable**: Style it to match your brand, or make it look like it came from the future
+- **TypeScript**: Full type safety, because we like to keep things professional
+
+## Common Issues
+
+1. **"The accordion won't open!"** - Did you wrap your content in `AccordionContent`? It's like trying to open a door without a handle
+
+2. **"The animations are janky!"** - Check if you've got any CSS conflicts. The accordion is sensitive about its appearance
+
+3. **"It's not working with my state management!"** - Remember, the accordion can be controlled or uncontrolled. Choose your own adventure!
+
+## Contributing
+
+Found a bug? Want to make it even more flexible? Feel free to submit a PR. Just make sure your code is as clean as your browser history (which we all know is spotless, right?).
+
+The Accordion - because sometimes less is more, but more is also more when you need it! 🪗 

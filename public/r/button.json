@@ -1,0 +1,16 @@
+{
+  "name": "button",
+  "title": "Button",
+  "description": "A Simple button component",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/components/ui/button.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\"\nimport { Slot } from \"@radix-ui/react-slot\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst buttonVariants = cva(\n  \"flex items-center justify-center gap-2 text-nowrap text-sm rounded-md transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-xs cursor-pointer\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-primary text-primary-foreground hover:bg-primary/90\",\n        secondary: \"bg-secondary text-secondary-foreground hover:bg-secondary/90\",\n        destructive: \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n        outline: \"border border-input hover:bg-accent hover:text-accent-foreground\",\n        hidden: \"hover:bg-accent hover:text-accent-foreground shadow-none\"\n      },\n      size: {\n        default: \"px-5 py-2\",\n        small: \"px-3 py-1 gap-1.5 text-sm\",\n        large: \"px-6 py-3\",\n        icon: \"size-9\"\n      }\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\"\n    }\n  }\n)\n\n\nexport interface ButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n  ({ className, variant, size, asChild = false, ...props }, ref) => {\n    const Comp = asChild ? Slot : \"button\"\n    return (\n      <Comp\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nButton.displayName = \"Button\"\n\nexport { Button, buttonVariants }"
+    }
+  ],
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ]
+}

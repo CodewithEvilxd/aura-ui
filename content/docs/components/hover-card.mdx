@@ -1,0 +1,416 @@
+---
+title: Hover Card
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { HoverCardShowcase } from '../../components/specificComponentShowcase/HoverCardShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Hover card components are the digital tooltips of your application. They provide contextual information on hover with smooth animations, configurable delays, and professional styling.
+
+<ComponentShowcase component={<HoverCardShowcase />} code={`import { HoverCard } from "@/components/ui/hover-card"
+
+const HoverCardExample = () => {
+  return (
+    <HoverCard
+      hoverContent={
+        <div className="p-4">
+          <h4 className="font-semibold mb-2">Card Title</h4>
+          <p className="text-sm text-muted-foreground mb-2">
+            This is additional information that appears when you hover over the card.
+          </p>
+          <button className="px-3 py-1 bg-blue-500 text-white rounded text-sm">
+            Action
+          </button>
+        </div>
+      }
+    >
+      <button className="px-4 py-2 bg-gray-200 rounded">
+        Hover me!
+      </button>
+    </HoverCard>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'hover-card'} />
+
+## Usage
+
+Hover card components provide contextual information on hover:
+
+```tsx
+import { HoverCard } from "@/components/ui/hover-card"
+
+const UserProfile = () => {
+  return (
+    <HoverCard
+      hoverContent={
+        <div className="p-4">
+          <div className="flex items-center space-x-3 mb-3">
+            <img
+              src="/avatar.jpg"
+              alt="User"
+              className="w-10 h-10 rounded-full"
+            />
+            <div>
+              <h4 className="font-semibold">John Doe</h4>
+              <p className="text-sm text-muted-foreground">Software Developer</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground mb-3">
+            Passionate developer with 5+ years of experience in React and Node.js.
+          </p>
+          <div className="flex space-x-2">
+            <button className="px-3 py-1 bg-blue-500 text-white rounded text-sm">
+              View Profile
+            </button>
+            <button className="px-3 py-1 border rounded text-sm">
+              Message
+            </button>
+          </div>
+        </div>
+      }
+    >
+      <div className="flex items-center space-x-2 p-2 rounded hover:bg-gray-100 cursor-pointer">
+        <img src="/avatar.jpg" alt="User" className="w-8 h-8 rounded-full" />
+        <span>John Doe</span>
+      </div>
+    </HoverCard>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `children` | `React.ReactNode` | Yes | The trigger element |
+| `hoverContent` | `React.ReactNode` | No | Content to show on hover |
+| `hoverDelay` | `number` | No | Delay before showing (default: 300ms) |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Smooth Animations**: Elegant fade-in and slide effects
+- **Configurable Delays**: Customizable hover timing
+- **Rich Content**: Support for complex content structures
+- **Positioning**: Automatic positioning with collision detection
+- **Theme Aware**: Adapts to your design system
+- **Accessible**: Keyboard navigation support
+- **Performance**: Optimized rendering and cleanup
+
+## Advanced Usage
+
+### With User Information
+```tsx
+const UserHoverCard = ({ user }: { user: User }) => {
+  return (
+    <HoverCard
+      hoverDelay={500}
+      hoverContent={
+        <div className="p-4 w-80">
+          <div className="flex items-start space-x-3">
+            <img
+              src={user.avatar}
+              alt={user.name}
+              className="w-12 h-12 rounded-full"
+            />
+            <div className="flex-1">
+              <h4 className="font-semibold text-lg">{user.name}</h4>
+              <p className="text-sm text-muted-foreground mb-2">{user.role}</p>
+
+              <div className="space-y-1 text-sm">
+                <div className="flex items-center space-x-2">
+                  <span>📧</span>
+                  <span>{user.email}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span>📍</span>
+                  <span>{user.location}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span>🕒</span>
+                  <span>Last active: {user.lastActive}</span>
+                </div>
+              </div>
+
+              <div className="flex space-x-2 mt-4">
+                <button className="flex-1 px-3 py-2 bg-blue-500 text-white rounded text-sm font-medium">
+                  View Profile
+                </button>
+                <button className="px-3 py-2 border rounded text-sm">
+                  Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <div className="flex items-center space-x-2 p-2 rounded hover:bg-gray-100 cursor-pointer">
+        <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full" />
+        <span className="font-medium">{user.name}</span>
+        <span className="text-sm text-muted-foreground">@{user.username}</span>
+      </div>
+    </HoverCard>
+  )
+}
+```
+
+### With Product Information
+```tsx
+const ProductHoverCard = ({ product }: { product: Product }) => {
+  return (
+    <HoverCard
+      hoverContent={
+        <div className="p-4 w-72">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-32 object-cover rounded-lg mb-3"
+          />
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-lg">{product.name}</h4>
+            <p className="text-sm text-muted-foreground">{product.description}</p>
+
+            <div className="flex items-center justify-between">
+              <span className="text-lg font-bold text-green-600">
+                ${product.price}
+              </span>
+              <div className="flex items-center space-x-1">
+                <span className="text-yellow-400">⭐</span>
+                <span className="text-sm">{product.rating}</span>
+                <span className="text-sm text-muted-foreground">
+                  ({product.reviews} reviews)
+                </span>
+              </div>
+            </div>
+
+            <div className="flex space-x-2 mt-3">
+              <button className="flex-1 px-3 py-2 bg-blue-500 text-white rounded text-sm font-medium">
+                Add to Cart
+              </button>
+              <button className="px-3 py-2 border rounded text-sm">
+                Quick View
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <div className="border rounded-lg p-3 hover:shadow-md transition-shadow cursor-pointer">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-24 object-cover rounded mb-2"
+        />
+        <h3 className="font-medium text-sm">{product.name}</h3>
+        <p className="text-green-600 font-semibold">${product.price}</p>
+      </div>
+    </HoverCard>
+  )
+}
+```
+
+### With Status Information
+```tsx
+const StatusHoverCard = ({ status }: { status: Status }) => {
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'online': return 'bg-green-500'
+      case 'away': return 'bg-yellow-500'
+      case 'busy': return 'bg-red-500'
+      default: return 'bg-gray-500'
+    }
+  }
+
+  return (
+    <HoverCard
+      hoverContent={
+        <div className="p-3">
+          <div className="flex items-center space-x-2">
+            <div className={`w-3 h-3 rounded-full ${getStatusColor(status.type)}`} />
+            <span className="font-medium capitalize">{status.type}</span>
+          </div>
+          <p className="text-sm text-muted-foreground mt-1">
+            {status.message}
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Last updated: {status.lastUpdated}
+          </p>
+        </div>
+      }
+    >
+      <div className="flex items-center space-x-2">
+        <div className={`w-2 h-2 rounded-full ${getStatusColor(status.type)}`} />
+        <span className="text-sm capitalize">{status.type}</span>
+      </div>
+    </HoverCard>
+  )
+}
+```
+
+## Common Patterns
+
+### User Avatar with Details
+```tsx
+<HoverCard
+  hoverContent={
+    <div className="p-4">
+      <div className="flex items-center space-x-3">
+        <img src="/avatar.jpg" alt="User" className="w-10 h-10 rounded-full" />
+        <div>
+          <h4 className="font-semibold">John Doe</h4>
+          <p className="text-sm text-muted-foreground">Software Developer</p>
+        </div>
+      </div>
+      <p className="text-sm mt-2">Bio and additional information...</p>
+    </div>
+  }
+>
+  <img src="/avatar.jpg" alt="User" className="w-8 h-8 rounded-full cursor-pointer" />
+</HoverCard>
+```
+
+### Link with Preview
+```tsx
+<HoverCard
+  hoverContent={
+    <div className="p-4 w-80">
+      <img src="/preview.jpg" alt="Preview" className="w-full h-32 object-cover rounded mb-2" />
+      <h4 className="font-semibold">Article Title</h4>
+      <p className="text-sm text-muted-foreground">Brief description of the article...</p>
+    </div>
+  }
+>
+  <a href="/article" className="text-blue-500 hover:underline">
+    Read the full article
+  </a>
+</HoverCard>
+```
+
+### Button with Tooltip
+```tsx
+<HoverCard
+  hoverDelay={200}
+  hoverContent={
+    <div className="p-2">
+      <p className="text-sm">Click to perform this action</p>
+    </div>
+  }
+>
+  <button className="px-4 py-2 bg-blue-500 text-white rounded">
+    Action Button
+  </button>
+</HoverCard>
+```
+
+## Customization
+
+### Custom Styling
+```tsx
+<HoverCard
+  className="custom-hover-card"
+  hoverContent={
+    <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg">
+      <h4 className="font-semibold">Custom Styled Card</h4>
+      <p className="text-sm opacity-90">Beautiful gradient background</p>
+    </div>
+  }
+>
+  <div className="p-2 border rounded hover:border-blue-500 transition-colors cursor-pointer">
+    Hover for custom styling
+  </div>
+</HoverCard>
+```
+
+### Animation Customization
+```tsx
+// You can customize animations by modifying the component
+// or using CSS classes for different effects
+
+<HoverCard
+  hoverContent={
+    <div className="p-4 animate-in slide-in-from-top-2 fade-in-50 duration-300">
+      <p>Custom animation effects</p>
+    </div>
+  }
+>
+  <div>Hover me</div>
+</HoverCard>
+```
+
+## Accessibility
+
+### Keyboard Navigation
+```tsx
+// Hover cards work well with keyboard navigation
+// Focus management is handled automatically
+
+<HoverCard
+  hoverContent={<div>Accessible content</div>}
+>
+  <button>Focusable trigger</button>
+</HoverCard>
+```
+
+### Screen Reader Support
+```tsx
+// Content is properly announced to screen readers
+<HoverCard
+  hoverContent={
+    <div role="tooltip" aria-label="User information">
+      <p>User details...</p>
+    </div>
+  }
+>
+  <img src="/avatar.jpg" alt="User avatar" />
+</HoverCard>
+```
+
+## Performance Considerations
+
+### Debouncing
+```tsx
+const OptimizedHoverCard = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout>()
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    timeoutRef.current = setTimeout(() => setIsVisible(true), 300)
+  }
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    timeoutRef.current = setTimeout(() => setIsVisible(false), 150)
+  }
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [])
+
+  return (
+    <HoverCard
+      hoverContent={isVisible ? <Content /> : null}
+      hoverDelay={0} // Handle delay manually for optimization
+    >
+      <Trigger onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+    </HoverCard>
+  )
+}
+```
+
+## Contributing
+
+Hover card components add depth to user interactions! Help us improve their positioning algorithms, add more animation options, and enhance their accessibility features.
+
+Hover Card - because information deserves beautiful presentation! 💳✨

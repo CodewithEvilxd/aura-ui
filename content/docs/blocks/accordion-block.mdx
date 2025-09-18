@@ -1,0 +1,136 @@
+---
+title: Accordion Block
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+import AccordionBlock from '@/../registry/components/block/accordion-block'
+
+The Accordion Block - because sometimes your FAQ section needs to look like it was designed by someone who actually cares about user experience. This block combines our beloved accordion component with a headline to create a beautiful, animated section that's perfect for FAQs, feature explanations, or that one part of your website where you've crammed way too much information.
+
+<ComponentShowcase component={
+  <AccordionBlock
+    className="scale-60"
+    title=<>Frequently<br />Asked<br />Questions</>
+    accordionItems={[
+      {
+        trigger: "Is it really that simple?",
+        content: "Yes. Yes it is. No magic tricks, no hidden complexity. Just pure, unadulterated accordion goodness."
+      },
+      {
+        trigger: "Can I customize it?",
+        content: "Absolutely! It's like a chameleon, but for your UI. Change colors, sizes, animations - it's all fair game."
+      },
+      {
+        trigger: "What about accessibility?",
+        content: "Built-in keyboard navigation, ARIA attributes, and screen reader support. We've got your back, and your users' too."
+      }
+    ]}
+  />
+}
+code={`import AccordionBlock from "@/components/block/accordion-block"
+
+export function AccordionBlockDemo() {
+  return (
+    <AccordionBlock
+      title=<>Frequently<br />Asked<br />Questions</>
+      accordionItems={[
+        {
+          trigger: "Is it really that simple?",
+          content: "Yes. Yes it is. No magic tricks, no hidden complexity."
+        },
+        {
+          trigger: "Can I customize it?",
+          content: "Absolutely! It's like a chameleon, but for your UI."
+        },
+        {
+          trigger: "What about accessibility?",
+          content: "Built-in keyboard navigation and screen reader support."
+        }
+      ]}
+    />
+  )
+}`} />
+
+> **Note:** The preview above might not accurately represent the final appearance. Please use the component in your project to see the actual preview. We're working on fixing the preview display soon!
+
+
+## Installation
+
+First, make sure you have the required dependencies. The accordion block is a bit of a social butterfly - it likes to have its friends around:
+
+
+<InstallationCommand component={'accordion-block'} />
+
+
+## Usage
+
+Here's how to make your FAQ section look like it was designed by a professional:
+
+```tsx
+import AccordionBlock from "@/components/block/accordion-block"
+
+export function FAQSection() {
+  return (
+    <AccordionBlock
+      title="Frequently Asked Questions"
+      accordionItems={[
+        {
+          trigger: "Is it really that simple?",
+          content: "Yes. Yes it is. No magic tricks, no hidden complexity."
+        },
+        {
+          trigger: "Can I customize it?",
+          content: "Absolutely! It's like a chameleon, but for your UI."
+        },
+        {
+          trigger: "What about accessibility?",
+          content: "Built-in keyboard navigation and screen reader support."
+        }
+      ]}
+    />
+  )
+}
+```
+
+## Props
+
+The accordion block comes with a few tricks up its sleeve:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `React.ReactNode` | Yes | The title of your accordion section. Can be a string or any React node |
+| `accordionItems` | `AccordionItemType[]` | Yes | Array of items to display in the accordion |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+### AccordionItemType
+
+```tsx
+type AccordionItemType = {
+  trigger: string,  // The text that appears in the accordion trigger
+  content: string   // The content that appears when the accordion is opened
+}
+```
+
+## Features
+
+- **Smooth Animations**: Transitions so smooth, they make butter jealous
+- **Responsive Layout**: Looks great on all screen sizes, from mobile to desktop
+- **Animated Title**: The headline animates into view when the section is visible
+- **Accessible**: Full keyboard navigation and screen reader support
+- **Customizable**: Style it to match your brand, or make it look like it came from the future
+- **TypeScript**: Full type safety, because we like to keep things professional
+
+## Common Issues
+
+1. **"The animations aren't working!"** - Make sure you have the `motion` package installed and properly configured
+
+2. **"The layout looks weird!"** - Check if you've got any CSS conflicts. The block is sensitive about its appearance
+
+3. **"The title isn't animating!"** - Ensure the block is within the viewport. It only animates when it becomes visible
+
+## Contributing
+
+Found a bug? Want to make it even more flexible? Feel free to submit a PR. Just make sure your code is as clean as your browser history (which we all know is spotless, right?).
+
+The Accordion Block - because sometimes your FAQ section deserves to be more than just a list of questions! 🎯

@@ -1,0 +1,141 @@
+---
+title: Tags
+---
+
+import { Tags, TagItem } from '@/../registry/components/ui/tags'
+import { IconBrandNextjs, IconBrandReact, IconBrandTailwind, IconBrandNodejs } from '@tabler/icons-react'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+
+The Tags component is a flexible and animated component that displays a list of items with logos and names. It features smooth animations on hover and tap interactions, making it perfect for displaying social media links, categories, or any other tagged content.
+
+<ComponentShowcase
+  component={
+    <Tags overlap={true}>
+      <TagItem 
+        item={{ name: 'NextJS', logo: <IconBrandNextjs size={28} /> }} 
+      />
+      <TagItem 
+        item={{ name: 'React', logo: <IconBrandReact size={28} /> }} 
+      />
+      <TagItem 
+        item={{ name: 'Tailwind', logo: <IconBrandTailwind size={28} /> }} 
+      />
+      <TagItem 
+        item={{ name: 'NodeJS', logo: <IconBrandNodejs size={28} /> }} 
+      />
+    </Tags>
+  }
+  code={
+  `const techs = [
+    { name: 'NextJS', logo: <IconBrandNextjs size={28} /> },
+    { name: 'React', logo: <IconBrandReact size={28} /> },
+    { name: 'Tailwind', logo: <IconBrandTailwind size={28} /> },
+    { name: 'NodeJS', logo: <IconBrandNodejs size={28} /> }
+  ]
+
+  const TagsShowcase = () => {
+    return (
+      <Tags overlap={true}>
+        {techs.map((tech, index) => (
+          <TagItem 
+            key={index} 
+            item={tech}
+          />
+        ))}
+      </Tags>
+    )
+  }`
+  }
+/>
+
+### Installation
+
+Handle this component with care because it is somewhat a quirky one.
+
+<InstallationCommand component={'tags'} />
+
+## Usage
+
+```tsx
+const techs = [
+  { name: 'NextJS', logo: <IconBrandNextjs size={28} /> },
+  { name: 'React', logo: <IconBrandReact size={28} /> },
+  { name: 'Tailwind', logo: <IconBrandTailwind size={28} /> },
+  { name: 'NodeJS', logo: <IconBrandNodejs size={28} /> }
+]
+
+const TagsShowcase = () => {
+  return (
+    <Tags overlap={true}>
+      {techs.map((tech, index) => (
+        <TagItem 
+          key={index} 
+          item={tech}
+        />
+      ))}
+    </Tags>
+  )
+}
+```
+
+## Props
+
+### Tags Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `overlap` | `boolean` | Yes | Whether the tag should overlap with adjacent tags |
+| `className` | `string` | Yes | Additional CSS classes for the container |
+
+### TagItem Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `item` | `ItemType` | Yes | The item to display as a tag |
+| `className` | `string` | Yes | Additional CSS classes for the tag item |
+
+### ItemType
+
+```tsx
+type ItemType = {
+  name: string
+  logo: React.ReactNode
+}
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| name | `string` | The name to display in the tag |
+| logo | `React.ReactNode` | The logo/icon to display in the tag |
+
+## Features
+
+- **Animated Interactions**: Smooth animations on hover and tap using Framer Motion
+- **Flexible Content**: Support for any React node as a logo
+- **Responsive Design**: Adapts to different screen sizes
+- **Accessible**: Built with accessibility in mind
+- **Overlap Support**: Option to create overlapping tags for a more compact layout
+- **Customizable Styling**: Full control over styling through className props
+
+## Best Practices
+
+1. Keep tag names concise and clear
+2. Use consistent icon sizes for better visual alignment
+3. Consider using the `overlap` prop for a more compact layout when space is limited
+4. Use appropriate spacing between tags for better readability
+5. Utilize the `className` prop to style tags according to your design system
+
+## Common Issues
+
+1. **"The logos aren't showing!"** - Verify that you're passing valid React nodes as the `logo` prop
+2. **"The text is getting cut off!"** - Check if your container has enough width to accommodate the expanding text
+3. **"The animations are choppy!"** - Make sure you're not rendering too many tags at once, as this can impact performance
+4. **"The tags are overlapping too much!"** - Adjust the `overlap` prop to control the spacing between tags
+5. **"The styling isn't applying!"** - Make sure you're passing the `className` prop correctly
+
+## Contributing
+
+Found a bug or have an improvement in mind? We welcome your contributions! Just make sure your code follows our standards and includes appropriate tests.
+
+The Tags component is a reliable workhorse of UI components - simple, effective, and always ready to serve! 🎯

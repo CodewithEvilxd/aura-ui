@@ -1,0 +1,299 @@
+---
+title: Timeline
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TimelineShowcase } from '../../components/specificComponentShowcase/TimelineShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Timeline components are the storytellers of your application. They organize chronological events, project milestones, and user journeys into beautiful, scannable visual narratives.
+
+<ComponentShowcase component={<TimelineShowcase />} code={`import {
+  Timeline,
+  TimelineItem,
+  TimelineConnector,
+  TimelineHeader,
+  TimelineTitle,
+  TimelineDescription,
+  TimelineContent,
+  TimelineSeparator
+} from "@/components/ui/timeline"
+
+const ProjectTimeline = () => {
+  return (
+    <Timeline className="max-w-md">
+      <TimelineItem>
+        <TimelineConnector />
+        <TimelineHeader>
+          <TimelineTitle>Project Started</TimelineTitle>
+          <TimelineDescription>January 2024</TimelineDescription>
+        </TimelineHeader>
+        <TimelineSeparator />
+        <TimelineContent>
+          <p className="text-sm">Initial project setup and planning phase.</p>
+        </TimelineContent>
+      </TimelineItem>
+
+      <TimelineItem>
+        <TimelineConnector />
+        <TimelineHeader>
+          <TimelineTitle>Development</TimelineTitle>
+          <TimelineDescription>February 2024</TimelineDescription>
+        </TimelineHeader>
+        <TimelineSeparator />
+        <TimelineContent>
+          <p className="text-sm">Core features implementation and testing.</p>
+        </TimelineContent>
+      </TimelineItem>
+
+      <TimelineItem>
+        <TimelineConnector />
+        <TimelineHeader>
+          <TimelineTitle>Launch</TimelineTitle>
+          <TimelineDescription>March 2024</TimelineDescription>
+        </TimelineHeader>
+        <TimelineSeparator />
+        <TimelineContent>
+          <p className="text-sm">Product launch and user onboarding.</p>
+        </TimelineContent>
+      </TimelineItem>
+    </Timeline>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'timeline'} />
+
+## Usage
+
+Timeline components organize chronological information:
+
+```tsx
+import {
+  Timeline,
+  TimelineItem,
+  TimelineConnector,
+  TimelineHeader,
+  TimelineTitle,
+  TimelineDescription,
+  TimelineContent,
+  TimelineSeparator
+} from "@/components/ui/timeline"
+
+const EventTimeline = () => {
+  return (
+    <Timeline>
+      <TimelineItem>
+        <TimelineConnector />
+        <TimelineHeader>
+          <TimelineTitle>Event Title</TimelineTitle>
+          <TimelineDescription>Date/Time</TimelineDescription>
+        </TimelineHeader>
+        <TimelineSeparator />
+        <TimelineContent>
+          <p>Event description and details...</p>
+        </TimelineContent>
+      </TimelineItem>
+    </Timeline>
+  )
+}
+```
+
+## Components
+
+### Timeline
+The root container for timeline items.
+
+### TimelineItem
+Individual timeline entry container.
+
+### TimelineConnector
+The visual connector/dot for each timeline item.
+
+### TimelineHeader
+Header section containing title and description.
+
+### TimelineTitle
+The main title of the timeline item.
+
+### TimelineDescription
+Secondary description/metadata.
+
+### TimelineContent
+Main content area for the timeline item.
+
+### TimelineSeparator
+Visual separator between timeline items.
+
+## Props
+
+### Timeline
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `className` | `string` | No | Additional CSS classes |
+
+### TimelineItem
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `className` | `string` | No | Additional CSS classes |
+
+### TimelineConnector
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Chronological Layout**: Perfect for time-based content
+- **Visual Connectors**: Clear visual flow between items
+- **Flexible Content**: Support for rich content and media
+- **Responsive Design**: Adapts to different screen sizes
+- **Customizable Styling**: Extensive theming options
+- **Accessible**: Screen reader friendly structure
+
+## Common Patterns
+
+### Project Timeline
+```tsx
+<Timeline>
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Planning Phase</TimelineTitle>
+      <TimelineDescription>Q1 2024</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>Requirements gathering and initial design.</p>
+    </TimelineContent>
+  </TimelineItem>
+
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Development</TimelineTitle>
+      <TimelineDescription>Q2 2024</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>Core feature implementation and testing.</p>
+    </TimelineContent>
+  </TimelineItem>
+
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Launch</TimelineTitle>
+      <TimelineDescription>Q3 2024</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>Product launch and user onboarding.</p>
+    </TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+### User Journey
+```tsx
+<Timeline>
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Sign Up</TimelineTitle>
+      <TimelineDescription>Step 1</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>User creates account and verifies email.</p>
+    </TimelineContent>
+  </TimelineItem>
+
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Onboarding</TimelineTitle>
+      <TimelineDescription>Step 2</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>Complete profile and preferences setup.</p>
+    </TimelineContent>
+  </TimelineItem>
+
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>First Purchase</TimelineTitle>
+      <TimelineDescription>Step 3</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>User makes their first purchase.</p>
+    </TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+### Activity Feed
+```tsx
+<Timeline>
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Posted new article</TimelineTitle>
+      <TimelineDescription>2 hours ago</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>Shared thoughts on modern web development.</p>
+    </TimelineContent>
+  </TimelineItem>
+
+  <TimelineItem>
+    <TimelineConnector />
+    <TimelineHeader>
+      <TimelineTitle>Joined discussion</TimelineTitle>
+      <TimelineDescription>4 hours ago</TimelineDescription>
+    </TimelineHeader>
+    <TimelineContent>
+      <p>Participated in React best practices discussion.</p>
+    </TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+## Advanced Usage
+
+### With Icons
+```tsx
+<TimelineItem>
+  <TimelineConnector>
+    <IconCheck className="h-4 w-4" />
+  </TimelineConnector>
+  <TimelineHeader>
+    <TimelineTitle>Task Completed</TimelineTitle>
+    <TimelineDescription>Today</TimelineDescription>
+  </TimelineHeader>
+  <TimelineContent>
+    <p>Successfully completed the assigned task.</p>
+  </TimelineContent>
+</TimelineItem>
+```
+
+### With Images
+```tsx
+<TimelineItem>
+  <TimelineConnector />
+  <TimelineHeader>
+    <TimelineTitle>Photo Uploaded</TimelineTitle>
+    <TimelineDescription>Yesterday</TimelineDescription>
+  </TimelineHeader>
+  <TimelineContent>
+    <img src="/photo.jpg" alt="Uploaded photo" className="rounded-lg" />
+    <p>Captured this amazing sunset view.</p>
+  </TimelineContent>
+</TimelineItem>
+```
+
+## Contributing
+
+Timeline components organize the chaos of time! Help us improve their visual design, add more customization options, and enhance their storytelling capabilities.
+
+Timeline - because every story deserves a beautiful journey! 📅✨

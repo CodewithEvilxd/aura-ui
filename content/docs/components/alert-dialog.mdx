@@ -1,0 +1,132 @@
+---
+title: Alert Dialog
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/../registry/components/ui/alert-dialog'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+The Alert Dialog - because sometimes you need to make sure your users really, really want to do something. It's like having a responsible friend who double-checks before you make that questionable life decision. Perfect for those "Are you sure?" moments that could save your users from themselves.
+
+<ComponentShowcase component={
+  <AlertDialog>
+    <AlertDialogTrigger className="px-4 py-2 bg-neutral-900 text-white rounded-md hover:bg-neutral-800">
+      Delete Account
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        <AlertDialogDescription>
+          This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogAction>Delete</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
+} code={`const DeleteAccountDialog = () => {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger>Delete Account</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your account
+            and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Delete</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies. This component is a bit high-maintenance, but it's worth it for the peace of mind:
+
+
+<InstallationCommand component={'alert-dialog'} />
+
+
+## Usage
+
+Here's how to add that extra layer of security (and drama) to your app:
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+// Your component
+const MyComponent = () => {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger>Open Dialog</AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}
+```
+
+## Components
+
+The Alert Dialog is made up of several parts, each with its own role in the drama:
+
+| Component | Description |
+|-----------|-------------|
+| `AlertDialog` | The main container. It's like the stage for your confirmation drama |
+| `AlertDialogTrigger` | The button that opens the dialog. The instigator of the whole situation |
+| `AlertDialogContent` | The actual dialog box. Where the magic (and the stress) happens |
+| `AlertDialogHeader` | Contains the title and description. The "serious talk" section |
+| `AlertDialogTitle` | The main message. Usually something that makes users think twice |
+| `AlertDialogDescription` | Additional context. Because sometimes users need a little more convincing |
+| `AlertDialogFooter` | Contains the action buttons. Where users make their final decision |
+| `AlertDialogAction` | The primary action button. The "point of no return" |
+| `AlertDialogCancel` | The secondary action button. The "get out of jail free" card |
+
+## Features
+
+- **Accessible**: Works with keyboard and screen readers, because not everyone uses a mouse
+- **Animated**: Smooth transitions that make the drama more bearable
+- **Customizable**: Style it to match your app's personality
+- **Responsive**: Looks good on all screens, unlike some of your ex's selfies
+
+## Common Issues
+
+1. **"The dialog isn't opening!"** - Make sure you've wrapped everything in an `AlertDialog` component. It's like trying to have a conversation without opening your mouth
+
+2. **"The buttons aren't styled!"** - Add your own classes to `AlertDialogAction` and `AlertDialogCancel`. Even buttons need to look their best
+
+3. **"It's not centered!"** - The component handles centering automatically. It's like having a personal assistant for your UI
+
+## Contributing
+
+Found a bug? Want to make it even more dramatic? Feel free to submit a PR. Just make sure your code is as clean as your browser history (which we all know is spotless, right?).
+
+The Alert Dialog - because sometimes you need to be the responsible friend in your app! 🎭 

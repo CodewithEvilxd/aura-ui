@@ -1,0 +1,118 @@
+---
+title: Breadcrumb
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { BreadcrumbShowcase } from '../../components/specificComponentShowcase/BreadcrumbShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Breadcrumbs are the trail of digital breadcrumbs that help users understand where they are in your application's hierarchy. They're like the GPS for your website.
+
+<ComponentShowcase component={<BreadcrumbShowcase />} code={`import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+const NavigationBreadcrumb = () => {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Widgets</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'breadcrumb'} />
+
+## Usage
+
+Here's how to implement breadcrumb navigation:
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+const MyBreadcrumb = () => {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/settings">Settings</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Profile</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```
+
+## Components
+
+### Breadcrumb
+The root container for breadcrumb navigation.
+
+### BreadcrumbList
+Contains all breadcrumb items in an ordered list.
+
+### BreadcrumbItem
+Individual breadcrumb item wrapper.
+
+### BreadcrumbLink
+Clickable breadcrumb link for navigation.
+
+### BreadcrumbPage
+The current page (not clickable).
+
+### BreadcrumbSeparator
+Visual separator between breadcrumb items.
+
+## Features
+
+- **Semantic HTML**: Proper navigation structure for accessibility
+- **Flexible Styling**: Easy to customize appearance
+- **Router Integration**: Works with any routing library
+- **Responsive**: Adapts to different screen sizes
+
+## Common Issues
+
+1. **"Separators not showing!"** - Make sure to include BreadcrumbSeparator between items
+2. **"Links not working!"** - Use proper href attributes or onClick handlers
+3. **"Styling issues!"** - Check your CSS for list-style and text-decoration overrides
+
+## Contributing
+
+Breadcrumbs are essential for navigation! Help us improve their accessibility and styling.
+
+Breadcrumbs - because users should never feel lost! 🧭

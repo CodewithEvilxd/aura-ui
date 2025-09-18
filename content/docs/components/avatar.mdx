@@ -1,0 +1,145 @@
+---
+title: Avatar
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { AvatarShowcase } from '../../components/specificComponentShowcase/AvatarShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Avatars are the digital faces of your users! Now with enhanced styling, status indicators, badges, and seamless internet image support. Perfect for user profiles, chat interfaces, and social features.
+
+<ComponentShowcase component={<AvatarShowcase />} code={`import { Avatar } from "@/components/ui/avatar"
+
+const EnhancedAvatar = () => {
+  return (
+    <div className="flex items-center space-x-4">
+      {/* Online status with badge */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=192&h=192&fit=crop&crop=face"
+        alt="Online User"
+        status="online"
+        badge={<span className="text-xs bg-green-500 text-white rounded-full px-1">5</span>}
+        size="lg"
+      />
+
+      {/* With fallback initials */}
+      <Avatar
+        fallback="JD"
+        alt="John Doe"
+        status="away"
+        size="default"
+      />
+
+      {/* Clickable avatar */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=256&h=256&fit=crop&crop=face"
+        alt="Clickable Avatar"
+        onClick={() => alert('Avatar clicked! 🎉')}
+        size="xl"
+      />
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'avatar'} />
+
+## Usage
+
+Here's how to use the enhanced Avatar component with all its features:
+
+```tsx
+import { Avatar } from "@/components/ui/avatar"
+
+const MyComponent = () => {
+  return (
+    <div className="flex items-center space-x-4">
+      {/* Basic avatar with internet image */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=128&h=128&fit=crop&crop=face"
+        alt="Sarah Johnson"
+      />
+
+      {/* Avatar with status indicator */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=128&h=128&fit=crop&crop=face"
+        alt="Mike Chen"
+        status="online"
+      />
+
+      {/* Avatar with badge */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=128&h=128&fit=crop&crop=face"
+        alt="Emma Davis"
+        badge={<span className="text-xs bg-red-500 text-white rounded-full px-1">3</span>}
+        badgePosition="top-right"
+      />
+
+      {/* Avatar with custom fallback */}
+      <Avatar
+        fallback="JD"
+        alt="John Doe"
+        size="lg"
+      />
+
+      {/* Interactive avatar */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=256&h=256&fit=crop&crop=face"
+        alt="Alex Smith"
+        onClick={() => console.log('Avatar clicked!')}
+        size="xl"
+      />
+
+      {/* Avatar with away status */}
+      <Avatar
+        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=128&h=128&fit=crop&crop=face"
+        alt="Lisa Wong"
+        status="away"
+        size="default"
+      />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `src` | `string` | No | The source URL of the avatar image (supports internet URLs) |
+| `alt` | `string` | No | Alternative text for accessibility |
+| `fallback` | `string` | No | Custom fallback text (defaults to initials from alt) |
+| `size` | `"xs" \| "sm" \| "default" \| "lg" \| "xl" \| "2xl"` | No | Avatar size variant |
+| `status` | `"online" \| "offline" \| "away" \| "busy" \| "none"` | No | Status indicator ring color |
+| `badge` | `React.ReactNode` | No | Badge content to display |
+| `badgePosition` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"` | No | Position of the badge |
+| `onClick` | `() => void` | No | Click handler for interactive avatars |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **🌐 Internet Image Support**: Load images directly from any URL
+- **📱 Multiple Sizes**: 6 size variants from XS to 2XL
+- **🔴 Status Indicators**: Online, offline, away, busy status rings
+- **🏷️ Badge Support**: Custom badges with 4 positioning options
+- **⚡ Smart Fallbacks**: Automatic initials generation from alt text
+- **🎨 Beautiful Shadows**: Enhanced visual depth with hover effects
+- **🖱️ Interactive**: Click handlers for user interactions
+- **⏳ Loading States**: Smooth loading animations
+- **♿ Accessibility**: Full ARIA support and keyboard navigation
+- **🎭 Theme Aware**: Adapts to your design system
+
+## Common Issues
+
+1. **"Image not showing!"** - Check the image path and ensure it's accessible
+2. **"Fallback text is too small!"** - Add custom font-size classes to AvatarFallback
+3. **"Avatar is not round!"** - The component applies rounded-full by default
+
+## Contributing
+
+Help us make avatars even better! Test with various image formats and fallback scenarios.
+
+Avatars - because every user deserves a face in the digital world! 👤

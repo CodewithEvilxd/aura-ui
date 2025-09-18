@@ -1,0 +1,31 @@
+{
+  "name": "express-setup",
+  "title": "Express Setup",
+  "description": "Express Setup with all the standard middleware and configurations",
+  "type": "registry:snippet",
+  "files": [
+    {
+      "path": "registry/backend-snippets/src/app.ts",
+      "type": "registry:snippet",
+      "target": "src",
+      "content": "import express, { Express } from \"express\"\nimport cors from \"cors\"\nimport cookieParser from \"cookie-parser\"\n\nconst app: Express = express();\n\n// Configure CORS middleware\n// Restricts API access to specified origins and enables credentials\napp.use(cors({\n  origin: process.env.CORS_ORIGIN,\n  credentials: true\n}));\n\n// JSON body parser middleware\n// Limits request body size to 16kb to prevent large payload attacks\napp.use(express.json({limit: \"16kb\"}));\n\n// URL-encoded body parser middleware\n// Handles form submissions and URL-encoded data with extended options\napp.use(express.urlencoded({\n  extended: true,\n  limit: \"16kb\"\n}));\n\n// Static file serving middleware\n// Serves static assets from the \"public\" directory\napp.use(express.static(\"public\"));\n\n// Cookie parser middleware\n// Parses Cookie header and populates req.cookies\napp.use(cookieParser());\n\n// Import routes\n\n// import userRouter from \"./routes/user.routes.ts\"\n\n// Route declarations\n\n// app.use(\"/api/v1/users\" , userRouter);\n\nexport { app }"
+    },
+    {
+      "path": "registry/backend-snippets/src/index.ts",
+      "type": "registry:snippet",
+      "target": "src",
+      "content": "import dotenv from \"dotenv\"\nimport { app } from \"./app\"\n\ndotenv.config({\n  path: \"./env\"\n})\n\nconst port = process.env.PORT || 3000;\n\napp.on(\"error\", (error) => {\n  console.log(\"Error :\", error);\n  throw error;\n});\n\napp.listen(port, () => {\n  console.log(`Server is running at port: ${port}`);\n});\n\n// ALways start the server after connecting the db like in the example provided below -\n\n// connectDB()\n// .then(() => {\n//   app.on(\"error\", (error) => {\n//     console.log(\"Error :\", error);\n//     throw error;\n//   });\n\n//   app.listen(process.env.PORT || 3000, () => {\n//     console.log(`Server is running at port: ${process.env.PORT}`);\n//   });\n// })\n// .catch((error) => {\n//   console.log(\"MongoDB connection failed !! E:\", error);\n// })"
+    }
+  ],
+  "dependencies": [
+    "express",
+    "cors",
+    "cookie-parser",
+    "dotenv"
+  ],
+  "devDependencies": [
+    "@types/express",
+    "@types/cors",
+    "@types/cookie-parser"
+  ]
+}

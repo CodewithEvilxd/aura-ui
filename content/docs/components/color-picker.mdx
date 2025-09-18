@@ -1,0 +1,268 @@
+---
+title: Color Picker
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ColorPickerShowcase } from '../../components/specificComponentShowcase/ColorPickerShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Color picker components are the artists of your application. They provide intuitive color selection interfaces with predefined palettes, custom pickers, and seamless integration with your design system.
+
+<ComponentShowcase component={<ColorPickerShowcase />} code={`import { ColorPicker } from "@/components/ui/color-picker"
+
+const ColorPickerExample = () => {
+  const [color, setColor] = useState('#3b82f6')
+
+  return (
+    <ColorPicker
+      value={color}
+      onChange={setColor}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'color-picker'} />
+
+## Usage
+
+Color picker components provide comprehensive color selection:
+
+```tsx
+import { ColorPicker } from "@/components/ui/color-picker"
+
+const ThemeCustomizer = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3b82f6')
+  const [secondaryColor, setSecondaryColor] = useState('#64748b')
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Primary Color
+        </label>
+        <ColorPicker
+          value={primaryColor}
+          onChange={setPrimaryColor}
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Secondary Color
+        </label>
+        <ColorPicker
+          value={secondaryColor}
+          onChange={setSecondaryColor}
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `value` | `string` | No | Current selected color (hex format) |
+| `onChange` | `(color: string) => void` | No | Callback when color changes |
+| `colors` | `string[]` | No | Custom color palette |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Predefined Palette**: Curated color selection
+- **Custom Color Picker**: Full color spectrum access
+- **Hex Input**: Direct hex color input
+- **Visual Preview**: Real-time color preview
+- **Theme Integration**: Adapts to your design system
+- **Responsive Design**: Works on all screen sizes
+- **Accessible**: Keyboard navigation support
+
+## Advanced Usage
+
+### Custom Color Palette
+```tsx
+const brandColors = [
+  '#ef4444', '#f97316', '#f59e0b', '#eab308',
+  '#84cc16', '#22c55e', '#10b981', '#14b8a6',
+  '#06b6d4', '#0ea5e9', '#3b82f6', '#6366f1'
+]
+
+const CustomPalette = () => {
+  const [color, setColor] = useState('#3b82f6')
+
+  return (
+    <ColorPicker
+      value={color}
+      onChange={setColor}
+      colors={brandColors}
+    />
+  )
+}
+```
+
+### With Color Preview
+```tsx
+const ColorWithPreview = () => {
+  const [color, setColor] = useState('#3b82f6')
+
+  return (
+    <div className="space-y-4">
+      <ColorPicker
+        value={color}
+        onChange={setColor}
+      />
+
+      <div className="space-y-2">
+        <div
+          className="w-full h-16 rounded-lg border-2 border-gray-200"
+          style={{ backgroundColor: color }}
+        />
+        <p className="text-sm text-muted-foreground">
+          Selected: {color.toUpperCase()}
+        </p>
+      </div>
+    </div>
+  )
+}
+```
+
+### Theme Builder
+```tsx
+const ThemeBuilder = () => {
+  const [theme, setTheme] = useState({
+    primary: '#3b82f6',
+    secondary: '#64748b',
+    accent: '#f59e0b',
+    background: '#ffffff'
+  })
+
+  const updateTheme = (key: string, color: string) => {
+    setTheme(prev => ({ ...prev, [key]: color }))
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 gap-4">
+        {Object.entries(theme).map(([key, color]) => (
+          <div key={key} className="space-y-2">
+            <label className="block text-sm font-medium capitalize">
+              {key} Color
+            </label>
+            <ColorPicker
+              value={color}
+              onChange={(newColor) => updateTheme(key, newColor)}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="p-4 border rounded-lg">
+        <h3 className="font-medium mb-2">Theme Preview</h3>
+        <div
+          className="p-4 rounded text-white"
+          style={{
+            backgroundColor: theme.primary,
+            border: `2px solid ${theme.secondary}`
+          }}
+        >
+          <div style={{ color: theme.accent }}>
+            Primary • Secondary • Accent
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+## Common Patterns
+
+### Brand Color Picker
+```tsx
+const brandColors = [
+  '#ef4444', '#f97316', '#f59e0b', '#eab308',
+  '#84cc16', '#22c55e', '#10b981', '#14b8a6'
+]
+
+<ColorPicker colors={brandColors} />
+```
+
+### Simple Color Selection
+```tsx
+<ColorPicker
+  value={color}
+  onChange={setColor}
+/>
+```
+
+### Compact Color Picker
+```tsx
+<ColorPicker
+  className="w-64"
+  colors={['#ef4444', '#3b82f6', '#22c55e']}
+/>
+```
+
+## Color Formats
+
+### Hex Colors
+```tsx
+const [hexColor, setHexColor] = useState('#3b82f6')
+// Supports: #RGB, #RRGGBB, #RRGGBBAA
+```
+
+### RGB/RGBA Colors
+```tsx
+const hexToRgb = (hex: string) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null
+}
+```
+
+### HSL Colors
+```tsx
+const hexToHsl = (hex: string) => {
+  // Convert hex to HSL for advanced color manipulation
+  const rgb = hexToRgb(hex)
+  if (!rgb) return null
+
+  const r = rgb.r / 255
+  const g = rgb.g / 255
+  const b = rgb.b / 255
+
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+  let h, s, l = (max + min) / 2
+
+  if (max === min) {
+    h = s = 0
+  } else {
+    const d = max - min
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break
+      case g: h = (b - r) / d + 2; break
+      case b: h = (r - g) / d + 4; break
+    }
+    h /= 6
+  }
+
+  return { h: h * 360, s: s * 100, l: l * 100 }
+}
+```
+
+## Contributing
+
+Color picker components bring creativity to your applications! Help us improve their color selection algorithms, add more color formats, and enhance their accessibility.
+
+Color Picker - because every color deserves to be chosen! 🎨✨

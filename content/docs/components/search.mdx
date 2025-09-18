@@ -1,0 +1,179 @@
+---
+title: Search
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { SearchShowcase } from '../../components/specificComponentShowcase/SearchShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Search components are the digital detectives of your application. They help users find what they're looking for with intelligent suggestions, instant feedback, and seamless integration.
+
+<ComponentShowcase component={<SearchShowcase />} code={`import { Search } from "@/components/ui/search"
+
+const SearchExample = () => {
+  const [searchValue, setSearchValue] = useState("")
+
+  return (
+    <Search
+      placeholder="Search for anything..."
+      value={searchValue}
+      onChange={(e) => setSearchValue(e.target.value)}
+      onSearch={(value) => console.log('Searching for:', value)}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'search'} />
+
+## Usage
+
+Search components provide enhanced search functionality:
+
+```tsx
+import { Search } from "@/components/ui/search"
+
+const SearchComponent = () => {
+  const [query, setQuery] = useState("")
+
+  const handleSearch = (value: string) => {
+    // Perform search logic
+    console.log('Searching for:', value)
+  }
+
+  return (
+    <Search
+      placeholder="Search products, users, or content..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      onSearch={handleSearch}
+      showClearButton={true}
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `placeholder` | `string` | No | Placeholder text for the search input |
+| `value` | `string` | No | Controlled value of the search input |
+| `onChange` | `(e: ChangeEvent) => void` | No | Change handler for input value |
+| `onSearch` | `(value: string) => void` | No | Callback when search is performed |
+| `showClearButton` | `boolean` | No | Whether to show clear button (default: true) |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Search Icon**: Integrated search icon for visual clarity
+- **Clear Button**: Easy way to clear search input
+- **Real-time Search**: Instant search as user types
+- **Keyboard Support**: Full keyboard navigation
+- **Customizable**: Extensive styling options
+- **Accessible**: Screen reader friendly
+
+## Advanced Usage
+
+### With Debouncing
+```tsx
+import { useState, useCallback } from "react"
+import { Search } from "@/components/ui/search"
+
+const DebouncedSearch = () => {
+  const [query, setQuery] = useState("")
+  const [debouncedQuery, setDebouncedQuery] = useState("")
+
+  const debouncedSearch = useCallback(
+    debounce((value: string) => {
+      setDebouncedQuery(value)
+      // Perform API search
+    }, 300),
+    []
+  )
+
+  const handleSearch = (value: string) => {
+    setQuery(value)
+    debouncedSearch(value)
+  }
+
+  return (
+    <Search
+      placeholder="Search with debouncing..."
+      value={query}
+      onSearch={handleSearch}
+    />
+  )
+}
+```
+
+### With Autocomplete
+```tsx
+const AutocompleteSearch = () => {
+  const [query, setQuery] = useState("")
+  const [suggestions, setSuggestions] = useState([])
+
+  const handleSearch = async (value: string) => {
+    setQuery(value)
+    if (value.length > 2) {
+      const results = await fetchSuggestions(value)
+      setSuggestions(results)
+    }
+  }
+
+  return (
+    <div className="relative">
+      <Search
+        placeholder="Search with autocomplete..."
+        value={query}
+        onSearch={handleSearch}
+      />
+      {suggestions.length > 0 && (
+        <div className="absolute top-full mt-1 w-full bg-white border rounded-md shadow-lg">
+          {suggestions.map((suggestion, index) => (
+            <div key={index} className="p-2 hover:bg-gray-100 cursor-pointer">
+              {suggestion}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+## Common Patterns
+
+### Global Search
+```tsx
+<Search
+  placeholder="Search everything..."
+  className="w-full max-w-md"
+/>
+```
+
+### Compact Search
+```tsx
+<Search
+  placeholder="Quick search..."
+  className="w-64"
+  showClearButton={false}
+/>
+```
+
+### Full-width Search
+```tsx
+<Search
+  placeholder="Search the entire platform..."
+  className="w-full"
+/>
+```
+
+## Contributing
+
+Search components are the gateway to your content! Help us improve their functionality, add autocomplete features, and enhance the search experience.
+
+Search - because finding should be as easy as looking! 🔍✨

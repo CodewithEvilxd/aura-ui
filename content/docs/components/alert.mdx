@@ -1,0 +1,86 @@
+---
+title: Alert
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { AlertShowcase } from '../../components/specificComponentShowcase/AlertShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Alerts are the messengers of your application. They deliver important information, warnings, or confirmations with style and clarity.
+
+<ComponentShowcase component={<AlertShowcase />} code={`import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+import { IconCheckCircle } from "@tabler/icons-react"
+
+const SuccessAlert = () => {
+  return (
+    <Alert>
+      <IconCheckCircle className="h-4 w-4" />
+      <AlertTitle>Success!</AlertTitle>
+      <AlertDescription>
+        Your changes have been saved successfully.
+      </AlertDescription>
+    </Alert>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'alert'} />
+
+## Usage
+
+Here's how to create informative alerts:
+
+```tsx
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+
+const MyComponent = () => {
+  return (
+    <Alert variant="destructive">
+      <AlertTitle>Error</AlertTitle>
+      <AlertDescription>
+        Something went wrong. Please try again.
+      </AlertDescription>
+    </Alert>
+  )
+}
+```
+
+## Props
+
+### Alert
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `variant` | `"default" \| "destructive"` | No | The visual style variant of the alert |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+### AlertTitle
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `className` | `string` | No | Additional CSS classes |
+
+### AlertDescription
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Two Variants**: Default and destructive for different message types
+- **Icon Support**: Easy to add icons for visual context
+- **Structured Content**: Separate title and description areas
+- **Accessible**: Proper ARIA roles and semantic markup
+
+## Common Issues
+
+1. **"Alert not showing!"** - Make sure you're providing content inside the Alert component
+2. **"Colors not matching theme!"** - Check your destructive color definitions
+3. **"Icons not aligning!"** - The component automatically handles icon positioning
+
+## Contributing
+
+Alerts are crucial for user communication! Help us improve their styling and accessibility.
+
+Alerts - because users deserve to know what's happening! 🚨

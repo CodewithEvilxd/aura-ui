@@ -1,0 +1,358 @@
+---
+title: Rotating Card
+description: 3D cube component with multiple faces that rotate based on mouse movement or auto-rotation.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { RotatingCardShowcase } from '../../components/specificComponentShowcase/RotatingCardShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Rotating Cards create stunning 3D cube effects with up to 6 faces that can display different content! With mouse-controlled rotation, auto-rotation, and smooth 3D transforms, these cards add incredible depth and interactivity to your UI.
+
+<ComponentShowcase component={<RotatingCardShowcase />} code={`import { RotatingCard } from "@/components/ui/rotating-card"
+
+const RotatingCardDemo = () => {
+  return (
+    <RotatingCard
+      frontContent={<div>Front Face</div>}
+      backContent={<div>Back Face</div>}
+      leftContent={<div>Left Face</div>}
+      rightContent={<div>Right Face</div>}
+      topContent={<div>Top Face</div>}
+      bottomContent={<div>Bottom Face</div>}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'rotating-card'} />
+
+## Usage
+
+```tsx
+import { RotatingCard } from "@/components/ui/rotating-card"
+
+export function Example() {
+  return (
+    <RotatingCard
+      frontContent={
+        <div className="p-6 text-center">
+          <h3>Front Face</h3>
+          <p>Move your mouse to rotate!</p>
+        </div>
+      }
+      backContent={
+        <div className="p-6 text-center">
+          <h3>Back Face</h3>
+          <p>Rotated content!</p>
+        </div>
+      }
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `frontContent` | `React.ReactNode` | Yes | Content for the front face |
+| `backContent` | `React.ReactNode` | No | Content for the back face |
+| `leftContent` | `React.ReactNode` | No | Content for the left face |
+| `rightContent` | `React.ReactNode` | No | Content for the right face |
+| `topContent` | `React.ReactNode` | No | Content for the top face |
+| `bottomContent` | `React.ReactNode` | No | Content for the bottom face |
+| `autoRotate` | `boolean` | No | Enable automatic rotation (default: true) |
+| `rotateSpeed` | `"slow" \| "normal" \| "fast"` | No | Speed of auto-rotation (default: "normal") |
+| `size` | `"sm" \| "md" \| "lg"` | No | Size of the cube (default: "md") |
+
+## Cube Faces
+
+### Basic Cube (Front & Back)
+
+```tsx
+<RotatingCard
+  frontContent={<div>Front</div>}
+  backContent={<div>Back</div>}
+/>
+```
+
+### Full Cube (6 Faces)
+
+```tsx
+<RotatingCard
+  frontContent={<div>Front</div>}
+  backContent={<div>Back</div>}
+  leftContent={<div>Left</div>}
+  rightContent={<div>Right</div>}
+  topContent={<div>Top</div>}
+  bottomContent={<div>Bottom</div>}
+/>
+```
+
+## Rotation Control
+
+### Mouse Controlled
+Move your mouse over the card to control rotation.
+
+```tsx
+<RotatingCard
+  autoRotate={false}
+  frontContent={<div>Mouse controlled</div>}
+  backContent={<div>Back content</div>}
+/>
+```
+
+### Auto Rotation
+Automatic rotation at specified speed.
+
+```tsx
+<RotatingCard
+  autoRotate={true}
+  rotateSpeed="slow"
+  frontContent={<div>Auto rotating</div>}
+  backContent={<div>Back content</div>}
+/>
+```
+
+## Size Variations
+
+### Small Size
+Compact cube for tight spaces.
+
+```tsx
+<RotatingCard
+  size="sm"
+  frontContent={<div>Small cube</div>}
+/>
+```
+
+### Medium Size (Default)
+Balanced size for most use cases.
+
+```tsx
+<RotatingCard
+  size="md"
+  frontContent={<div>Medium cube</div>}
+/>
+```
+
+### Large Size
+Prominent cube for important content.
+
+```tsx
+<RotatingCard
+  size="lg"
+  frontContent={<div>Large cube</div>}
+/>
+```
+
+## Speed Variations
+
+### Slow Rotation
+Gentle, relaxed rotation speed.
+
+```tsx
+<RotatingCard
+  rotateSpeed="slow"
+  frontContent={<div>Slow rotation</div>}
+/>
+```
+
+### Normal Speed (Default)
+Balanced rotation timing.
+
+```tsx
+<RotatingCard
+  rotateSpeed="normal"
+  frontContent={<div>Normal speed</div>}
+/>
+```
+
+### Fast Rotation
+Quick, energetic rotation.
+
+```tsx
+<RotatingCard
+  rotateSpeed="fast"
+  frontContent={<div>Fast rotation</div>}
+/>
+```
+
+## Features
+
+- **3D Cube Effects**: Full 3D cube with 6 faces
+- **Mouse Control**: Interactive rotation based on mouse position
+- **Auto Rotation**: Automatic rotation with speed control
+- **Multiple Sizes**: Small, medium, and large variants
+- **Smooth Animations**: Hardware-accelerated 3D transforms
+- **Particle Effects**: Animated particles on interaction
+- **Customizable Content**: Different content for each face
+
+## Advanced Usage
+
+### Product Showcase Cube
+
+```tsx
+<RotatingCard
+  size="lg"
+  rotateSpeed="slow"
+  frontContent={
+    <div className="text-center p-6">
+      <div className="text-6xl mb-4">💻</div>
+      <h3 className="font-semibold">Laptop</h3>
+      <p className="text-sm opacity-80">High-performance computing</p>
+    </div>
+  }
+  backContent={
+    <div className="text-center p-6">
+      <h3 className="font-semibold mb-4">Specifications</h3>
+      <ul className="text-sm space-y-1">
+        <li>✓ Intel i7 Processor</li>
+        <li>✓ 16GB RAM</li>
+        <li>✓ 512GB SSD</li>
+        <li>✓ 15.6" Display</li>
+      </ul>
+    </div>
+  }
+  leftContent={
+    <div className="text-center p-6">
+      <div className="text-4xl mb-2">🎨</div>
+      <h4 className="font-semibold">Design</h4>
+      <p className="text-xs opacity-80">Sleek & Modern</p>
+    </div>
+  }
+  rightContent={
+    <div className="text-center p-6">
+      <div className="text-4xl mb-2">⚡</div>
+      <h4 className="font-semibold">Performance</h4>
+      <p className="text-xs opacity-80">Lightning Fast</p>
+    </div>
+  }
+  topContent={
+    <div className="text-center p-6">
+      <div className="text-4xl mb-2">💰</div>
+      <h4 className="font-semibold">Price</h4>
+      <p className="text-xs opacity-80">$1,299</p>
+    </div>
+  }
+  bottomContent={
+    <div className="text-center p-6">
+      <button className="px-6 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90 transition-colors">
+        Buy Now
+      </button>
+    </div>
+  }
+/>
+```
+
+### Interactive Navigation Cube
+
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <RotatingCard
+    size="md"
+    autoRotate={false}
+    frontContent={
+      <div className="text-center p-4">
+        <div className="text-3xl mb-2">🏠</div>
+        <h4 className="font-semibold">Home</h4>
+      </div>
+    }
+    backContent={
+      <div className="text-center p-4">
+        <p className="text-sm">Welcome to our homepage</p>
+      </div>
+    }
+  />
+
+  <RotatingCard
+    size="md"
+    autoRotate={false}
+    frontContent={
+      <div className="text-center p-4">
+        <div className="text-3xl mb-2">📋</div>
+        <h4 className="font-semibold">About</h4>
+      </div>
+    }
+    backContent={
+      <div className="text-center p-4">
+        <p className="text-sm">Learn more about us</p>
+      </div>
+    }
+  />
+
+  <RotatingCard
+    size="md"
+    autoRotate={false}
+    frontContent={
+      <div className="text-center p-4">
+        <div className="text-3xl mb-2">📞</div>
+        <h4 className="font-semibold">Contact</h4>
+      </div>
+    }
+    backContent={
+      <div className="text-center p-4">
+        <p className="text-sm">Get in touch with us</p>
+      </div>
+    }
+  />
+</div>
+```
+
+### Speed Control Demo
+
+```tsx
+const [speed, setSpeed] = React.useState('normal')
+
+return (
+  <div className="space-y-4">
+    <div className="flex space-x-2">
+      <button onClick={() => setSpeed('slow')}>Slow</button>
+      <button onClick={() => setSpeed('normal')}>Normal</button>
+      <button onClick={() => setSpeed('fast')}>Fast</button>
+    </div>
+
+    <RotatingCard
+      rotateSpeed={speed}
+      frontContent={
+        <div className="text-center p-6">
+          <h3>Speed: {speed}</h3>
+          <p>Watch the rotation speed change!</p>
+        </div>
+      }
+      backContent={
+        <div className="text-center p-6">
+          <h3>Back Side</h3>
+          <p>Rotated at {speed} speed</p>
+        </div>
+      }
+    />
+  </div>
+)
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses `transform-gpu` for smooth 3D animations
+- **Optimized Rendering**: Efficient 3D transform calculations
+- **Hardware Acceleration**: CSS 3D transforms for 60fps performance
+- **Memory Efficient**: Lightweight 3D animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS 3D transform support
+- **Fallback**: Graceful degradation to 2D content
+
+## Accessibility
+
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Screen Reader Support**: Proper ARIA labels for interactive elements
+- **Focus Management**: Clear focus indicators
+- **Reduced Motion**: Respects user's motion preferences
+
+Rotating Cards - bringing 3D cube magic to your user interface! 🎲✨

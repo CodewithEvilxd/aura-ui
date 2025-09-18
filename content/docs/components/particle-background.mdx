@@ -1,0 +1,265 @@
+---
+title: Particle Background
+description: Animated particle background component with customizable physics and visual effects.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ParticleBackgroundShowcase } from '../../components/specificComponentShowcase/ParticleBackgroundShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Particle Background creates stunning animated particle systems that add depth and visual interest to your UI! With customizable particle count, colors, speeds, and physics, you can create anything from subtle ambient effects to dramatic visual spectacles.
+
+<ComponentShowcase component={<ParticleBackgroundShowcase />} code={`import { ParticleBackground } from "@/components/ui/particle-background"
+
+const ParticleDemo = () => {
+  return (
+    <ParticleBackground
+      particleCount={50}
+      particleColor="rgba(59, 130, 246, 0.5)"
+      speed="normal"
+    >
+      <div className="p-8 text-center">
+        <h2>Your Content Here</h2>
+        <p>Particles animate in the background!</p>
+      </div>
+    </ParticleBackground>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'particle-background'} />
+
+## Usage
+
+```tsx
+import { ParticleBackground } from "@/components/ui/particle-background"
+
+export function Example() {
+  return (
+    <ParticleBackground
+      particleCount={100}
+      particleColor="rgba(59, 130, 246, 0.6)"
+      speed="normal"
+      density="medium"
+    >
+      <div className="p-8">
+        <h2>Your amazing content here!</h2>
+        <p>The particles will animate behind this content.</p>
+      </div>
+    </ParticleBackground>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `particleCount` | `number` | No | Number of particles to render (default: 50) |
+| `particleSize` | `"sm" \| "md" \| "lg"` | No | Size of individual particles (default: "md") |
+| `particleColor` | `string` | No | CSS color value for particles (default: "rgba(59, 130, 246, 0.5)") |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Animation speed of particles (default: "normal") |
+| `density` | `"low" \| "medium" \| "high"` | No | Particle density affecting velocity (default: "medium") |
+| `children` | `React.ReactNode` | No | Content to display over the particles |
+
+## Particle Sizes
+
+### Small Particles
+Subtle, fine particle effects.
+
+```tsx
+<ParticleBackground particleSize="sm" particleCount={100}>
+  <div>Content</div>
+</ParticleBackground>
+```
+
+### Medium Particles (Default)
+Balanced particle size for most use cases.
+
+```tsx
+<ParticleBackground particleSize="md" particleCount={75}>
+  <div>Content</div>
+</ParticleBackground>
+```
+
+### Large Particles
+Bold, prominent particle effects.
+
+```tsx
+<ParticleBackground particleSize="lg" particleCount={30}>
+  <div>Content</div>
+</ParticleBackground>
+```
+
+## Speed Variations
+
+### Slow Speed
+Gentle, relaxed particle movement.
+
+```tsx
+<ParticleBackground speed="slow" particleCount={60}>
+  <div>Content</div>
+</ParticleBackground>
+```
+
+### Normal Speed (Default)
+Balanced animation timing.
+
+```tsx
+<ParticleBackground speed="normal" particleCount={80}>
+  <div>Content</div>
+</ParticleBackground>
+```
+
+### Fast Speed
+Quick, energetic particle movement.
+
+```tsx
+<ParticleBackground speed="fast" particleCount={40}>
+  <div>Content</div>
+</ParticleBackground>
+```
+
+## Color Variations
+
+### Blue Particles
+Classic blue particle system.
+
+```tsx
+<ParticleBackground
+  particleColor="rgba(59, 130, 246, 0.6)"
+  particleCount={70}
+/>
+```
+
+### Green Particles
+Nature-inspired green particles.
+
+```tsx
+<ParticleBackground
+  particleColor="rgba(34, 197, 94, 0.6)"
+  particleCount={70}
+/>
+```
+
+### Purple Particles
+Magical purple particle effects.
+
+```tsx
+<ParticleBackground
+  particleColor="rgba(147, 51, 234, 0.6)"
+  particleCount={70}
+/>
+```
+
+## Features
+
+- **Customizable Physics**: Adjustable particle count, size, speed, and density
+- **Color Control**: Full CSS color support for particles
+- **Smooth Animations**: Hardware-accelerated particle movement
+- **Boundary Collision**: Particles bounce off container edges
+- **Performance Optimized**: Efficient rendering with minimal CPU usage
+- **Responsive Design**: Adapts to container size changes
+
+## Advanced Usage
+
+### Hero Section with Particles
+
+```tsx
+<ParticleBackground
+  particleCount={150}
+  particleColor="rgba(255, 255, 255, 0.3)"
+  speed="slow"
+  className="min-h-screen"
+>
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="text-center text-white">
+      <h1 className="text-6xl font-bold mb-4">Welcome</h1>
+      <p className="text-xl mb-8">Experience the magic of particles</p>
+      <button className="px-8 py-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors">
+        Get Started
+      </button>
+    </div>
+  </div>
+</ParticleBackground>
+```
+
+### Interactive Particle System
+
+```tsx
+const [particleCount, setParticleCount] = React.useState(50)
+const [speed, setSpeed] = React.useState('normal')
+
+return (
+  <div className="space-y-4">
+    <div className="flex space-x-4">
+      <button onClick={() => setParticleCount(25)}>Few</button>
+      <button onClick={() => setParticleCount(100)}>Many</button>
+      <button onClick={() => setSpeed('slow')}>Slow</button>
+      <button onClick={() => setSpeed('fast')}>Fast</button>
+    </div>
+
+    <ParticleBackground
+      particleCount={particleCount}
+      speed={speed}
+      particleColor="rgba(59, 130, 246, 0.5)"
+      className="h-64 rounded-lg"
+    >
+      <div className="flex items-center justify-center h-full">
+        <p className="text-white font-semibold">
+          {particleCount} particles at {speed} speed
+        </p>
+      </div>
+    </ParticleBackground>
+  </div>
+)
+```
+
+### Multiple Particle Layers
+
+```tsx
+<div className="relative">
+  <ParticleBackground
+    particleCount={30}
+    particleColor="rgba(255, 255, 255, 0.2)"
+    speed="slow"
+    className="absolute inset-0"
+  />
+
+  <ParticleBackground
+    particleCount={20}
+    particleColor="rgba(59, 130, 246, 0.4)"
+    speed="normal"
+    className="absolute inset-0"
+  />
+
+  <div className="relative z-10 p-8">
+    <h2>Multi-layered Particle Effect</h2>
+    <p>Different particle systems can be combined for complex effects.</p>
+  </div>
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Optimized Rendering**: Efficient particle physics calculations
+- **Memory Management**: Automatic cleanup and resource management
+- **Frame Rate**: Maintains 60fps on modern devices
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS transform support
+- **Fallback**: Graceful degradation to solid background
+
+## Accessibility
+
+- **Screen Reader Support**: Proper ARIA labels for interactive elements
+- **Reduced Motion**: Respects user's motion preferences
+- **Keyboard Navigation**: Full keyboard accessibility for controls
+
+Particle Background - bringing your UI to life with beautiful animated particle systems! ✨🌟

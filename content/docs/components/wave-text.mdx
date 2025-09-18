@@ -1,0 +1,228 @@
+---
+title: Wave Text
+description: Animated text component with wave effects and customizable animation parameters.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { WaveTextShowcase } from '../../components/specificComponentShowcase/WaveTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Wave Text brings your typography to life with stunning wave animations! Each letter animates individually with customizable wave patterns, speeds, and amplitudes. Perfect for creating eye-catching headings and interactive text elements.
+
+<ComponentShowcase component={<WaveTextShowcase />} code={`import { WaveText } from "@/components/ui/wave-text"
+
+const WaveTextDemo = () => {
+  return (
+    <WaveText
+      text="Hello World!"
+      waveType="sine"
+      speed="normal"
+      amplitude="medium"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'wave-text'} />
+
+## Usage
+
+```tsx
+import { WaveText } from "@/components/ui/wave-text"
+
+export function Example() {
+  return (
+    <WaveText
+      text="Amazing Wave Text!"
+      waveType="bounce"
+      speed="fast"
+      amplitude="high"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to animate |
+| `waveType` | `"sine" \| "bounce" \| "elastic"` | No | The type of wave animation (default: "sine") |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Animation speed (default: "normal") |
+| `amplitude` | `"low" \| "medium" \| "high"` | No | Wave intensity (default: "medium") |
+| `direction` | `"horizontal" \| "vertical"` | No | Wave direction (default: "vertical") |
+
+## Wave Types
+
+### Sine Wave
+Smooth, continuous wave motion like ocean waves.
+
+```tsx
+<WaveText text="Sine Wave" waveType="sine" />
+```
+
+### Bounce Wave
+Playful bouncing motion with spring-like effects.
+
+```tsx
+<WaveText text="Bounce Wave" waveType="bounce" />
+```
+
+### Elastic Wave
+Elastic, rubber-band like stretching effects.
+
+```tsx
+<WaveText text="Elastic Wave" waveType="elastic" />
+```
+
+## Speed Variations
+
+### Slow Speed
+Gentle, relaxed wave motion.
+
+```tsx
+<WaveText text="Slow Motion" speed="slow" />
+```
+
+### Normal Speed
+Balanced animation timing.
+
+```tsx
+<WaveText text="Normal Speed" speed="normal" />
+```
+
+### Fast Speed
+Quick, energetic wave motion.
+
+```tsx
+<WaveText text="Fast Motion" speed="fast" />
+```
+
+## Amplitude Levels
+
+### Low Amplitude
+Subtle, gentle wave effects.
+
+```tsx
+<WaveText text="Low Amplitude" amplitude="low" />
+```
+
+### Medium Amplitude
+Balanced wave intensity.
+
+```tsx
+<WaveText text="Medium Amplitude" amplitude="medium" />
+```
+
+### High Amplitude
+Dramatic, intense wave effects.
+
+```tsx
+<WaveText text="High Amplitude" amplitude="high" />
+```
+
+## Direction Options
+
+### Vertical Waves
+Letters move up and down.
+
+```tsx
+<WaveText text="Vertical Wave" direction="vertical" />
+```
+
+### Horizontal Waves
+Letters move left and right.
+
+```tsx
+<WaveText text="Horizontal Wave" direction="horizontal" />
+```
+
+## Features
+
+- **Multiple Wave Types**: Sine, bounce, and elastic animations
+- **Speed Control**: Slow, normal, and fast animation speeds
+- **Amplitude Control**: Low, medium, and high intensity levels
+- **Directional Waves**: Vertical and horizontal wave motion
+- **Letter-by-Letter Animation**: Each character animates individually
+- **Smooth Transitions**: Hardware-accelerated CSS animations
+- **Customizable Styling**: Easy to style with additional classes
+
+## Advanced Usage
+
+### Stylized Headings
+
+```tsx
+<div className="space-y-6">
+  <WaveText
+    text="🎉 Welcome to the Future!"
+    waveType="bounce"
+    speed="fast"
+    amplitude="high"
+    className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent"
+  />
+
+  <WaveText
+    text="✨ Magical Animations"
+    waveType="sine"
+    speed="normal"
+    amplitude="medium"
+    className="text-2xl font-semibold text-indigo-600"
+  />
+
+  <WaveText
+    text="🌊 Ocean Wave Effect"
+    direction="horizontal"
+    waveType="bounce"
+    speed="slow"
+    amplitude="low"
+    className="text-cyan-600 font-medium"
+  />
+</div>
+```
+
+### Interactive Wave Text
+
+```tsx
+const [waveType, setWaveType] = React.useState('sine')
+
+return (
+  <div className="space-y-4">
+    <div className="flex space-x-2">
+      <button onClick={() => setWaveType('sine')}>Sine</button>
+      <button onClick={() => setWaveType('bounce')}>Bounce</button>
+      <button onClick={() => setWaveType('elastic')}>Elastic</button>
+    </div>
+
+    <WaveText
+      text="Interactive Wave Text"
+      waveType={waveType}
+      speed="normal"
+      amplitude="medium"
+    />
+  </div>
+)
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Optimized Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: 60fps animations on modern devices
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS transform support
+- **Fallback**: Graceful degradation to static text
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **Semantic HTML**: Maintains proper document structure
+
+Wave Text - making typography dance with beautiful wave animations! 🌊✨

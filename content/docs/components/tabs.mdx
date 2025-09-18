@@ -1,0 +1,184 @@
+---
+title: Tabs
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TabsShowcase } from '../../components/specificComponentShowcase/TabsShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Tabs are the ultimate content organizers! Now featuring multiple variants, icons, badges, and professional styling that transforms cluttered interfaces into elegant, navigable experiences.
+
+<ComponentShowcase component={<TabsShowcase />} code={`import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { IconHome, IconSettings } from "@tabler/icons-react"
+
+const EnhancedTabs = () => {
+  return (
+    <div className="space-y-6">
+      {/* Pills variant with icons and badges */}
+      <Tabs defaultValue="home" className="w-full">
+        <TabsList variant="pills">
+          <TabsTrigger value="home" variant="pills" icon={<IconHome className="h-4 w-4" />}>
+            Home
+          </TabsTrigger>
+          <TabsTrigger value="settings" variant="pills" icon={<IconSettings className="h-4 w-4" />} badge={<span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">3</span>}>
+            Settings
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="home" className="mt-4">
+          <div className="p-4 bg-muted rounded-lg">
+            <h4 className="font-medium mb-2">Welcome Home</h4>
+            <p className="text-sm text-muted-foreground">Your personalized dashboard and recent activity.</p>
+          </div>
+        </TabsContent>
+        <TabsContent value="settings" className="mt-4">
+          <div className="p-4 bg-muted rounded-lg">
+            <h4 className="font-medium mb-2">Settings</h4>
+            <p className="text-sm text-muted-foreground">Configure your preferences and account settings.</p>
+          </div>
+        </TabsContent>
+      </Tabs>
+
+      {/* Underline variant */}
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList variant="underline">
+          <TabsTrigger value="overview" variant="underline">Overview</TabsTrigger>
+          <TabsTrigger value="analytics" variant="underline">Analytics</TabsTrigger>
+          <TabsTrigger value="reports" variant="underline">Reports</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview" className="mt-4">
+          <p>Overview content with clean underline styling.</p>
+        </TabsContent>
+        <TabsContent value="analytics" className="mt-4">
+          <p>Analytics data and performance metrics.</p>
+        </TabsContent>
+        <TabsContent value="reports" className="mt-4">
+          <p>Generated reports and export options.</p>
+        </TabsContent>
+      </Tabs>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'tabs'} />
+
+## Usage
+
+Here's how to create enhanced tabbed interfaces with all the new features:
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { IconHome, IconUser, IconSettings } from "@tabler/icons-react"
+
+const EnhancedTabs = () => {
+  return (
+    <Tabs defaultValue="home">
+      {/* Pills variant with icons and badges */}
+      <TabsList variant="pills">
+        <TabsTrigger value="home" variant="pills" icon={<IconHome className="h-4 w-4" />}>
+          Home
+        </TabsTrigger>
+        <TabsTrigger value="profile" variant="pills" icon={<IconUser className="h-4 w-4" />}>
+          Profile
+        </TabsTrigger>
+        <TabsTrigger value="settings" variant="pills" icon={<IconSettings className="h-4 w-4" />} badge={<span className="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">3</span>}>
+          Settings
+        </TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="home">
+        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+          <h4 className="font-medium mb-2">Welcome Home</h4>
+          <p className="text-sm text-muted-foreground">Your personalized dashboard and recent activity.</p>
+        </div>
+      </TabsContent>
+
+      <TabsContent value="profile">
+        <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+          <h4 className="font-medium mb-2">User Profile</h4>
+          <p className="text-sm text-muted-foreground">Manage your profile settings and personal information.</p>
+        </div>
+      </TabsContent>
+
+      <TabsContent value="settings">
+        <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+          <h4 className="font-medium mb-2">Settings</h4>
+          <p className="text-sm text-muted-foreground">Configure your preferences and account settings.</p>
+        </div>
+      </TabsContent>
+    </Tabs>
+  )
+}
+```
+
+## Components
+
+### Tabs
+The root container that manages tab state.
+
+### TabsList
+Container for tab triggers, handles layout.
+
+### TabsTrigger
+Individual tab buttons that users click.
+
+### TabsContent
+Content panels that show/hide based on active tab.
+
+## Props
+
+### Tabs
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `defaultValue` | `string` | No | Initial active tab value |
+| `value` | `string` | No | Controlled active tab value |
+| `onValueChange` | `(value: string) => void` | No | Callback when tab changes |
+
+### TabsList
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `variant` | `"default" \| "underline" \| "pills" \| "buttons"` | No | Visual style variant |
+| `size` | `"sm" \| "default" \| "lg"` | No | Size variant for all tabs |
+
+### TabsTrigger
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `value` | `string` | Yes | Unique identifier for the tab |
+| `variant` | `"default" \| "underline" \| "pills" \| "buttons"` | No | Visual style variant |
+| `size` | `"sm" \| "default" \| "lg"` | No | Size variant |
+| `icon` | `React.ReactNode` | No | Icon to display before text |
+| `badge` | `React.ReactNode` | No | Badge/count to display after text |
+| `disabled` | `boolean` | No | Whether the tab is disabled |
+
+### TabsContent
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `value` | `string` | Yes | Content identifier matching TabsTrigger |
+
+## Features
+
+- **🎨 Multiple Variants**: Default, Underline, Pills, and Buttons styles
+- **📏 Size Options**: Small, Default, and Large sizes
+- **🎯 Icons Support**: Add icons to any tab trigger
+- **🏷️ Badge System**: Display counts, notifications, or custom badges
+- **♿ Full Accessibility**: Keyboard navigation and ARIA support
+- **🎭 Smooth Animations**: Beautiful transitions between tab content
+- **🔧 Disabled States**: Support for disabled tabs
+- **🎪 Visual Feedback**: Hover effects and active states
+- **📱 Responsive Design**: Works perfectly on all screen sizes
+- **🎨 Theme Integration**: Adapts to your design system
+
+## Common Issues
+
+1. **"Tabs not switching!"** - Make sure TabsTrigger and TabsContent have matching values
+2. **"Content not showing!"** - Check that TabsContent values match TabsTrigger values
+3. **"Styling issues!"** - Ensure proper CSS for tab layouts
+
+## Contributing
+
+Tabs organize complex interfaces! Help us improve their accessibility and animations.
+
+Tabs - because not everything belongs on the same page! 📑

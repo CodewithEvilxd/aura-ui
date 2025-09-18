@@ -1,0 +1,168 @@
+---
+title: Floating Card
+description: A 3D floating card component with interactive hover effects and particle animations.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { FloatingCardShowcase } from '../../components/specificComponentShowcase/FloatingCardShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Floating Cards are the next evolution of card components! They add stunning 3D hover effects with mouse tracking, particle animations, and smooth perspective transforms. Perfect for creating immersive user experiences that grab attention and delight users.
+
+<ComponentShowcase component={<FloatingCardShowcase />} code={`import { FloatingCard } from "@/components/ui/floating-card"
+
+export function MyComponent() {
+  return (
+    <FloatingCard intensity="medium">
+      <div className="text-center">
+        <h3 className="text-lg font-semibold">Floating Card</h3>
+        <p className="text-sm text-muted-foreground">
+          This card floats with 3D effects on hover
+        </p>
+      </div>
+    </FloatingCard>
+  )
+}`} showRefresh />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'floating-card'} />
+
+## Usage
+
+```tsx
+import { FloatingCard } from "@/components/ui/floating-card"
+
+export function Example() {
+  return (
+    <FloatingCard intensity="high">
+      <div className="p-6">
+        <h3 className="text-lg font-semibold">3D Floating Card</h3>
+        <p>Move your mouse over this card to see the 3D floating effect!</p>
+      </div>
+    </FloatingCard>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `intensity` | `"low" \| "medium" \| "high"` | No | Controls the strength of the 3D effect (default: "medium") |
+| `children` | `React.ReactNode` | Yes | The content to display inside the card |
+
+## Intensity Levels
+
+### Low Intensity
+Subtle 3D transformations with gentle floating effects.
+
+```tsx
+<FloatingCard intensity="low">
+  <div>Content</div>
+</FloatingCard>
+```
+
+### Medium Intensity (Default)
+Balanced 3D effects with smooth hover animations.
+
+```tsx
+<FloatingCard intensity="medium">
+  <div>Content</div>
+</FloatingCard>
+```
+
+### High Intensity
+Dramatic 3D transformations with strong perspective effects.
+
+```tsx
+<FloatingCard intensity="high">
+  <div>Content</div>
+</FloatingCard>
+```
+
+## Features
+
+- **3D Hover Effects**: Mouse tracking with perspective transforms
+- **Particle Animations**: Floating particles appear on hover
+- **Gradient Borders**: Animated gradient borders on interaction
+- **Smooth Transitions**: CSS transitions for all animations
+- **Customizable Intensity**: Three levels of 3D effect strength
+- **Responsive Design**: Works on all screen sizes
+
+## Advanced Usage
+
+### With Custom Content
+
+```tsx
+<FloatingCard intensity="high">
+  <div className="space-y-4">
+    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mx-auto flex items-center justify-center">
+      <span className="text-2xl">🚀</span>
+    </div>
+    <div className="text-center">
+      <h3 className="text-lg font-semibold">Premium Feature</h3>
+      <p className="text-sm text-muted-foreground">
+        Unlock advanced capabilities with our premium plan
+      </p>
+      <button className="mt-3 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
+        Upgrade Now
+      </button>
+    </div>
+  </div>
+</FloatingCard>
+```
+
+### Multiple Cards Grid
+
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <FloatingCard intensity="low">
+    <div className="text-center">
+      <div className="text-4xl mb-2">🎯</div>
+      <h4 className="font-semibold">Target</h4>
+      <p className="text-sm opacity-80">Precision focused</p>
+    </div>
+  </FloatingCard>
+
+  <FloatingCard intensity="medium">
+    <div className="text-center">
+      <div className="text-4xl mb-2">⚡</div>
+      <h4 className="font-semibold">Speed</h4>
+      <p className="text-sm opacity-80">Lightning fast</p>
+    </div>
+  </FloatingCard>
+
+  <FloatingCard intensity="high">
+    <div className="text-center">
+      <div className="text-4xl mb-2">🎨</div>
+      <h4 className="font-semibold">Creative</h4>
+      <p className="text-sm opacity-80">Highly creative</p>
+    </div>
+  </FloatingCard>
+</div>
+```
+
+## Accessibility
+
+The FloatingCard component includes proper accessibility features:
+
+- **Keyboard Navigation**: Fully keyboard accessible
+- **Screen Reader Support**: Proper ARIA labels and descriptions
+- **Reduced Motion**: Respects user's motion preferences
+- **Focus Management**: Clear focus indicators
+
+## Performance
+
+- **GPU Accelerated**: Uses `transform-gpu` for hardware acceleration
+- **Optimized Animations**: Smooth 60fps animations
+- **Lazy Loading**: Animations only trigger on interaction
+- **Memory Efficient**: Minimal memory footprint
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS 3D transform support
+- **Fallback**: Graceful degradation for older browsers

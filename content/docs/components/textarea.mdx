@@ -1,0 +1,84 @@
+---
+title: Textarea
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TextareaShowcase } from '../../components/specificComponentShowcase/TextareaShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Textareas are the spacious cousins of text inputs. They provide room for longer thoughts, detailed feedback, and multi-line content.
+
+<ComponentShowcase component={<TextareaShowcase />} code={`import { Textarea } from "@/components/ui/textarea"
+
+const FeedbackForm = () => {
+  const [feedback, setFeedback] = React.useState('')
+
+  return (
+    <div className="space-y-2">
+      <Textarea
+        placeholder="Tell us what you think..."
+        value={feedback}
+        onChange={(e) => setFeedback(e.target.value)}
+      />
+      <p className="text-sm text-muted-foreground">
+        {feedback.length} characters
+      </p>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'textarea'} />
+
+## Usage
+
+Here's how to add textareas to your forms:
+
+```tsx
+import { Textarea } from "@/components/ui/textarea"
+
+const ContactForm = () => {
+  const [message, setMessage] = React.useState('')
+
+  return (
+    <Textarea
+      placeholder="Enter your message here..."
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+      rows={4}
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `placeholder` | `string` | No | Placeholder text shown when empty |
+| `value` | `string` | No | The current value of the textarea |
+| `onChange` | `(e: ChangeEvent) => void` | No | Callback when value changes |
+| `rows` | `number` | No | Number of visible text lines |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Auto-resizing**: Expands naturally with content
+- **Form Integration**: Works seamlessly with form libraries
+- **Validation Ready**: Supports all standard form validation
+- **Theme Aware**: Adapts to your design system styling
+
+## Common Issues
+
+1. **"Textarea not resizing!"** - The component uses CSS for sizing, check your form layout
+2. **"Text not wrapping!"** - Ensure proper CSS white-space settings
+3. **"Height not adjusting!"** - Use the rows prop or custom CSS for height control
+
+## Contributing
+
+Textareas handle a lot of user input! Help us improve their UX and accessibility.
+
+Textareas - because sometimes you need more than just a line! 📝

@@ -1,0 +1,94 @@
+---
+title: Standard API Response and Error
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+
+Because who doesn't love standardized responses? Let's make your API responses as predictable as your morning coffee routine.
+
+## Installation
+<InstallationCommand component={'api-response-and-error'} />
+
+## ApiResponse
+
+Ah, the `ApiResponse` class - your API's way of saying "I'm not dead, I promise!" This class is like that friend who always responds to your texts, even if it's just to say "k".
+
+### Usage
+
+```tsx
+import { ApiResponse } from '@/utils/apiResponse'
+
+// When everything goes right (which is never, but let's pretend)
+const successResponse = new ApiResponse(200, { data: "I'm working, I swear!" })
+
+// When you're not sure what's happening (which is always)
+const confusedResponse = new ApiResponse(418, null, "I'm a teapot, not a coffee maker!")
+```
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `statusCode` | `number` | The HTTP status code that tells your frontend whether to celebrate or cry |
+| `data` | `Record<string, unknown> \| null` | The actual data (if any) that your frontend will probably ignore anyway |
+| `message` | `string` | A friendly message that no one will read |
+| `success` | `boolean` | A boolean that's automatically set based on whether your status code is less than 400 (because who needs explicit success flags?) |
+
+## ApiError
+
+Meet `ApiError`, the class that makes your frontend developers cry. It's like `Error`, but with extra steps and more ways to tell you that something went wrong.
+
+### Usage
+
+```tsx
+import { ApiError } from '@/utils/apiError'
+
+// When your database is having an existential crisis
+const dbError = new ApiError(500, "The database is questioning its life choices")
+
+// When your user tries to access something they shouldn't
+const authError = new ApiError(403, "Nice try, but you're not getting in here", ["Missing permissions", "Invalid token"])
+```
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `statusCode` | `number` | The HTTP status code that tells your frontend exactly how much trouble they're in |
+| `message` | `string` | A message that will make your users feel bad about themselves |
+| `success` | `boolean` | Always `false` because if it was `true`, you wouldn't be using this class |
+| `errors` | `string[]` | An array of additional error messages, because one error is never enough |
+
+## Why Use These?
+
+- **Consistency**: Because nothing says "professional" like consistent error messages
+- **Type Safety**: TypeScript will yell at you if you try to do something stupid (which you probably will)
+- **Debugging**: When things go wrong (and they will), you'll know exactly who to blame
+- **User Experience**: Your users will love getting the same error message in 50 different ways
+
+## Best Practices
+
+1. Always use meaningful status codes (because 418 is more fun than 400)
+2. Keep error messages short and sweet (or long and passive-aggressive)
+3. Use the `errors` array to list every single thing that went wrong (your users love reading)
+4. Remember: if your API is working perfectly, you're probably doing something wrong
+
+## Example
+
+```tsx
+// The perfect API response (it doesn't exist, but we can dream)
+const perfectResponse = new ApiResponse(200, {
+  data: "Everything is working as expected",
+  timestamp: new Date().toISOString(),
+  unicorns: "🦄"
+})
+
+// The reality (this is what you'll actually get)
+const reality = new ApiError(500, "The server is having a bad day", [
+  "Database connection failed",
+  "Cache is having an existential crisis",
+  "The coffee machine is broken"
+])
+```
+
+Remember: in the world of APIs, the only constant is that something will always go wrong. But with these classes, at least it'll go wrong in a standardized way! 🎉

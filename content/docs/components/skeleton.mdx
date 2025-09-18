@@ -1,0 +1,184 @@
+---
+title: Skeleton
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { SkeletonShowcase } from '../../components/specificComponentShowcase/SkeletonShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Skeleton loaders are the digital ghosts of your content. They provide visual feedback during loading states, creating a smooth user experience that feels alive and responsive.
+
+<ComponentShowcase component={<SkeletonShowcase />} code={`import { Skeleton } from "@/components/ui/skeleton"
+
+const LoadingCard = () => {
+  return (
+    <div className="space-y-3">
+      <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-3/4" />
+      <Skeleton className="h-4 w-1/2" />
+      <div className="flex space-x-2">
+        <Skeleton className="h-8 w-16" />
+        <Skeleton className="h-8 w-16" />
+      </div>
+    </div>
+  )
+}
+
+const CustomSkeleton = () => {
+  return (
+    <div className="space-y-4">
+      {/* Different animation speeds */}
+      <Skeleton className="h-4 w-full" speed="slow" />
+      <Skeleton className="h-4 w-3/4" speed="normal" />
+      <Skeleton className="h-4 w-1/2" speed="fast" />
+
+      {/* Different shapes */}
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <Skeleton className="h-8 w-20 rounded-full" />
+      <Skeleton className="h-6 w-32 rounded-none" />
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'skeleton'} />
+
+## Usage
+
+Skeleton components are perfect for loading states:
+
+```tsx
+import { Skeleton } from "@/components/ui/skeleton"
+
+const LoadingState = () => {
+  return (
+    <div className="space-y-4">
+      {/* Text lines */}
+      <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-3/4" />
+      <Skeleton className="h-4 w-1/2" />
+
+      {/* Avatar */}
+      <Skeleton className="h-10 w-10 rounded-full" />
+
+      {/* Button */}
+      <Skeleton className="h-10 w-24" />
+
+      {/* Card */}
+      <div className="border rounded-lg p-4 space-y-3">
+        <Skeleton className="h-6 w-1/3" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-2/3" />
+      </div>
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `variant` | `"pulse" \| "wave" \| "none"` | No | Animation variant (default: "pulse") |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Animation speed (default: "normal") |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Multiple Animation Variants**: Pulse, wave, and static options
+- **Customizable Speed**: Slow, normal, and fast animation speeds
+- **Flexible Sizing**: Any width and height with Tailwind classes
+- **Custom Shapes**: Rounded corners, circles, and custom shapes
+- **Theme Aware**: Adapts to your design system colors
+- **Performance**: Lightweight and efficient rendering
+- **TypeScript Support**: Full type safety with proper interfaces
+
+## Common Patterns
+
+### Text Loading
+```tsx
+<div className="space-y-2">
+  <Skeleton className="h-4 w-full" />
+  <Skeleton className="h-4 w-4/5" />
+  <Skeleton className="h-4 w-3/5" />
+</div>
+```
+
+### Card Loading
+```tsx
+<div className="border rounded-lg p-4 space-y-3">
+  <Skeleton className="h-6 w-1/3" />
+  <Skeleton className="h-4 w-full" />
+  <Skeleton className="h-4 w-2/3" />
+  <div className="flex space-x-2">
+    <Skeleton className="h-8 w-16" />
+    <Skeleton className="h-8 w-16" />
+  </div>
+</div>
+```
+
+### Different Animation Speeds
+```tsx
+<div className="space-y-2">
+  <Skeleton className="h-4 w-full" speed="slow" />
+  <Skeleton className="h-4 w-3/4" speed="normal" />
+  <Skeleton className="h-4 w-1/2" speed="fast" />
+</div>
+```
+
+### Custom Shapes
+```tsx
+<div className="flex space-x-4">
+  {/* Circle avatars */}
+  <Skeleton className="h-12 w-12 rounded-full" />
+  <Skeleton className="h-16 w-16 rounded-full" />
+
+  {/* Square images */}
+  <Skeleton className="h-20 w-20 rounded-lg" />
+  <Skeleton className="h-24 w-24 rounded-none" />
+
+  {/* Custom shapes */}
+  <Skeleton className="h-8 w-32 rounded-full" />
+</div>
+```
+
+### Complex Layout Skeleton
+```tsx
+<div className="border rounded-lg p-6">
+  {/* Header */}
+  <div className="flex items-center space-x-4 mb-4">
+    <Skeleton className="h-12 w-12 rounded-full" />
+    <div className="space-y-2">
+      <Skeleton className="h-4 w-32" />
+      <Skeleton className="h-3 w-24" />
+    </div>
+  </div>
+
+  {/* Content */}
+  <div className="space-y-3 mb-4">
+    <Skeleton className="h-4 w-full" />
+    <Skeleton className="h-4 w-full" />
+    <Skeleton className="h-4 w-3/4" />
+  </div>
+
+  {/* Actions */}
+  <div className="flex space-x-2">
+    <Skeleton className="h-8 w-20" />
+    <Skeleton className="h-8 w-16" />
+  </div>
+</div>
+```
+
+### Avatar Loading
+```tsx
+<Skeleton className="h-12 w-12 rounded-full" />
+```
+
+## Contributing
+
+Skeleton loaders make loading states feel less like waiting and more like anticipation! Help us improve their animations and add more loading patterns.
+
+Skeleton - because even loading should look good! 💀✨

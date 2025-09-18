@@ -1,0 +1,84 @@
+---
+title: Pagination
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { PaginationShowcase } from '../../components/specificComponentShowcase/PaginationShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Pagination is the bridge between overwhelming data and manageable chunks. It turns "too much information" into "just the right amount" with elegant navigation controls.
+
+<ComponentShowcase component={<PaginationShowcase />} code={`import { Pagination } from "@/components/ui/pagination"
+
+const DataTable = () => {
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const totalPages = 10
+
+  return (
+    <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={setCurrentPage}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'pagination'} />
+
+## Usage
+
+Here's how to implement pagination:
+
+```tsx
+import { Pagination } from "@/components/ui/pagination"
+
+const MyComponent = () => {
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const itemsPerPage = 10
+  const totalItems = 95
+  const totalPages = Math.ceil(totalItems / itemsPerPage)
+
+  return (
+    <div>
+      {/* Your content here */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `currentPage` | `number` | Yes | The currently active page number |
+| `totalPages` | `number` | Yes | Total number of pages available |
+| `onPageChange` | `(page: number) => void` | Yes | Callback when page changes |
+| `className` | `string` | No | Additional CSS classes |
+
+## Features
+
+- **Smart Navigation**: Previous/Next buttons with proper disabled states
+- **Page Ellipsis**: Shows "..." for large page ranges
+- **Keyboard Friendly**: Full keyboard navigation support
+- **Responsive Design**: Adapts to different screen sizes
+
+## Common Issues
+
+1. **"Pagination not updating!"** - Make sure you're updating currentPage state correctly
+2. **"Wrong page count!"** - Double-check your totalPages calculation
+3. **"Buttons not working!"** - Ensure onPageChange callback updates your state
+
+## Contributing
+
+Pagination is crucial for data-heavy applications! Help us optimize its performance and UX.
+
+Pagination - because not all data fits on one page! 📄

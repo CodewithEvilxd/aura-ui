@@ -1,0 +1,77 @@
+---
+title: Dark Mode Toggle
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { DarkModeToggleShowcase } from '../../components/specificComponentShowcase/DarkModeToggleShowcase.tsx'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+The Dark Mode Toggle - because your eyes deserve better than staring at a bright screen at 3 AM. This component is like a light switch, but for your entire app. It's the hero we need, not the one we deserve.
+
+<ComponentShowcase component={<DarkModeToggleShowcase />} code={`
+'use client'
+import { useTheme } from "next-themes";
+import { DarkModeToggle } from "@/registry/components/ui/dark-mode-toggle"
+
+export const DarkModeToggleShowcase = () => {
+  const { theme, setTheme } = useTheme();
+  const toggleDark = () => setTheme(theme === 'light' ? 'dark' : 'light');
+
+  return <DarkModeToggle toggleDark={toggleDark} />
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies. This component is a bit of a diva - it needs its theme provider:
+
+
+<InstallationCommand component={'dark-mode-toggle'} />
+
+
+## Usage
+
+Here's how to bring the darkness (or light) to your app:
+
+```tsx
+'use client'
+
+import { useTheme } from "next-themes";
+import { DarkModeToggle } from "@/registry/components/ui/dark-mode-toggle"
+
+export const DarkModeToggleShowcase = () => {
+  const { theme, setTheme } = useTheme();
+  const toggleDark = () => setTheme(theme === 'light' ? 'dark' : 'light');
+
+  return <DarkModeToggle toggleDark={toggleDark} />
+}
+```
+
+## Props
+
+The component is refreshingly simple - it's like a light switch, but without the confusing "which way is on?" part:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `toggleDark` | `() => void` | Yes | The function that handles the theme toggle. It's like the component's personal assistant, doing all the heavy lifting |
+| `className` | `string` | No | Additional CSS classes. Because even dark mode toggles need a makeover sometimes |
+
+## Features
+
+- **Smooth Transitions**: Because sudden theme changes are so 2010
+- **Persistent Theme**: Remembers your preference, unlike your ex
+- **Accessible**: Works with keyboard and screen readers, because not everyone uses a mouse
+- **Responsive**: Looks good on all screen sizes, unlike some of your selfies
+
+## Common Issues
+
+1. **"The toggle isn't working!"** - Did you wrap your app in a `ThemeProvider`? It's like trying to turn on a light without electricity
+
+2. **"The theme isn't persisting!"** - Check if you've set up your theme storage correctly. The component has commitment issues
+
+3. **"It's not working in dark mode!"** - That's... that's the point of the component
+
+## Contributing
+
+Found a bug? Want to make it even more dramatic? Feel free to submit a PR. Just make sure your code is as clean as your browser history (which we all know is spotless, right?).
+
+The Dark Mode Toggle - because sometimes you need to switch things up, even if it's just the color scheme! 🌙 

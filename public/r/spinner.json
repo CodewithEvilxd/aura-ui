@@ -1,0 +1,13 @@
+{
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "A loading spinner component with different sizes",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/components/ui/spinner.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst spinnerVariants = cva(\n  \"animate-spin rounded-full border-2 border-gray-300 border-t-gray-600\",\n  {\n    variants: {\n      size: {\n        sm: \"h-4 w-4\",\n        default: \"h-6 w-6\",\n        lg: \"h-8 w-8\",\n        xl: \"h-12 w-12\",\n      },\n    },\n    defaultVariants: {\n      size: \"default\",\n    },\n  }\n)\n\nexport interface SpinnerProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof spinnerVariants> {}\n\nconst Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(\n  ({ className, size, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(spinnerVariants({ size }), className)}\n      {...props}\n    />\n  )\n)\nSpinner.displayName = \"Spinner\"\n\nexport { Spinner, spinnerVariants }"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+---
+title: Spinner
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { SpinnerShowcase } from '../../components/specificComponentShowcase/SpinnerShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Spinners are the digital hourglasses of the modern web. They keep users informed that something is happening in the background, turning wait time into anticipation.
+
+<ComponentShowcase component={<SpinnerShowcase />} code={`import { Spinner } from "@/components/ui/spinner"
+
+const LoadingComponent = () => {
+  return (
+    <div className="flex items-center space-x-4">
+      <Spinner size="sm" />
+      <Spinner size="default" />
+      <Spinner size="lg" />
+      <span>Loading...</span>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'spinner'} />
+
+## Usage
+
+Here's how to add a spinner to your loading states:
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+
+const MyComponent = () => {
+  const [isLoading, setIsLoading] = React.useState(true)
+
+  return (
+    <div>
+      {isLoading ? (
+        <div className="flex justify-center">
+          <Spinner />
+        </div>
+      ) : (
+        <div>Content loaded!</div>
+      )}
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `size` | `"sm" \| "default" \| "lg" \| "xl"` | No | The size variant of the spinner |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Multiple Sizes**: From tiny to extra large for different contexts
+- **Smooth Animation**: CSS-based animation for optimal performance
+- **Theme Integration**: Uses your design system colors
+- **Flexible Positioning**: Easy to center or align as needed
+
+## Common Issues
+
+1. **"Spinner is not spinning!"** - Check if you have Tailwind CSS properly configured
+2. **"Wrong color!"** - The spinner uses border colors, ensure your theme has proper border definitions
+3. **"Too fast/slow!"** - Animation speed is controlled by CSS, modify the animate-spin class if needed
+
+## Contributing
+
+Spinners might be simple, but they're crucial for UX! Help us optimize their performance and accessibility.
+
+Spinners - because good things come to those who wait! ⏳

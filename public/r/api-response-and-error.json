@@ -1,0 +1,20 @@
+{
+  "name": "api-response-and-error",
+  "title": "Standard API Resoponse and Error",
+  "description": "Standard API Resoponse and Error snippet",
+  "type": "registry:snippet",
+  "files": [
+    {
+      "path": "registry/backend-snippets/src/utils/apiResponse.ts",
+      "type": "registry:snippet",
+      "target": "src/utils",
+      "content": "class ApiResponse {\n  statusCode: number;\n  data: Record<string, unknown> | null;\n  message: string;\n  success: boolean;\n\n  constructor(statusCode: number, data: Record<string, unknown> | null, message = \"Success\") {\n    this.statusCode = statusCode\n    this.data = data\n    this.message = message\n    this.success = statusCode < 400\n  }\n}\n\nexport { ApiResponse }"
+    },
+    {
+      "path": "registry/backend-snippets/src/utils/apiError.ts",
+      "type": "registry:snippet",
+      "target": "src/utils",
+      "content": "class ApiError extends Error {\n  statusCode: number;\n  message: string;\n  success: boolean;\n  errors: string[];\n  \n  constructor(\n    statusCode: number,\n    message = \"Something went wrong\",\n    errors: string[] = [],\n  ) {\n    super(message);\n    this.statusCode = statusCode;\n    this.message = message;\n    this.success = false;\n    this.errors = errors;\n  }\n}\n\nexport { ApiError }"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+---
+title: Toast
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ToastShowcase } from '../../components/specificComponentShowcase/ToastShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Toast notifications are the polite messengers of your application. They deliver important information without demanding attention, appearing and disappearing with grace and purpose.
+
+<ComponentShowcase component={<ToastShowcase />} code={`import { Toast, ToastProvider, ToastViewport } from "@/components/ui/toast"
+
+const ToastExample = () => {
+  return (
+    <ToastProvider>
+      <div className="space-y-4">
+        <button
+          onClick={() => {
+            // Show success toast
+            console.log('Success toast would appear!')
+          }}
+          className="px-4 py-2 bg-green-500 text-white rounded"
+        >
+          Show Success Toast
+        </button>
+
+        <button
+          onClick={() => {
+            // Show error toast
+            console.log('Error toast would appear!')
+          }}
+          className="px-4 py-2 bg-red-500 text-white rounded"
+        >
+          Show Error Toast
+        </button>
+      </div>
+
+      <ToastViewport />
+    </ToastProvider>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'toast'} />
+
+## Usage
+
+Toast notifications provide feedback for user actions:
+
+```tsx
+import { Toast, ToastProvider, ToastViewport, ToastTitle, ToastDescription } from "@/components/ui/toast"
+
+const App = () => {
+  return (
+    <ToastProvider>
+      <div>
+        {/* Your app content */}
+        <button onClick={showSuccessToast}>Save Changes</button>
+      </div>
+
+      <ToastViewport />
+    </ToastProvider>
+  )
+}
+
+const showSuccessToast = () => {
+  // Implementation would show toast
+  console.log('Changes saved successfully!')
+}
+```
+
+## Components
+
+### ToastProvider
+The root provider that manages toast state.
+
+### ToastViewport
+The container where toasts are rendered.
+
+### Toast
+Individual toast notification.
+
+### ToastTitle
+The title of the toast.
+
+### ToastDescription
+The description/content of the toast.
+
+### ToastClose
+Close button for the toast.
+
+### ToastAction
+Action button for the toast.
+
+## Props
+
+### Toast
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `variant` | `"default" \| "destructive" \| "success" \| "warning"` | No | Visual style variant |
+| `duration` | `number` | No | Auto-dismiss duration in milliseconds |
+
+### ToastViewport
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `className` | `string` | No | Additional CSS classes |
+
+## Variants
+
+### Success Toast
+```tsx
+<Toast variant="success">
+  <ToastTitle>Success!</ToastTitle>
+  <ToastDescription>Your changes have been saved.</ToastDescription>
+</Toast>
+```
+
+### Error Toast
+```tsx
+<Toast variant="destructive">
+  <ToastTitle>Error</ToastTitle>
+  <ToastDescription>Something went wrong. Please try again.</ToastDescription>
+</Toast>
+```
+
+### Warning Toast
+```tsx
+<Toast variant="warning">
+  <ToastTitle>Warning</ToastTitle>
+  <ToastDescription>Please review your input before continuing.</ToastDescription>
+</Toast>
+```
+
+## Features
+
+- **Multiple Variants**: Success, error, warning, and default styles
+- **Auto-dismiss**: Configurable timeout for automatic dismissal
+- **Stackable**: Multiple toasts can be displayed simultaneously
+- **Accessible**: Full keyboard navigation and screen reader support
+- **Smooth Animations**: Elegant slide-in and fade-out transitions
+- **Customizable**: Extensive styling and positioning options
+
+## Common Use Cases
+
+### Form Submissions
+```tsx
+const handleSubmit = async () => {
+  try {
+    await saveData()
+    // Show success toast
+  } catch (error) {
+    // Show error toast
+  }
+}
+```
+
+### User Actions
+```tsx
+const handleDelete = () => {
+  // Show confirmation toast with undo action
+}
+```
+
+### System Notifications
+```tsx
+const handleConnectionLost = () => {
+  // Show warning toast about connection issues
+}
+```
+
+## Contributing
+
+Toast notifications are the unsung heroes of user feedback! Help us improve their animations, add more variants, and enhance accessibility.
+
+Toast - because good news should arrive with style! 🍞✨

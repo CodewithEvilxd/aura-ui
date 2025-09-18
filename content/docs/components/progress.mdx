@@ -1,0 +1,313 @@
+---
+title: Progress
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ProgressShowcase } from '../../components/specificComponentShowcase/ProgressShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Progress bars are the visual storytellers of your application's loading states. They turn waiting into anticipation by showing users exactly how far they've come.
+
+<ComponentShowcase component={<ProgressShowcase />} code={`import { Progress } from "@/components/ui/progress"
+
+const FileUploadProgress = () => {
+  const [progress, setProgress] = React.useState(33)
+
+  return (
+    <div className="space-y-2">
+      <Progress value={progress} showValue />
+      <p className="text-sm text-muted-foreground">
+        Uploading file... {progress}% complete
+      </p>
+    </div>
+  )
+}
+
+const TaskProgress = () => {
+  return (
+    <div className="space-y-4">
+      <Progress value={75} variant="success" size="lg" showValue />
+      <Progress value={45} variant="warning" showValue />
+      <Progress value={90} variant="gradient" size="sm" />
+    </div>
+  )
+}`} showRefresh />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'progress'} />
+
+## Usage
+
+Here's how to implement progress indicators:
+
+```tsx
+import { Progress } from "@/components/ui/progress"
+
+const MyComponent = () => {
+  const [progress, setProgress] = React.useState(0)
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(prev => prev < 100 ? prev + 10 : 100)
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return <Progress value={progress} />
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `value` | `number` | No | The current progress value (0-100) |
+| `max` | `number` | No | The maximum value (default: 100) |
+| `size` | `"sm" \| "default" \| "lg" \| "xl"` | No | Size variant (default: "default") |
+| `variant` | `"default" \| "success" \| "warning" \| "error" \| "gradient"` | No | Color variant (default: "default") |
+| `showValue` | `boolean` | No | Whether to display value text (default: false) |
+| `animated` | `boolean` | No | Whether to animate value changes (default: true) |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Multiple Sizes**: Small, default, large, and extra large
+- **Color Variants**: Default, success, warning, error, and gradient
+- **Value Display**: Optional percentage and value display
+- **Smooth Animations**: Configurable CSS transitions
+- **Flexible Values**: Support for any numeric range
+- **Theme Integration**: Uses your design system colors
+- **Accessible**: Proper ARIA attributes for screen readers
+- **TypeScript Support**: Full type safety with proper interfaces
+
+## Advanced Usage
+
+### File Upload Progress
+```tsx
+const FileUploadProgress = () => {
+  const [uploadProgress, setUploadProgress] = useState(0)
+  const [isUploading, setIsUploading] = useState(false)
+
+  const handleFileUpload = async (file: File) => {
+    setIsUploading(true)
+    setUploadProgress(0)
+
+    // Simulate upload with progress
+    const interval = setInterval(() => {
+      setUploadProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval)
+          setIsUploading(false)
+          return 100
+        }
+        return prev + 10
+      })
+    }, 200)
+  }
+
+  return (
+    <div className="space-y-2">
+      <Progress
+        value={uploadProgress}
+        variant={uploadProgress === 100 ? "success" : "default"}
+        showValue
+        size="lg"
+      />
+      <p className="text-sm text-muted-foreground">
+        {isUploading ? `Uploading... ${uploadProgress}%` : 'Upload complete!'}
+      </p>
+    </div>
+  )
+}
+```
+
+### Multi-step Process
+```tsx
+const MultiStepProgress = () => {
+  const [currentStep, setCurrentStep] = useState(1)
+  const totalSteps = 5
+  const progress = (currentStep / totalSteps) * 100
+
+  const steps = [
+    "Personal Info",
+    "Address Details",
+    "Payment Info",
+    "Review Order",
+    "Complete"
+  ]
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between text-sm">
+        {steps.map((step, index) => (
+          <span
+            key={index}
+            className={cn(
+              "px-2 py-1 rounded",
+              index + 1 <= currentStep
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted text-muted-foreground"
+            )}
+          >
+            {step}
+          </span>
+        ))}
+      </div>
+
+      <Progress
+        value={progress}
+        variant="gradient"
+        showValue
+        size="lg"
+      />
+
+      <div className="flex justify-between">
+        <button
+          onClick={() => setCurrentStep(prev => Math.max(1, prev - 1))}
+          disabled={currentStep === 1}
+          className="px-4 py-2 border rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => setCurrentStep(prev => Math.min(totalSteps, prev + 1))}
+          disabled={currentStep === totalSteps}
+          className="px-4 py-2 bg-primary text-primary-foreground rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Task Completion Tracker
+```tsx
+const TaskTracker = () => {
+  const [tasks, setTasks] = useState([
+    { id: 1, title: "Design mockups", completed: true },
+    { id: 2, title: "Implement components", completed: true },
+    { id: 3, title: "Write documentation", completed: false },
+    { id: 4, title: "Testing", completed: false },
+  ])
+
+  const completedTasks = tasks.filter(task => task.completed).length
+  const progress = (completedTasks / tasks.length) * 100
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <h3 className="font-medium">Project Progress</h3>
+        <span className="text-sm text-muted-foreground">
+          {completedTasks}/{tasks.length} tasks completed
+        </span>
+      </div>
+
+      <Progress
+        value={progress}
+        variant={progress === 100 ? "success" : "default"}
+        showValue
+        size="lg"
+      />
+
+      <div className="space-y-2">
+        {tasks.map(task => (
+          <div key={task.id} className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => {
+                setTasks(prev => prev.map(t =>
+                  t.id === task.id ? { ...t, completed: !t.completed } : t
+                ))
+              }}
+            />
+            <span className={cn(
+              task.completed && "line-through text-muted-foreground"
+            )}>
+              {task.title}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+```
+
+## Common Patterns
+
+### Loading States
+```tsx
+const LoadingState = () => {
+  const [loading, setLoading] = useState(true)
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    if (loading) {
+      const interval = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 100) {
+            setLoading(false)
+            return 100
+          }
+          return prev + 5
+        })
+      }, 100)
+      return () => clearInterval(interval)
+    }
+  }, [loading])
+
+  return (
+    <div className="space-y-4">
+      <Progress value={progress} variant="gradient" showValue />
+      <p className="text-center text-muted-foreground">
+        {loading ? 'Loading...' : 'Complete!'}
+      </p>
+    </div>
+  )
+}
+```
+
+### Skill Level Indicator
+```tsx
+const SkillProgress = ({ skill, level }: { skill: string, level: number }) => {
+  const getVariant = (level: number) => {
+    if (level >= 80) return "success"
+    if (level >= 60) return "warning"
+    return "error"
+  }
+
+  return (
+    <div className="space-y-2">
+      <div className="flex justify-between text-sm">
+        <span>{skill}</span>
+        <span>{level}%</span>
+      </div>
+      <Progress
+        value={level}
+        variant={getVariant(level)}
+        size="sm"
+      />
+    </div>
+  )
+}
+```
+
+## Common Issues
+
+1. **"Progress bar not updating!"** - Make sure you're updating the value prop correctly and the component is re-rendering
+2. **"Wrong color!"** - Check your theme configuration and variant prop usage
+3. **"Animation is choppy!"** - Ensure smooth value transitions and consider using `animated={false}` for instant updates
+4. **"Value display not showing!"** - Make sure to set `showValue={true}` prop
+5. **"Size not changing!"** - Verify you're using the correct size prop values: "sm", "default", "lg", "xl"
+
+## Contributing
+
+Progress bars are essential for user feedback! Help us optimize their animations and accessibility.
+
+Progress bars - because every journey deserves a map! 📊

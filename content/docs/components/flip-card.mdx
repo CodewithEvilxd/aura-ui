@@ -1,0 +1,242 @@
+---
+title: Flip Card
+description: Interactive card component with 3D flip animations and multiple trigger options.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { FlipCardShowcase } from '../../components/specificComponentShowcase/FlipCardShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Flip Cards add dramatic 3D flip effects to your content! With support for hover and click triggers, auto-flip functionality, and smooth perspective animations, these cards create engaging interactive experiences that reveal different content on each side.
+
+<ComponentShowcase component={<FlipCardShowcase />} code={`import { FlipCard } from "@/components/ui/flip-card"
+
+const FlipCardDemo = () => {
+  return (
+    <FlipCard
+      frontContent={<div>Front Side</div>}
+      backContent={<div>Back Side</div>}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'flip-card'} />
+
+## Usage
+
+```tsx
+import { FlipCard } from "@/components/ui/flip-card"
+
+export function Example() {
+  return (
+    <FlipCard
+      frontContent={
+        <div className="p-6 text-center">
+          <h3>Front Side</h3>
+          <p>Hover to flip!</p>
+        </div>
+      }
+      backContent={
+        <div className="p-6 text-center">
+          <h3>Back Side</h3>
+          <p>Flipped content!</p>
+        </div>
+      }
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `frontContent` | `React.ReactNode` | Yes | Content for the front side of the card |
+| `backContent` | `React.ReactNode` | No | Content for the back side of the card |
+| `flipDirection` | `"horizontal" \| "vertical"` | No | Direction of the flip animation (default: "horizontal") |
+| `flipOnHover` | `boolean` | No | Enable flip on hover (default: true) |
+| `flipOnClick` | `boolean` | No | Enable flip on click (default: false) |
+| `autoFlip` | `boolean` | No | Enable automatic flipping (default: false) |
+| `autoFlipDelay` | `number` | No | Delay between auto-flips in milliseconds (default: 3000) |
+
+## Flip Directions
+
+### Horizontal Flip
+Cards flip left to right (default behavior).
+
+```tsx
+<FlipCard
+  flipDirection="horizontal"
+  frontContent={<div>Front</div>}
+  backContent={<div>Back</div>}
+/>
+```
+
+### Vertical Flip
+Cards flip top to bottom.
+
+```tsx
+<FlipCard
+  flipDirection="vertical"
+  frontContent={<div>Front</div>}
+  backContent={<div>Back</div>}
+/>
+```
+
+## Trigger Options
+
+### Hover Trigger (Default)
+Cards flip when you hover over them.
+
+```tsx
+<FlipCard
+  flipOnHover={true}
+  frontContent={<div>Hover me!</div>}
+  backContent={<div>Flipped!</div>}
+/>
+```
+
+### Click Trigger
+Cards flip when you click them.
+
+```tsx
+<FlipCard
+  flipOnClick={true}
+  flipOnHover={false}
+  frontContent={<div>Click me!</div>}
+  backContent={<div>Flipped!</div>}
+/>
+```
+
+### Auto Flip
+Cards automatically flip at regular intervals.
+
+```tsx
+<FlipCard
+  autoFlip={true}
+  autoFlipDelay={2000}
+  frontContent={<div>Auto flip!</div>}
+  backContent={<div>Flipped automatically!</div>}
+/>
+```
+
+## Features
+
+- **3D Flip Effects**: Smooth perspective transforms with depth
+- **Multiple Triggers**: Hover, click, and auto-flip options
+- **Directional Control**: Horizontal and vertical flip directions
+- **Particle Effects**: Animated particles on interaction
+- **Customizable Timing**: Adjustable auto-flip delays
+- **Smooth Animations**: Hardware-accelerated CSS transforms
+- **Responsive Design**: Works on all screen sizes
+
+## Advanced Usage
+
+### Profile Cards
+
+```tsx
+<FlipCard
+  frontContent={
+    <div className="text-center p-6">
+      <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+        <span className="text-2xl text-white">👤</span>
+      </div>
+      <h3 className="font-semibold mb-2">John Doe</h3>
+      <p className="text-sm text-muted-foreground">Software Developer</p>
+    </div>
+  }
+  backContent={
+    <div className="text-center p-6">
+      <h3 className="font-semibold mb-4">Contact Info</h3>
+      <div className="space-y-2 text-sm">
+        <p>📧 john@example.com</p>
+        <p>📱 +1 (555) 123-4567</p>
+        <p>🏢 Tech Company Inc.</p>
+      </div>
+      <button className="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90 transition-colors">
+        View Profile
+      </button>
+    </div>
+  }
+/>
+```
+
+### Product Showcase
+
+```tsx
+<FlipCard
+  frontContent={
+    <div className="text-center p-6">
+      <div className="text-6xl mb-4">🎧</div>
+      <h3 className="font-semibold mb-2">Wireless Headphones</h3>
+      <p className="text-sm text-muted-foreground">$299.99</p>
+    </div>
+  }
+  backContent={
+    <div className="text-center p-6">
+      <h3 className="font-semibold mb-4">Features</h3>
+      <ul className="text-sm space-y-1 mb-4">
+        <li>✓ 30-hour battery life</li>
+        <li>✓ Noise cancellation</li>
+        <li>✓ Premium sound quality</li>
+        <li>✓ Comfortable fit</li>
+      </ul>
+      <button className="px-6 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90 transition-colors">
+        Add to Cart
+      </button>
+    </div>
+  }
+  autoFlip={true}
+  autoFlipDelay={4000}
+/>
+```
+
+### Interactive Grid
+
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <FlipCard
+    flipOnClick={true}
+    frontContent={<div className="p-6 text-center font-semibold">Service 1</div>}
+    backContent={<div className="p-6 text-center">Details about service 1</div>}
+  />
+
+  <FlipCard
+    flipOnClick={true}
+    frontContent={<div className="p-6 text-center font-semibold">Service 2</div>}
+    backContent={<div className="p-6 text-center">Details about service 2</div>}
+  />
+
+  <FlipCard
+    flipOnClick={true}
+    frontContent={<div className="p-6 text-center font-semibold">Service 3</div>}
+    backContent={<div className="p-6 text-center">Details about service 3</div>}
+  />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses `transform-gpu` for smooth animations
+- **Optimized Rendering**: Minimal re-renders during animations
+- **Hardware Acceleration**: CSS 3D transforms for 60fps performance
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS 3D transform support
+- **Fallback**: Graceful degradation to static content
+
+## Accessibility
+
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Screen Reader Support**: Proper ARIA labels and descriptions
+- **Focus Management**: Clear focus indicators
+- **Reduced Motion**: Respects user's motion preferences
+
+Flip Cards - adding dramatic 3D reveals to your user interface! 🎭✨

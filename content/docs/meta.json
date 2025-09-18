@@ -1,0 +1,14 @@
+{
+  "title": "Vynk",
+  "description": "Docs for Vynkers",
+  "pages": [
+    "---Getting Started---",
+    "...(getting-started)",
+    "---Components---",
+    "...components",
+    "---Blocks---",
+    "...blocks",
+    "---Snippets---",
+    "...snippets"
+  ]
+}

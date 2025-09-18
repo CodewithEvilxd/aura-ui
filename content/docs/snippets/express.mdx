@@ -1,0 +1,106 @@
+---
+title: Express Setup
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+
+Because starting a new Express project shouldn't feel like reinventing the wheel. Unless you're into that kind of thing.
+## Installation
+<InstallationCommand component={'express-setup'} />
+
+## What's Included?
+
+A battle-tested Express setup that includes all the middleware you'll actually need (and none of the ones you won't). Think of it as a pre-configured Express app that's ready to handle your API requests faster than you can say "middleware".
+
+### Features
+
+- **CORS Configuration**: Because we're not savages who let anyone access our API
+- **Body Parsing**: For when your frontend sends more than just "Hello World"
+- **Static File Serving**: For serving those assets that make your app look pretty
+- **Cookie Parsing**: Because cookies are not just for eating (though we won't judge if you are)
+
+## Usage
+
+```tsx
+// app.ts
+import express, { Express } from 'express'
+import cors from 'cors'
+import cookieParser from 'cookie-parser'
+
+const app: Express = express();
+
+// Configure CORS middleware
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  credentials: true
+}));
+
+// JSON body parser middleware
+app.use(express.json({limit: '16kb'}));
+
+// URL-encoded body parser middleware
+app.use(express.urlencoded({
+  extended: true,
+  limit: '16kb'
+}));
+
+// Static file serving middleware
+app.use(express.static('public'));
+
+// Cookie parser middleware
+app.use(cookieParser());
+
+// Your routes go here
+// app.use('/api/v1/users', userRouter);
+
+export { app }
+```
+
+```tsx
+// index.ts
+import { app } from './app'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
+})
+```
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file in your project root:
+
+```
+PORT=3000
+CORS_ORIGIN=http://localhost:3000
+```
+
+### Dependencies
+
+This setup includes:
+- `express`: The web framework that makes Node.js actually useful
+- `cors`: For when you need to share your API with the world (or at least your frontend)
+- `cookie-parser`: Because parsing cookies manually is about as fun as debugging production issues
+- `dotenv`: For loading environment variables (because hardcoding is so 2010)
+
+## Best Practices
+
+1. **Security First**: Always configure CORS properly (unless you enjoy security breaches)
+2. **Body Limits**: Keep those request bodies in check (16kb is usually enough for anyone)
+3. **Environment Variables**: Use them, love them, never hardcode them
+4. **Static Files**: Keep your public assets organized (your future self will thank you)
+
+## Why Use This?
+
+- **Time Saving**: Because life's too short to configure Express from scratch
+- **Best Practices**: Includes all the middleware you actually need
+- **Type Safety**: Full TypeScript support (because we're not animals)
+- **Production Ready**: Configured with security and performance in mind
+
+Remember: A well-configured Express app is like a good cup of coffee - it makes everything else better! ☕ 

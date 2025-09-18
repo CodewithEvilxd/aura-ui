@@ -1,0 +1,261 @@
+---
+title: Stepper
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { StepperShowcase } from '../../components/specificComponentShowcase/StepperShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Stepper components are the guides of your application. They break complex processes into manageable steps, providing clear progress indication and navigation through multi-step workflows.
+
+<ComponentShowcase component={<StepperShowcase />} code={`import { Stepper } from "@/components/ui/stepper"
+
+const MultiStepForm = () => {
+  const [currentStep, setCurrentStep] = useState(1)
+
+  const steps = [
+    { id: '1', title: 'Personal Info', description: 'Enter details' },
+    { id: '2', title: 'Verification', description: 'Verify email' },
+    { id: '3', title: 'Complete', description: 'Finish setup' }
+  ]
+
+  return (
+    <div className="space-y-6">
+      <Stepper
+        steps={steps}
+        currentStep={currentStep}
+        onStepChange={setCurrentStep}
+      />
+
+      <div className="flex space-x-2">
+        <button
+          onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+          disabled={currentStep === 0}
+          className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => setCurrentStep(Math.min(steps.length - 1, currentStep + 1))}
+          disabled={currentStep === steps.length - 1}
+          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'stepper'} />
+
+## Usage
+
+Stepper components guide users through multi-step processes:
+
+```tsx
+import { Stepper } from "@/components/ui/stepper"
+
+const CheckoutProcess = () => {
+  const [currentStep, setCurrentStep] = useState(0)
+
+  const steps = [
+    { id: 'cart', title: 'Cart', description: 'Review items' },
+    { id: 'shipping', title: 'Shipping', description: 'Delivery info' },
+    { id: 'payment', title: 'Payment', description: 'Payment details' },
+    { id: 'confirmation', title: 'Confirmation', description: 'Order complete' }
+  ]
+
+  return (
+    <Stepper
+      steps={steps}
+      currentStep={currentStep}
+      onStepChange={setCurrentStep}
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `steps` | `Step[]` | Yes | Array of step objects |
+| `currentStep` | `number` | Yes | Current active step index |
+| `onStepChange` | `(step: number) => void` | No | Callback when step changes |
+| `className` | `string` | No | Additional CSS classes |
+
+### Step Object
+```typescript
+interface Step {
+  id: string        // Unique identifier
+  title: string     // Step title
+  description?: string // Optional description
+  completed?: boolean // Completion status
+}
+```
+
+## Features
+
+- **Visual Progress**: Clear indication of current step
+- **Clickable Navigation**: Jump between completed steps
+- **Completion States**: Visual feedback for completed steps
+- **Responsive Design**: Adapts to different screen sizes
+- **Customizable**: Extensive styling options
+- **Accessible**: Keyboard navigation support
+
+## Advanced Usage
+
+### With Form Validation
+```tsx
+const ValidatedStepper = () => {
+  const [currentStep, setCurrentStep] = useState(0)
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set())
+
+  const steps = [
+    { id: 'personal', title: 'Personal Info', description: 'Basic details' },
+    { id: 'contact', title: 'Contact', description: 'Communication info' },
+    { id: 'review', title: 'Review', description: 'Confirm details' }
+  ]
+
+  const handleStepChange = (stepIndex: number) => {
+    // Only allow navigation to completed or current step
+    if (stepIndex <= currentStep || completedSteps.has(stepIndex)) {
+      setCurrentStep(stepIndex)
+    }
+  }
+
+  const handleNext = () => {
+    // Validate current step before proceeding
+    if (validateCurrentStep()) {
+      setCompletedSteps(prev => new Set([...prev, currentStep]))
+      setCurrentStep(prev => prev + 1)
+    }
+  }
+
+  return (
+    <div className="space-y-6">
+      <Stepper
+        steps={steps.map((step, index) => ({
+          ...step,
+          completed: completedSteps.has(index)
+        }))}
+        currentStep={currentStep}
+        onStepChange={handleStepChange}
+      />
+
+      {/* Step content */}
+      <div className="min-h-64 border rounded-lg p-6">
+        {renderStepContent(currentStep)}
+      </div>
+
+      <div className="flex justify-between">
+        <button
+          onClick={() => setCurrentStep(prev => prev - 1)}
+          disabled={currentStep === 0}
+          className="px-4 py-2 border rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <button
+          onClick={handleNext}
+          disabled={currentStep === steps.length - 1}
+          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### With Progress Percentage
+```tsx
+const ProgressStepper = () => {
+  const [currentStep, setCurrentStep] = useState(0)
+
+  const steps = [
+    { id: '1', title: 'Step 1', description: 'First step' },
+    { id: '2', title: 'Step 2', description: 'Second step' },
+    { id: '3', title: 'Step 3', description: 'Third step' },
+    { id: '4', title: 'Step 4', description: 'Final step' }
+  ]
+
+  const progress = ((currentStep + 1) / steps.length) * 100
+
+  return (
+    <div className="space-y-4">
+      <div className="text-sm text-muted-foreground">
+        Progress: {Math.round(progress)}%
+      </div>
+
+      <div className="w-full bg-gray-200 rounded-full h-2">
+        <div
+          className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
+      <Stepper
+        steps={steps}
+        currentStep={currentStep}
+        onStepChange={setCurrentStep}
+      />
+    </div>
+  )
+}
+```
+
+## Common Use Cases
+
+### Onboarding Flow
+```tsx
+const OnboardingStepper = () => {
+  const steps = [
+    { id: 'welcome', title: 'Welcome', description: 'Get started' },
+    { id: 'profile', title: 'Profile', description: 'Set up profile' },
+    { id: 'preferences', title: 'Preferences', description: 'Choose preferences' },
+    { id: 'complete', title: 'Complete', description: 'You\'re all set!' }
+  ]
+
+  // Implementation...
+}
+```
+
+### Checkout Process
+```tsx
+const CheckoutStepper = () => {
+  const steps = [
+    { id: 'cart', title: 'Cart', description: 'Review items' },
+    { id: 'shipping', title: 'Shipping', description: 'Delivery address' },
+    { id: 'payment', title: 'Payment', description: 'Payment method' },
+    { id: 'confirmation', title: 'Confirmation', description: 'Order complete' }
+  ]
+
+  // Implementation...
+}
+```
+
+### Form Wizard
+```tsx
+const FormWizard = () => {
+  const steps = [
+    { id: 'basic', title: 'Basic Info', description: 'Personal details' },
+    { id: 'details', title: 'Details', description: 'Additional info' },
+    { id: 'review', title: 'Review', description: 'Review & submit' }
+  ]
+
+  // Implementation...
+}
+```
+
+## Contributing
+
+Stepper components guide users through complexity! Help us improve their visual design, add more interaction patterns, and enhance their accessibility.
+
+Stepper - because every journey needs clear steps! 🚶✨

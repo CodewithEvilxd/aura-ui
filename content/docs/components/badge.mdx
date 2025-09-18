@@ -1,0 +1,105 @@
+---
+title: Badge
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { BadgeShowcase } from '../../components/specificComponentShowcase/BadgeShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Badges are like digital name tags for your UI elements. They're perfect for highlighting status, categories, or any small piece of information that needs to stand out without taking up too much space. Now with enhanced shadows, multiple sizes, and interactive capabilities!
+
+<ComponentShowcase component={<BadgeShowcase />} code={`import { Badge } from "@/components/ui/badge"
+
+const InteractiveBadge = () => {
+  const [count, setCount] = React.useState(0)
+
+  return (
+    <div className="space-x-2">
+      <Badge onClick={() => setCount(c => c + 1)}>
+        Clicked {count} times
+      </Badge>
+      <Badge variant="success" size="lg">
+        Success
+      </Badge>
+      <Badge variant="warning" size="sm">
+        Warning
+      </Badge>
+    </div>
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'badge'} />
+
+## Usage
+
+Here's how to use the enhanced Badge component:
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+
+const MyComponent = () => {
+  const [count, setCount] = React.useState(0)
+
+  return (
+    <div className="space-x-2">
+      {/* Basic usage */}
+      <Badge variant="secondary">New</Badge>
+
+      {/* Different sizes */}
+      <Badge size="sm">Small</Badge>
+      <Badge size="lg">Large</Badge>
+
+      {/* Interactive badges */}
+      <Badge onClick={() => setCount(c => c + 1)}>
+        Clicked {count} times
+      </Badge>
+
+      {/* New variants */}
+      <Badge variant="success">Success</Badge>
+      <Badge variant="warning">Warning</Badge>
+
+      {/* With icons */}
+      <Badge variant="success" className="gap-1">
+        <span>✓</span>
+        Verified
+      </Badge>
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "success" \| "warning"` | No | The visual style variant of the badge |
+| `size` | `"sm" \| "default" \| "lg"` | No | The size variant of the badge |
+| `onClick` | `() => void` | No | Click handler function for interactive badges |
+| `className` | `string` | No | Additional CSS classes for custom styling |
+
+## Features
+
+- **Multiple Variants**: Choose from 6 different styles (default, secondary, destructive, outline, success, warning)
+- **Three Sizes**: Small, default, and large for different contexts
+- **Interactive**: Clickable badges with hover and active states
+- **Beautiful Shadows**: Subtle shadows that enhance the visual appeal
+- **Smooth Animations**: Scale animation on click for better feedback
+- **Flexible Styling**: Easy to customize with additional classes
+- **Accessible**: Proper semantic markup and screen reader support
+- **Theme Aware**: Adapts to your design system colors
+
+## Common Issues
+
+1. **"Badge colors don't match my theme!"** - Check your CSS custom properties for primary, secondary, and destructive colors
+
+2. **"Badge is too small!"** - Add custom padding classes via the className prop
+
+## Contributing
+
+We love contributions! Make sure to test your changes across different themes and screen sizes.
+
+Badges - small but mighty UI elements that pack a punch! 🏷️
