@@ -1,0 +1,245 @@
+---
+title: Gradient Text
+description: Animated gradient text with smooth color transitions and customizable directions.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { GradientTextShowcase } from '../../components/specificComponentShowcase/GradientTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Gradient Text creates stunning animated color gradients that flow across your text! With support for horizontal, vertical, and diagonal directions, plus customizable color schemes, this component adds dynamic visual appeal to your typography.
+
+<ComponentShowcase component={<GradientTextShowcase />} code={`import { GradientText } from "@/components/ui/gradient-text"
+
+const GradientDemo = () => {
+  return (
+    <GradientText
+      text="Gradient Magic"
+      direction="horizontal"
+      speed="normal"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'gradient-text'} />
+
+## Usage
+
+```tsx
+import { GradientText } from "@/components/ui/gradient-text"
+
+export function Example() {
+  return (
+    <GradientText
+      text="Beautiful Gradient Text"
+      direction="diagonal"
+      speed="normal"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to apply gradient effect to |
+| `colors` | `string[]` | No | Array of CSS color values (default: rainbow colors) |
+| `direction` | `"horizontal" \| "vertical" \| "diagonal"` | No | Gradient animation direction (default: "horizontal") |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Animation speed (default: "normal") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Direction Options
+
+### Horizontal Flow
+Colors flow left to right.
+
+```tsx
+<GradientText text="Horizontal Flow" direction="horizontal" />
+```
+
+### Vertical Flow
+Colors flow top to bottom.
+
+```tsx
+<GradientText text="Vertical Flow" direction="vertical" />
+```
+
+### Diagonal Flow
+Colors flow diagonally across text.
+
+```tsx
+<GradientText text="Diagonal Flow" direction="diagonal" />
+```
+
+## Speed Variations
+
+### Slow Gradient
+Gentle, relaxed color transitions.
+
+```tsx
+<GradientText text="Slow Gradient" speed="slow" />
+```
+
+### Normal Speed (Default)
+Balanced animation timing.
+
+```tsx
+<GradientText text="Normal Speed" speed="normal" />
+```
+
+### Fast Gradient
+Quick, energetic color transitions.
+
+```tsx
+<GradientText text="Fast Gradient" speed="fast" />
+```
+
+## Custom Color Schemes
+
+### Ocean Blues
+
+```tsx
+<GradientText
+  text="Ocean Blues"
+  colors={["#1e3a8a", "#3b82f6", "#06b6d4", "#1e3a8a"]}
+/>
+```
+
+### Sunset Warmth
+
+```tsx
+<GradientText
+  text="Sunset Warmth"
+  colors={["#dc2626", "#ea580c", "#d97706", "#f59e0b"]}
+/>
+```
+
+### Forest Greens
+
+```tsx
+<GradientText
+  text="Forest Greens"
+  colors={["#166534", "#16a34a", "#65a30d", "#166534"]}
+/>
+```
+
+## Features
+
+- **Multiple Directions**: Horizontal, vertical, and diagonal flow
+- **Custom Colors**: Define your own color schemes
+- **Speed Control**: Three animation speed options
+- **Smooth Transitions**: Seamless color blending
+- **Hardware Acceleration**: GPU-accelerated animations
+- **Responsive Design**: Works on all screen sizes
+
+## Advanced Usage
+
+### Brand Colors
+
+```tsx
+<GradientText
+  text="BRAND NAME"
+  colors={["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#feca57"]}
+  direction="diagonal"
+  speed="normal"
+  className="text-4xl font-bold"
+/>
+```
+
+### Seasonal Themes
+
+```tsx
+// Spring
+<GradientText
+  text="Spring Time"
+  colors={["#ec4899", "#8b5cf6", "#06b6d4", "#10b981"]}
+  direction="horizontal"
+/>
+
+// Summer
+<GradientText
+  text="Summer Vibes"
+  colors={["#f59e0b", "#ef4444", "#ec4899", "#8b5cf6"]}
+  direction="vertical"
+/>
+
+// Autumn
+<GradientText
+  text="Autumn Colors"
+  colors={["#d97706", "#dc2626", "#7c2d12", "#ea580c"]}
+  direction="diagonal"
+/>
+```
+
+### Interactive Gradient
+
+```tsx
+const InteractiveGradient = () => {
+  const [direction, setDirection] = React.useState('horizontal')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setDirection('horizontal')}>Horizontal</button>
+        <button onClick={() => setDirection('vertical')}>Vertical</button>
+        <button onClick={() => setDirection('diagonal')}>Diagonal</button>
+      </div>
+
+      <GradientText
+        text="Interactive Gradient"
+        direction={direction}
+        speed="normal"
+        className="text-2xl font-bold"
+      />
+    </div>
+  )
+}
+```
+
+### Multi-line Gradients
+
+```tsx
+<div className="space-y-4">
+  <GradientText
+    text="First Line"
+    colors={["#ff6b6b", "#4ecdc4"]}
+    direction="horizontal"
+  />
+  <GradientText
+    text="Second Line"
+    colors={["#45b7d1", "#96ceb4"]}
+    direction="vertical"
+  />
+  <GradientText
+    text="Third Line"
+    colors={["#feca57", "#ff6b6b"]}
+    direction="diagonal"
+  />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS background animations
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS gradient animations
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Gradients**: Requires CSS gradient support
+- **Fallback**: Graceful degradation to solid color
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **High Contrast**: Maintains readability with gradient effects
+
+Gradient Text - adding colorful magic to your typography! 🎨✨

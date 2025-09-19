@@ -1,0 +1,199 @@
+---
+title: Liquid Text
+description: Organic liquid flow animation with wave effects and particle droplets.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { LiquidTextShowcase } from '../../components/specificComponentShowcase/LiquidTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Liquid Text creates mesmerizing organic flow animations that make your text appear to be made of liquid! With wave-like letter movements, customizable intensity, and animated particle droplets, this component adds fluid, dynamic motion to your typography.
+
+<ComponentShowcase component={<LiquidTextShowcase />} code={`import { LiquidText } from "@/components/ui/liquid-text"
+
+const LiquidDemo = () => {
+  return (
+    <LiquidText
+      text="Liquid Flow"
+      intensity="medium"
+      speed="normal"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'liquid-text'} />
+
+## Usage
+
+```tsx
+import { LiquidText } from "@/components/ui/liquid-text"
+
+export function Example() {
+  return (
+    <LiquidText
+      text="Flowing Liquid"
+      intensity="high"
+      speed="normal"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to apply liquid effect to |
+| `intensity` | `"low" \| "medium" \| "high"` | No | Strength of the liquid flow (default: "medium") |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Animation speed (default: "normal") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Intensity Levels
+
+### Low Intensity
+Gentle, subtle liquid movement.
+
+```tsx
+<LiquidText text="Low Intensity" intensity="low" />
+```
+
+### Medium Intensity (Default)
+Balanced liquid flow animation.
+
+```tsx
+<LiquidText text="Medium Intensity" intensity="medium" />
+```
+
+### High Intensity
+Dramatic, intense liquid movement.
+
+```tsx
+<LiquidText text="High Intensity" intensity="high" />
+```
+
+## Speed Variations
+
+### Slow Liquid
+Gentle, relaxed liquid motion.
+
+```tsx
+<LiquidText text="Slow Liquid" speed="slow" />
+```
+
+### Normal Speed (Default)
+Balanced liquid animation timing.
+
+```tsx
+<LiquidText text="Normal Speed" speed="normal" />
+```
+
+### Fast Liquid
+Quick, energetic liquid motion.
+
+```tsx
+<LiquidText text="Fast Liquid" speed="fast" />
+```
+
+## Features
+
+- **Organic Flow**: Realistic liquid-like movement
+- **Wave Animation**: Sine wave letter positioning
+- **Particle Effects**: Animated droplet particles
+- **Intensity Control**: Three levels of flow strength
+- **Speed Control**: Adjustable animation timing
+- **Hardware Acceleration**: Smooth 60fps animations
+
+## Advanced Usage
+
+### Water-themed Content
+
+```tsx
+<LiquidText
+  text="AQUATIC"
+  intensity="high"
+  speed="normal"
+  className="text-4xl font-bold text-blue-400"
+/>
+```
+
+### Interactive Liquid
+
+```tsx
+const InteractiveLiquid = () => {
+  const [intensity, setIntensity] = React.useState('medium')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setIntensity('low')}>Low</button>
+        <button onClick={() => setIntensity('medium')}>Medium</button>
+        <button onClick={() => setIntensity('high')}>High</button>
+      </div>
+
+      <LiquidText
+        text="Interactive Liquid"
+        intensity={intensity}
+        speed="normal"
+        className="text-2xl font-bold"
+      />
+    </div>
+  )
+}
+```
+
+### Brand Names
+
+```tsx
+<LiquidText
+  text="FLUID BRAND"
+  intensity="medium"
+  speed="slow"
+  className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+/>
+```
+
+### Loading States
+
+```tsx
+<LiquidText
+  text="Loading..."
+  intensity="low"
+  speed="normal"
+  className="text-lg text-muted-foreground"
+/>
+```
+
+### Multi-line Liquid
+
+```tsx
+<div className="space-y-4">
+  <LiquidText text="First Line" intensity="high" />
+  <LiquidText text="Second Line" intensity="medium" />
+  <LiquidText text="Third Line" intensity="low" />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS wave animations
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS transform support
+- **Fallback**: Graceful degradation to static text
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **High Contrast**: Maintains readability with liquid effects
+
+Liquid Text - adding fluid motion to your typography! 💧🌊

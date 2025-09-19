@@ -19,6 +19,16 @@ import { WaveTextShowcase } from './specificComponentShowcase/WaveTextShowcase'
 import { ParticleBackgroundShowcase } from './specificComponentShowcase/ParticleBackgroundShowcase'
 import { FlipCardShowcase } from './specificComponentShowcase/FlipCardShowcase'
 import { RotatingCardShowcase } from './specificComponentShowcase/RotatingCardShowcase'
+import { TypewriterTextShowcase } from './specificComponentShowcase/TypewriterTextShowcase'
+import { GlitchTextShowcase } from './specificComponentShowcase/GlitchTextShowcase'
+import { RainbowTextShowcase } from './specificComponentShowcase/RainbowTextShowcase'
+import { ShimmerTextShowcase } from './specificComponentShowcase/ShimmerTextShowcase'
+import { NeonTextShowcase } from './specificComponentShowcase/NeonTextShowcase'
+import { GradientTextShowcase } from './specificComponentShowcase/GradientTextShowcase'
+import { FadeInTextShowcase } from './specificComponentShowcase/FadeInTextShowcase'
+import { BounceTextShowcase } from './specificComponentShowcase/BounceTextShowcase'
+import { TypingTextShowcase } from './specificComponentShowcase/TypingTextShowcase'
+import { LiquidTextShowcase } from './specificComponentShowcase/LiquidTextShowcase'
 import { ToggleShowcase } from './specificComponentShowcase/ToggleShowcase'
 import { TripleToggleShowcase } from './specificComponentShowcase/TripleToggleShowcase'
 import { AnimatedSearchInputShowcase } from './specificComponentShowcase/AnimatedSearchInputShowcase'
@@ -246,8 +256,78 @@ export const NewComponentsShowcase = () => {
         </div>
       </div>
 
+      {/* Animated Text Components Section */}
+      <div className="space-y-8">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-2">📝 Animated Text Components</h2>
+          <p className="text-muted-foreground">Beautiful text animations and effects</p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Typewriter Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Typewriter Text</h3>
+            <TypewriterTextShowcase />
+          </div>
+
+          {/* Glitch Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Glitch Text</h3>
+            <GlitchTextShowcase />
+          </div>
+
+          {/* Rainbow Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Rainbow Text</h3>
+            <RainbowTextShowcase />
+          </div>
+
+          {/* Shimmer Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Shimmer Text</h3>
+            <ShimmerTextShowcase />
+          </div>
+
+          {/* Neon Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Neon Text</h3>
+            <NeonTextShowcase />
+          </div>
+
+          {/* Gradient Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Gradient Text</h3>
+            <GradientTextShowcase />
+          </div>
+
+          {/* Fade In Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Fade In Text</h3>
+            <FadeInTextShowcase />
+          </div>
+
+          {/* Bounce Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Bounce Text</h3>
+            <BounceTextShowcase />
+          </div>
+
+          {/* Typing Text */}
+          <div className="space-y-4 md:col-span-2">
+            <h3 className="text-lg font-semibold text-center">Typing Text</h3>
+            <TypingTextShowcase />
+          </div>
+
+          {/* Liquid Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Liquid Text</h3>
+            <LiquidTextShowcase />
+          </div>
+        </div>
+      </div>
+
       <div className="text-center text-sm text-muted-foreground">
-        <p>🎉 Total Components Created: 27 (22 Original + 5 New 3D Animated)</p>
+        <p>🎉 Total Components Created: 37 (22 Original + 5 3D Animated + 10 Animated Text)</p>
         <p>✨ All components feature smooth animations, 3D effects, and interactive behaviors</p>
         <p>🔧 Built with TypeScript, Tailwind CSS, and modern React patterns</p>
       </div>

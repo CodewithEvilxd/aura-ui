@@ -1,0 +1,159 @@
+---
+title: Bounce Text
+description: Playful bouncing animation for individual letters with spring physics.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { BounceTextShowcase } from '../../components/specificComponentShowcase/BounceTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Bounce Text brings playful, bouncy animation to your text! Each letter bounces individually with spring-like physics, creating a fun and energetic effect perfect for attention-grabbing headlines or playful interfaces.
+
+<ComponentShowcase component={<BounceTextShowcase />} code={`import { BounceText } from "@/components/ui/bounce-text"
+
+const BounceDemo = () => {
+  return (
+    <BounceText
+      text="Bounce Text!"
+      speed="normal"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'bounce-text'} />
+
+## Usage
+
+```tsx
+import { BounceText } from "@/components/ui/bounce-text"
+
+export function Example() {
+  return (
+    <BounceText
+      text="Playful Bounce!"
+      speed="normal"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to animate with bounce effect |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Animation speed (default: "normal") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Speed Variations
+
+### Slow Bounce
+Gentle, relaxed bouncing motion.
+
+```tsx
+<BounceText text="Slow Bounce" speed="slow" />
+```
+
+### Normal Speed (Default)
+Balanced bouncing animation.
+
+```tsx
+<BounceText text="Normal Bounce" speed="normal" />
+```
+
+### Fast Bounce
+Quick, energetic bouncing motion.
+
+```tsx
+<BounceText text="Fast Bounce" speed="fast" />
+```
+
+## Features
+
+- **Individual Letter Animation**: Each letter bounces separately
+- **Spring Physics**: Realistic bounce timing with easing
+- **Speed Control**: Three animation speed options
+- **Staggered Timing**: Letters bounce in sequence
+- **Hardware Acceleration**: Smooth 60fps animations
+- **Playful Aesthetic**: Perfect for fun, engaging content
+
+## Advanced Usage
+
+### Attention-Grabbing Headlines
+
+```tsx
+<BounceText
+  text="EXCITING NEWS!"
+  speed="fast"
+  className="text-4xl font-bold text-center"
+/>
+```
+
+### Interactive Bounce
+
+```tsx
+const InteractiveBounce = () => {
+  const [speed, setSpeed] = React.useState('normal')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setSpeed('slow')}>Slow</button>
+        <button onClick={() => setSpeed('normal')}>Normal</button>
+        <button onClick={() => setSpeed('fast')}>Fast</button>
+      </div>
+
+      <BounceText
+        text="Interactive Bounce!"
+        speed={speed}
+        className="text-2xl font-bold"
+      />
+    </div>
+  )
+}
+```
+
+### Multi-line Bounce
+
+```tsx
+<div className="space-y-4 text-center">
+  <BounceText text="First Line" speed="normal" />
+  <BounceText text="Second Line" speed="fast" />
+  <BounceText text="Third Line" speed="slow" />
+</div>
+```
+
+### Call-to-Action
+
+```tsx
+<BounceText
+  text="Click Here!"
+  speed="fast"
+  className="text-2xl font-bold cursor-pointer hover:scale-105 transition-transform"
+/>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS bounce animations
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS transform support
+- **Fallback**: Graceful degradation to static text
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **Keyboard Navigation**: Full keyboard accessibility
+
+Bounce Text - adding playful energy to your typography! 🏀🎈

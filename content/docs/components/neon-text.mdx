@@ -1,0 +1,212 @@
+---
+title: Neon Text
+description: Retro neon sign effect with glowing colors and flicker animation.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { NeonTextShowcase } from '../../components/specificComponentShowcase/NeonTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Neon Text recreates the classic neon sign aesthetic with glowing colors and subtle flicker effects! Perfect for retro-themed interfaces, cyberpunk designs, or any project that needs that nostalgic neon glow from the 1980s.
+
+<ComponentShowcase component={<NeonTextShowcase />} code={`import { NeonText } from "@/components/ui/neon-text"
+
+const NeonDemo = () => {
+  return (
+    <NeonText
+      text="NEON GLOW"
+      color="blue"
+      intensity="high"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'neon-text'} />
+
+## Usage
+
+```tsx
+import { NeonText } from "@/components/ui/neon-text"
+
+export function Example() {
+  return (
+    <NeonText
+      text="RETRO NEON"
+      color="pink"
+      intensity="medium"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to apply neon effect to |
+| `color` | `"blue" \| "green" \| "pink" \| "purple" \| "red" \| "yellow"` | No | Neon color (default: "blue") |
+| `intensity` | `"low" \| "medium" \| "high"` | No | Glow intensity (default: "medium") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Color Options
+
+### Blue Neon
+Classic blue neon glow.
+
+```tsx
+<NeonText text="BLUE NEON" color="blue" />
+```
+
+### Green Neon
+Matrix-style green glow.
+
+```tsx
+<NeonText text="GREEN NEON" color="green" />
+```
+
+### Pink Neon
+Hot pink retro glow.
+
+```tsx
+<NeonText text="PINK NEON" color="pink" />
+```
+
+### Purple Neon
+Electric purple glow.
+
+```tsx
+<NeonText text="PURPLE NEON" color="purple" />
+```
+
+### Red Neon
+Classic red neon sign.
+
+```tsx
+<NeonText text="RED NEON" color="red" />
+```
+
+### Yellow Neon
+Golden yellow glow.
+
+```tsx
+<NeonText text="YELLOW NEON" color="yellow" />
+```
+
+## Intensity Levels
+
+### Low Intensity
+Subtle, gentle glow.
+
+```tsx
+<NeonText text="Low Glow" intensity="low" />
+```
+
+### Medium Intensity (Default)
+Balanced neon glow.
+
+```tsx
+<NeonText text="Medium Glow" intensity="medium" />
+```
+
+### High Intensity
+Bright, intense glow.
+
+```tsx
+<NeonText text="High Glow" intensity="high" />
+```
+
+## Features
+
+- **Authentic Neon**: Realistic neon sign glow effects
+- **Multiple Colors**: 6 different neon colors
+- **Flicker Effects**: Subtle animation for authenticity
+- **Intensity Control**: Three levels of glow strength
+- **Retro Aesthetic**: Perfect for 80s/90s themed designs
+- **Hardware Acceleration**: Smooth glow animations
+
+## Advanced Usage
+
+### Neon Sign Board
+
+```tsx
+<div className="bg-gray-900 p-8 rounded-lg">
+  <NeonText
+    text="OPEN 24/7"
+    color="pink"
+    intensity="high"
+    className="text-4xl font-bold text-center"
+  />
+</div>
+```
+
+### Cyberpunk Interface
+
+```tsx
+<div className="bg-black p-6 rounded-lg space-y-4">
+  <NeonText text="SYSTEM STATUS" color="green" intensity="medium" />
+  <NeonText text="ONLINE" color="blue" intensity="high" />
+  <NeonText text="SECURE" color="purple" intensity="medium" />
+</div>
+```
+
+### Interactive Neon
+
+```tsx
+const InteractiveNeon = () => {
+  const [color, setColor] = React.useState('blue')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setColor('blue')}>Blue</button>
+        <button onClick={() => setColor('green')}>Green</button>
+        <button onClick={() => setColor('pink')}>Pink</button>
+        <button onClick={() => setColor('purple')}>Purple</button>
+      </div>
+
+      <NeonText
+        text="INTERACTIVE NEON"
+        color={color}
+        intensity="high"
+        className="text-2xl font-bold"
+      />
+    </div>
+  )
+}
+```
+
+### Neon Grid
+
+```tsx
+<div className="grid grid-cols-2 gap-4">
+  <NeonText text="ARCADE" color="red" intensity="high" />
+  <NeonText text="GAMES" color="blue" intensity="high" />
+  <NeonText text="RETRO" color="green" intensity="high" />
+  <NeonText text="STYLE" color="yellow" intensity="high" />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS text-shadow for glow effects
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS shadow animations
+- **Memory Efficient**: Lightweight glow system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Text Shadow**: Requires CSS text-shadow support
+- **Fallback**: Graceful degradation to solid color
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **High Contrast**: Maintains readability with glow effects
+
+Neon Text - bringing retro neon signs to the digital age! 🔴💙💜

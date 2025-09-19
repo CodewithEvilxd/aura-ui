@@ -1,0 +1,159 @@
+---
+title: Shimmer Text
+description: Metallic shimmer effect with light sweep animation across text.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { ShimmerTextShowcase } from '../../components/specificComponentShowcase/ShimmerTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Shimmer Text creates a stunning metallic shimmer effect that sweeps across your text! With customizable speed and smooth light reflections, this component adds premium, luxurious feel to your typography perfect for highlighting important content or creating elegant interfaces.
+
+<ComponentShowcase component={<ShimmerTextShowcase />} code={`import { ShimmerText } from "@/components/ui/shimmer-text"
+
+const ShimmerDemo = () => {
+  return (
+    <ShimmerText
+      text="Premium Shimmer Effect"
+      speed="normal"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'shimmer-text'} />
+
+## Usage
+
+```tsx
+import { ShimmerText } from "@/components/ui/shimmer-text"
+
+export function Example() {
+  return (
+    <ShimmerText
+      text="Luxurious Shimmer Text"
+      speed="normal"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to apply shimmer effect to |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Speed of the shimmer animation (default: "normal") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Speed Variations
+
+### Slow Shimmer
+Gentle, elegant light sweep.
+
+```tsx
+<ShimmerText text="Slow Shimmer" speed="slow" />
+```
+
+### Normal Speed (Default)
+Balanced shimmer animation timing.
+
+```tsx
+<ShimmerText text="Normal Shimmer" speed="normal" />
+```
+
+### Fast Shimmer
+Quick, energetic light sweep.
+
+```tsx
+<ShimmerText text="Fast Shimmer" speed="fast" />
+```
+
+## Features
+
+- **Metallic Effect**: Realistic metal-like shimmer
+- **Light Sweep**: Smooth light reflection animation
+- **Customizable Speed**: Three animation speed options
+- **Hardware Acceleration**: Smooth 60fps animations
+- **Premium Aesthetic**: Perfect for luxury branding
+- **Responsive Design**: Works on all screen sizes
+
+## Advanced Usage
+
+### Premium Headlines
+
+```tsx
+<ShimmerText
+  text="PREMIUM EXPERIENCE"
+  speed="slow"
+  className="text-4xl font-bold tracking-wider"
+/>
+```
+
+### Product Names
+
+```tsx
+<ShimmerText
+  text="Diamond Collection"
+  speed="normal"
+  className="text-2xl font-semibold"
+/>
+```
+
+### Call-to-Action
+
+```tsx
+<ShimmerText
+  text="Shop Now"
+  speed="fast"
+  className="text-xl font-bold text-center"
+/>
+```
+
+### Interactive Shimmer
+
+```tsx
+const InteractiveShimmer = () => {
+  const [speed, setSpeed] = React.useState('normal')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setSpeed('slow')}>Slow</button>
+        <button onClick={() => setSpeed('normal')}>Normal</button>
+        <button onClick={() => setSpeed('fast')}>Fast</button>
+      </div>
+
+      <ShimmerText
+        text="Interactive Shimmer"
+        speed={speed}
+        className="text-2xl font-bold"
+      />
+    </div>
+  )
+}
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS background animations
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Gradients**: Requires CSS gradient support
+- **Fallback**: Graceful degradation to solid text
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **High Contrast**: Maintains readability with shimmer effects
+
+Shimmer Text - adding metallic luxury to your typography! ✨💎

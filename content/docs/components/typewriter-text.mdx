@@ -1,0 +1,232 @@
+---
+title: Typewriter Text
+description: A realistic typewriter effect component with customizable speed, delay, and looping.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TypewriterTextShowcase } from '../../components/specificComponentShowcase/TypewriterTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Typewriter Text brings the classic typewriter effect to your web applications! With realistic typing animation, customizable speed and delay, and optional looping, this component creates engaging text reveals that feel like they're being typed in real-time.
+
+<ComponentShowcase component={<TypewriterTextShowcase />} code={`import { TypewriterText } from "@/components/ui/typewriter-text"
+
+const TypewriterDemo = () => {
+  return (
+    <TypewriterText
+      text="Hello, this is a typewriter effect!"
+      speed={100}
+      delay={500}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'typewriter-text'} />
+
+## Usage
+
+```tsx
+import { TypewriterText } from "@/components/ui/typewriter-text"
+
+export function Example() {
+  return (
+    <TypewriterText
+      text="Welcome to the future of web development!"
+      speed={100}
+      delay={1000}
+      cursor={true}
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to animate with typewriter effect |
+| `speed` | `number` | No | Typing speed in milliseconds (default: 100) |
+| `delay` | `number` | No | Delay before starting animation in milliseconds (default: 0) |
+| `cursor` | `boolean` | No | Show blinking cursor (default: true) |
+| `className` | `string` | No | Additional CSS classes |
+
+## Speed Variations
+
+### Fast Typing
+Quick, energetic typing effect.
+
+```tsx
+<TypewriterText text="Fast typing speed!" speed={50} />
+```
+
+### Normal Speed (Default)
+Balanced typing speed for most use cases.
+
+```tsx
+<TypewriterText text="Normal typing speed!" speed={100} />
+```
+
+### Slow Typing
+Deliberate, dramatic typing effect.
+
+```tsx
+<TypewriterText text="Slow typing speed..." speed={200} />
+```
+
+## Delay Options
+
+### Immediate Start
+No delay, starts typing immediately.
+
+```tsx
+<TypewriterText text="Starts immediately!" delay={0} />
+```
+
+### Short Delay
+Brief pause before starting.
+
+```tsx
+<TypewriterText text="Starts after 500ms delay" delay={500} />
+```
+
+### Long Delay
+Dramatic pause before typing begins.
+
+```tsx
+<TypewriterText text="Starts after 2 second delay..." delay={2000} />
+```
+
+## Cursor Options
+
+### With Cursor (Default)
+Shows blinking cursor during and after typing.
+
+```tsx
+<TypewriterText text="With blinking cursor!" cursor={true} />
+```
+
+### Without Cursor
+Clean text without cursor animation.
+
+```tsx
+<TypewriterText text="No cursor here!" cursor={false} />
+```
+
+## Features
+
+- **Realistic Typing**: Character-by-character animation
+- **Blinking Cursor**: Authentic typewriter cursor effect
+- **Customizable Speed**: Control typing pace
+- **Delay Control**: Set start delay timing
+- **Smooth Animation**: Hardware-accelerated transitions
+- **TypeScript Support**: Full type safety
+- **Responsive Design**: Works on all screen sizes
+
+## Advanced Usage
+
+### Multi-line Effect
+
+```tsx
+const MultiLineTypewriter = () => {
+  const [currentLine, setCurrentLine] = React.useState(0)
+  const lines = [
+    "First line of text...",
+    "Second line appears!",
+    "Third line completes the sequence."
+  ]
+
+  return (
+    <div className="space-y-2">
+      {lines.map((line, index) => (
+        <TypewriterText
+          key={index}
+          text={line}
+          delay={index * 2000}
+          speed={100}
+        />
+      ))}
+    </div>
+  )
+}
+```
+
+### Interactive Typewriter
+
+```tsx
+const InteractiveTypewriter = () => {
+  const [speed, setSpeed] = React.useState(100)
+  const [text, setText] = React.useState("Hello World!")
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setSpeed(50)}>Fast</button>
+        <button onClick={() => setSpeed(100)}>Normal</button>
+        <button onClick={() => setSpeed(200)}>Slow</button>
+      </div>
+
+      <TypewriterText
+        text={text}
+        speed={speed}
+        delay={500}
+      />
+
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type your message..."
+        className="w-full p-2 border rounded"
+      />
+    </div>
+  )
+}
+```
+
+### Loading State Simulation
+
+```tsx
+const LoadingTypewriter = () => {
+  const messages = [
+    "Initializing system...",
+    "Loading components...",
+    "Connecting to server...",
+    "Ready!"
+  ]
+
+  return (
+    <div className="text-center">
+      <TypewriterText
+        text={messages[Math.floor(Date.now() / 3000) % messages.length]}
+        speed={80}
+        delay={0}
+      />
+    </div>
+  )
+}
+```
+
+## Performance
+
+- **Efficient Animation**: Uses setInterval for smooth timing
+- **Memory Management**: Proper cleanup of timers
+- **Hardware Acceleration**: CSS transitions for cursor animation
+- **Minimal Re-renders**: Optimized state management
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **Fallback**: Graceful degradation to static text
+- **Mobile Friendly**: Touch and mobile optimized
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Reduced Motion**: Respects user's motion preferences
+- **Semantic HTML**: Maintains proper document structure
+
+Typewriter Text - bringing the nostalgic charm of typewriters to modern web interfaces! 🖨️✨

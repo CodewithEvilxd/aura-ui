@@ -1,0 +1,188 @@
+---
+title: Glitch Text
+description: Cyberpunk-style glitch text effect with RGB color shifts and scan lines.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { GlitchTextShowcase } from '../../components/specificComponentShowcase/GlitchTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Glitch Text brings cyberpunk aesthetics to your typography! With RGB color distortions, scan line effects, and customizable intensity levels, this component creates the perfect glitch aesthetic for futuristic or retro-tech interfaces.
+
+<ComponentShowcase component={<GlitchTextShowcase />} code={`import { GlitchText } from "@/components/ui/glitch-text"
+
+const GlitchDemo = () => {
+  return (
+    <GlitchText
+      text="GLITCH EFFECT"
+      intensity="high"
+      speed="normal"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'glitch-text'} />
+
+## Usage
+
+```tsx
+import { GlitchText } from "@/components/ui/glitch-text"
+
+export function Example() {
+  return (
+    <GlitchText
+      text="SYSTEM ERROR"
+      intensity="high"
+      speed="fast"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to apply glitch effect to |
+| `intensity` | `"low" \| "medium" \| "high"` | No | Strength of the glitch effect (default: "medium") |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Speed of the glitch animation (default: "normal") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Intensity Levels
+
+### Low Intensity
+Subtle glitch effects with gentle distortions.
+
+```tsx
+<GlitchText text="Low Intensity Glitch" intensity="low" />
+```
+
+### Medium Intensity (Default)
+Balanced glitch effects for most use cases.
+
+```tsx
+<GlitchText text="Medium Intensity Glitch" intensity="medium" />
+```
+
+### High Intensity
+Dramatic glitch effects with strong distortions.
+
+```tsx
+<GlitchText text="High Intensity Glitch" intensity="high" />
+```
+
+## Speed Variations
+
+### Slow Glitch
+Gentle, pulsing glitch animation.
+
+```tsx
+<GlitchText text="Slow Glitch" speed="slow" />
+```
+
+### Normal Speed (Default)
+Standard glitch animation timing.
+
+```tsx
+<GlitchText text="Normal Glitch" speed="normal" />
+```
+
+### Fast Glitch
+Rapid, intense glitch animation.
+
+```tsx
+<GlitchText text="Fast Glitch" speed="fast" />
+```
+
+## Features
+
+- **RGB Color Shifts**: Red, blue, and green color distortions
+- **Scan Lines**: Retro CRT-style scan line effects
+- **Multiple Layers**: Stacked glitch effects for depth
+- **Customizable Intensity**: Three levels of glitch strength
+- **Speed Control**: Adjustable animation timing
+- **Hardware Acceleration**: Smooth 60fps animations
+- **Cyberpunk Aesthetic**: Perfect for futuristic interfaces
+
+## Advanced Usage
+
+### Error Messages
+
+```tsx
+<GlitchText
+  text="ACCESS DENIED"
+  intensity="high"
+  speed="fast"
+  className="text-2xl font-bold text-red-500"
+/>
+```
+
+### System Status
+
+```tsx
+<GlitchText
+  text="INITIALIZING..."
+  intensity="medium"
+  speed="normal"
+  className="text-lg font-mono"
+/>
+```
+
+### Interactive Glitch
+
+```tsx
+const InteractiveGlitch = () => {
+  const [intensity, setIntensity] = React.useState('medium')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setIntensity('low')}>Low</button>
+        <button onClick={() => setIntensity('medium')}>Medium</button>
+        <button onClick={() => setIntensity('high')}>High</button>
+      </div>
+
+      <GlitchText
+        text="INTERACTIVE GLITCH"
+        intensity={intensity}
+        speed="normal"
+      />
+    </div>
+  )
+}
+```
+
+### Multi-line Glitch
+
+```tsx
+<div className="space-y-2">
+  <GlitchText text="SYSTEM" intensity="high" />
+  <GlitchText text="MALFUNCTION" intensity="high" />
+  <GlitchText text="DETECTED" intensity="high" />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Optimized Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS 3D transforms for 60fps
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS transform support
+- **Fallback**: Graceful degradation to static text
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **High Contrast**: Maintains readability with glitch effects
+
+Glitch Text - adding cyberpunk flair to your digital interfaces! ⚡👾

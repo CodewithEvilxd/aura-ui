@@ -1,0 +1,150 @@
+---
+title: Rainbow Text
+description: Animated rainbow gradient text with smooth color transitions.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { RainbowTextShowcase } from '../../components/specificComponentShowcase/RainbowTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Rainbow Text brings vibrant, animated color gradients to your typography! With smooth rainbow transitions and customizable animation speeds, this component creates eye-catching text effects perfect for playful or attention-grabbing content.
+
+<ComponentShowcase component={<RainbowTextShowcase />} code={`import { RainbowText } from "@/components/ui/rainbow-text"
+
+const RainbowDemo = () => {
+  return (
+    <RainbowText
+      text="Rainbow Magic!"
+      speed="normal"
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'rainbow-text'} />
+
+## Usage
+
+```tsx
+import { RainbowText } from "@/components/ui/rainbow-text"
+
+export function Example() {
+  return (
+    <RainbowText
+      text="Colorful Rainbow Text!"
+      speed="normal"
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to apply rainbow effect to |
+| `speed` | `"slow" \| "normal" \| "fast"` | No | Speed of the rainbow animation (default: "normal") |
+| `className` | `string` | No | Additional CSS classes |
+
+## Speed Variations
+
+### Slow Rainbow
+Gentle, relaxed color transitions.
+
+```tsx
+<RainbowText text="Slow Rainbow" speed="slow" />
+```
+
+### Normal Speed (Default)
+Balanced animation timing.
+
+```tsx
+<RainbowText text="Normal Rainbow" speed="normal" />
+```
+
+### Fast Rainbow
+Quick, energetic color transitions.
+
+```tsx
+<RainbowText text="Fast Rainbow" speed="fast" />
+```
+
+## Features
+
+- **Smooth Gradients**: Seamless color transitions
+- **Hardware Acceleration**: GPU-accelerated animations
+- **Customizable Speed**: Three animation speed options
+- **Responsive Design**: Works on all screen sizes
+- **TypeScript Support**: Full type safety
+- **Performance Optimized**: Efficient CSS animations
+
+## Advanced Usage
+
+### Large Headlines
+
+```tsx
+<RainbowText
+  text="SPECTACULAR"
+  speed="normal"
+  className="text-6xl font-bold"
+/>
+```
+
+### Interactive Rainbow
+
+```tsx
+const InteractiveRainbow = () => {
+  const [speed, setSpeed] = React.useState('normal')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setSpeed('slow')}>Slow</button>
+        <button onClick={() => setSpeed('normal')}>Normal</button>
+        <button onClick={() => setSpeed('fast')}>Fast</button>
+      </div>
+
+      <RainbowText
+        text="Interactive Rainbow!"
+        speed={speed}
+        className="text-2xl font-bold"
+      />
+    </div>
+  )
+}
+```
+
+### Multiple Sizes
+
+```tsx
+<div className="space-y-4">
+  <RainbowText text="Small Rainbow" className="text-sm" />
+  <RainbowText text="Medium Rainbow" className="text-lg" />
+  <RainbowText text="Large Rainbow" className="text-2xl font-bold" />
+  <RainbowText text="Extra Large Rainbow" className="text-4xl font-bold" />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS background animations
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Gradients**: Requires CSS gradient support
+- **Fallback**: Graceful degradation to solid color
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **High Contrast**: Maintains readability with gradient effects
+
+Rainbow Text - adding colorful magic to your text! 🌈✨

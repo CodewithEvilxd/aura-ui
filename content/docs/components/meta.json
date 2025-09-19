@@ -38,6 +38,16 @@
     "wave-text",
     "particle-background",
     "flip-card",
-    "rotating-card"
+    "rotating-card",
+    "typewriter-text",
+    "glitch-text",
+    "rainbow-text",
+    "shimmer-text",
+    "neon-text",
+    "gradient-text",
+    "fade-in-text",
+    "bounce-text",
+    "typing-text",
+    "liquid-text"
   ]
 }

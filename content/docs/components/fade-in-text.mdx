@@ -1,0 +1,255 @@
+---
+title: Fade In Text
+description: Smooth fade-in animations with directional control and stagger effects.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { FadeInTextShowcase } from '../../components/specificComponentShowcase/FadeInTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Fade In Text creates elegant entrance animations for your text! With support for multiple directions, customizable timing, and optional letter-by-letter stagger effects, this component adds sophisticated motion to your typography.
+
+<ComponentShowcase component={<FadeInTextShowcase />} code={`import { FadeInText } from "@/components/ui/fade-in-text"
+
+const FadeInDemo = () => {
+  return (
+    <FadeInText
+      text="Smooth Fade In"
+      direction="up"
+      delay={0}
+      duration={0.8}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'fade-in-text'} />
+
+## Usage
+
+```tsx
+import { FadeInText } from "@/components/ui/fade-in-text"
+
+export function Example() {
+  return (
+    <FadeInText
+      text="Welcome to the page"
+      direction="left"
+      delay={500}
+      duration={1}
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `text` | `string` | Yes | The text to animate |
+| `direction` | `"up" \| "down" \| "left" \| "right" \| "none"` | No | Animation direction (default: "up") |
+| `delay` | `number` | No | Delay before animation starts in milliseconds (default: 0) |
+| `duration` | `number` | No | Animation duration in seconds (default: 0.6) |
+| `stagger` | `boolean` | No | Enable letter-by-letter stagger animation (default: false) |
+| `className` | `string` | No | Additional CSS classes |
+
+## Direction Options
+
+### Fade Up
+Text fades in from bottom to top.
+
+```tsx
+<FadeInText text="Fade Up" direction="up" />
+```
+
+### Fade Down
+Text fades in from top to bottom.
+
+```tsx
+<FadeInText text="Fade Down" direction="down" />
+```
+
+### Fade Left
+Text fades in from right to left.
+
+```tsx
+<FadeInText text="Fade Left" direction="left" />
+```
+
+### Fade Right
+Text fades in from left to right.
+
+```tsx
+<FadeInText text="Fade Right" direction="right" />
+```
+
+### Simple Fade
+Text fades in without directional movement.
+
+```tsx
+<FadeInText text="Simple Fade" direction="none" />
+```
+
+## Timing Control
+
+### Quick Fade
+Fast 0.3 second animation.
+
+```tsx
+<FadeInText text="Quick Fade" duration={0.3} />
+```
+
+### Normal Fade (Default)
+Standard 0.6 second animation.
+
+```tsx
+<FadeInText text="Normal Fade" duration={0.6} />
+```
+
+### Slow Fade
+Elegant 1.2 second animation.
+
+```tsx
+<FadeInText text="Slow Fade" duration={1.2} />
+```
+
+## Stagger Effect
+
+### Letter-by-Letter
+Each letter appears individually.
+
+```tsx
+<FadeInText
+  text="Stagger Effect"
+  stagger={true}
+  direction="up"
+/>
+```
+
+## Features
+
+- **Multiple Directions**: 5 directional options
+- **Timing Control**: Customizable delay and duration
+- **Stagger Animation**: Letter-by-letter reveals
+- **Smooth Transitions**: Hardware-accelerated animations
+- **TypeScript Support**: Full type safety
+- **Responsive Design**: Works on all screen sizes
+
+## Advanced Usage
+
+### Sequential Animations
+
+```tsx
+<div className="space-y-4">
+  <FadeInText
+    text="First Line"
+    direction="left"
+    delay={0}
+    duration={0.8}
+  />
+  <FadeInText
+    text="Second Line"
+    direction="right"
+    delay={500}
+    duration={0.8}
+  />
+  <FadeInText
+    text="Third Line"
+    direction="up"
+    delay={1000}
+    duration={0.8}
+  />
+</div>
+```
+
+### Stagger Showcase
+
+```tsx
+<FadeInText
+  text="AMAZING STAGGER EFFECT"
+  stagger={true}
+  direction="up"
+  delay={0}
+  duration={0.8}
+  className="text-2xl font-bold"
+/>
+```
+
+### Interactive Timing
+
+```tsx
+const InteractiveFade = () => {
+  const [direction, setDirection] = React.useState('up')
+
+  return (
+    <div className="space-y-4">
+      <div className="flex space-x-2">
+        <button onClick={() => setDirection('up')}>Up</button>
+        <button onClick={() => setDirection('down')}>Down</button>
+        <button onClick={() => setDirection('left')}>Left</button>
+        <button onClick={() => setDirection('right')}>Right</button>
+      </div>
+
+      <FadeInText
+        text="Interactive Fade"
+        direction={direction}
+        delay={300}
+        duration={1}
+        className="text-xl font-semibold"
+      />
+    </div>
+  )
+}
+```
+
+### Hero Section Animation
+
+```tsx
+<div className="text-center space-y-6">
+  <FadeInText
+    text="Welcome"
+    direction="down"
+    delay={0}
+    duration={1}
+    className="text-6xl font-bold"
+  />
+  <FadeInText
+    text="to the future"
+    direction="up"
+    delay={500}
+    duration={1}
+    className="text-3xl text-muted-foreground"
+  />
+  <FadeInText
+    text="of web design"
+    direction="left"
+    delay={1000}
+    duration={1}
+    className="text-xl"
+  />
+</div>
+```
+
+## Performance
+
+- **GPU Accelerated**: Uses CSS transforms for smooth animations
+- **Efficient Rendering**: Minimal DOM manipulation
+- **Hardware Acceleration**: CSS transition animations
+- **Memory Efficient**: Lightweight animation system
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **CSS Transforms**: Requires CSS transform support
+- **Fallback**: Graceful degradation to static text
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **Keyboard Navigation**: Full keyboard accessibility
+
+Fade In Text - adding elegant motion to your content! 🌟✨

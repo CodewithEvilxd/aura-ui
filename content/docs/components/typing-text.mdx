@@ -1,0 +1,250 @@
+---
+title: Typing Text
+description: Multi-text cycling typewriter effect with realistic typing and deleting animation.
+---
+
+import { InstallationCommand } from '../../components/InstallationCommand.tsx'
+import { TypingTextShowcase } from '../../components/specificComponentShowcase/TypingTextShowcase'
+import { ComponentShowcase } from '../../components/ComponentShowcase.tsx'
+
+Typing Text creates a sophisticated typewriter effect that cycles through multiple texts! With realistic typing and deleting animations, customizable speeds, and optional cursor, this component simulates a professional typing experience.
+
+<ComponentShowcase component={<TypingTextShowcase />} code={`import { TypingText } from "@/components/ui/typing-text"
+
+const TypingDemo = () => {
+  return (
+    <TypingText
+      texts={["Hello World!", "Amazing Text", "Typewriter Effect"]}
+      speed={100}
+      delay={1500}
+    />
+  )
+}`} />
+
+## Installation
+
+First, make sure you have the required dependencies:
+
+<InstallationCommand component={'typing-text'} />
+
+## Usage
+
+```tsx
+import { TypingText } from "@/components/ui/typing-text"
+
+export function Example() {
+  return (
+    <TypingText
+      texts={["Developer", "Designer", "Creator"]}
+      speed={80}
+      delay={1000}
+      cursor={true}
+    />
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `texts` | `string[]` | Yes | Array of texts to cycle through |
+| `speed` | `number` | No | Typing/deleting speed in milliseconds (default: 100) |
+| `delay` | `number` | No | Delay between texts in milliseconds (default: 1000) |
+| `cursor` | `boolean` | No | Show blinking cursor (default: true) |
+| `className` | `string` | No | Additional CSS classes |
+
+## Speed Control
+
+### Fast Typing
+Quick 50ms typing speed.
+
+```tsx
+<TypingText
+  texts={["Fast typing!"]}
+  speed={50}
+/>
+```
+
+### Normal Speed (Default)
+Standard 100ms typing speed.
+
+```tsx
+<TypingText
+  texts={["Normal speed"]}
+  speed={100}
+/>
+```
+
+### Slow Typing
+Deliberate 200ms typing speed.
+
+```tsx
+<TypingText
+  texts={["Slow typing..."]}
+  speed={200}
+/>
+```
+
+## Delay Options
+
+### Quick Transitions
+500ms delay between texts.
+
+```tsx
+<TypingText
+  texts={["First", "Second"]}
+  delay={500}
+/>
+```
+
+### Normal Delay (Default)
+1000ms delay between texts.
+
+```tsx
+<TypingText
+  texts={["First", "Second"]}
+  delay={1000}
+/>
+```
+
+### Long Pause
+2000ms delay between texts.
+
+```tsx
+<TypingText
+  texts={["First", "Second"]}
+  delay={2000}
+/>
+```
+
+## Cursor Options
+
+### With Cursor (Default)
+Shows blinking cursor during typing.
+
+```tsx
+<TypingText
+  texts={["With cursor!"]}
+  cursor={true}
+/>
+```
+
+### Without Cursor
+Clean text without cursor animation.
+
+```tsx
+<TypingText
+  texts={["No cursor"]}
+  cursor={false}
+/>
+```
+
+## Features
+
+- **Multi-Text Cycling**: Cycles through multiple texts
+- **Realistic Typing**: Character-by-character animation
+- **Deleting Animation**: Smooth text deletion
+- **Blinking Cursor**: Authentic typewriter cursor
+- **Speed Control**: Customizable typing speeds
+- **Delay Timing**: Adjustable pause between texts
+
+## Advanced Usage
+
+### Professional Titles
+
+```tsx
+<TypingText
+  texts={[
+    "Full Stack Developer",
+    "UI/UX Designer",
+    "Creative Problem Solver",
+    "Tech Enthusiast"
+  ]}
+  speed={80}
+  delay={1500}
+  className="text-2xl font-bold text-center"
+/>
+```
+
+### Loading Messages
+
+```tsx
+<TypingText
+  texts={[
+    "Initializing...",
+    "Loading components...",
+    "Almost ready...",
+    "Welcome!"
+  ]}
+  speed={100}
+  delay={800}
+  className="text-lg text-muted-foreground"
+/>
+```
+
+### Interactive Typing
+
+```tsx
+const InteractiveTyping = () => {
+  const [texts, setTexts] = React.useState(["Hello!", "Hi there!"])
+
+  return (
+    <div className="space-y-4">
+      <TypingText
+        texts={texts}
+        speed={100}
+        delay={1000}
+      />
+
+      <div className="flex space-x-2">
+        <button onClick={() => setTexts(["Fast!", "Quick!"])}>
+          Fast Texts
+        </button>
+        <button onClick={() => setTexts(["Slow...", "Gentle..."])}>
+          Slow Texts
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Skill Showcase
+
+```tsx
+<TypingText
+  texts={[
+    "React.js",
+    "TypeScript",
+    "Node.js",
+    "Python",
+    "AWS",
+    "Docker"
+  ]}
+  speed={120}
+  delay={2000}
+  className="text-xl font-mono"
+/>
+```
+
+## Performance
+
+- **Efficient Animation**: Uses setInterval for smooth timing
+- **Memory Management**: Proper cleanup of timers
+- **Hardware Acceleration**: CSS cursor animations
+- **Minimal Re-renders**: Optimized state management
+
+## Browser Support
+
+- **Modern Browsers**: Full support for Chrome, Firefox, Safari, Edge
+- **Fallback**: Graceful degradation to static text
+- **Mobile Friendly**: Touch and mobile optimized
+
+## Accessibility
+
+- **Screen Reader Support**: Proper text content for assistive technologies
+- **Reduced Motion**: Respects user's motion preferences
+- **Keyboard Navigation**: Full keyboard accessibility
+
+Typing Text - bringing professional typewriter effects to modern web! ⌨️✨
