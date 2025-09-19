@@ -14,7 +14,7 @@
   [![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-  [📚 Documentation](https://aura-ui.com) • [🚀 Live Demo](https://aura-ui.com) • [💬 Discord](https://discord.gg/aura-ui) • [🐛 Issues](https://github.com/codewithevilxd/aura-ui/issues)
+  [📚 Documentation](https://aura-ui-xd.vercel.app) • [🚀 Live Demo](https://aura-ui-xd.vercel.app) • [💬 Discord](https://discord.gg/aura-ui) • [🐛 Issues](https://github.com/codewithevilxd/aura-ui/issues)
 
 </div>
 
@@ -195,19 +195,19 @@ export default function App() {
 ## 📚 Documentation
 
 ### Getting Started
-1. [Installation Guide](https://aura-ui.com/docs/getting-started/installation)
-2. [Configuration](https://aura-ui.com/docs/getting-started/configuration)
-3. [Theme Setup](https://aura-ui.com/docs/getting-started/theming)
+1. [Installation Guide](https://aura-ui-xd.vercel.app/docs/getting-started/installation)
+2. [Configuration](https://aura-ui-xd.vercel.app/docs/getting-started/configuration)
+3. [Theme Setup](https://aura-ui-xd.vercel.app/docs/getting-started/theming)
 
 ### Component Documentation
-- [Component API Reference](https://aura-ui.com/docs/components)
-- [Interactive Examples](https://aura-ui.com/docs/examples)
-- [Best Practices](https://aura-ui.com/docs/best-practices)
+- [Component API Reference](https://aura-ui-xd.vercel.app/docs/components)
+- [Interactive Examples](https://aura-ui-xd.vercel.app/docs/examples)
+- [Best Practices](https://aura-ui-xd.vercel.app/docs/best-practices)
 
 ### Advanced Features
-- [Custom Theming](https://aura-ui.com/docs/theming)
-- [Animation System](https://aura-ui.com/docs/animations)
-- [Accessibility Guide](https://aura-ui.com/docs/accessibility)
+- [Custom Theming](https://aura-ui-xd.vercel.app/docs/theming)
+- [Animation System](https://aura-ui-xd.vercel.app/docs/animations)
+- [Accessibility Guide](https://aura-ui-xd.vercel.app/docs/accessibility)
 
 ---
 
@@ -469,7 +469,7 @@ copies or substantial portions of the Software.
 - **Discord Server** - Real-time chat with the community
 
 ### Professional Support
-- **Email** - support@aura-ui.com
+- **Email** - support@aura-ui-xd.vercel.app
 - **Documentation** - Comprehensive guides and tutorials
 - **Video Tutorials** - Step-by-step implementation guides
 

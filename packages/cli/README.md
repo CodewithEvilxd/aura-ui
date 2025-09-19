@@ -34,7 +34,7 @@ npx aura-ui add <component-name>
 
 ## Documentation
 
-For detailed documentation, visit [https://aura-ui.com/docs](https://aura-ui.com/docs)
+For detailed documentation, visit [https://aura-ui-xd.vercel.app/docs](https://aura-ui-xd.vercel.app/docs)
 
 The documentation includes:
 - Getting started guide
@@ -45,7 +45,7 @@ The documentation includes:
 
 ## Contributing
 
-We welcome contributions! Please see our [contributing guide](https://aura-ui.com) for more details.
+We welcome contributions! Please see our [contributing guide](https://aura-ui-xd.vercel.app) for more details.
 
 ## License
 

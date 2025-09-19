@@ -108,4 +108,4 @@ export const GLOBAL_CSS_VARS =
 // export const BASE_URL = "http://localhost:3000"
 
 // Use this for prod
-export const BASE_URL = "https://aura-ui.com"
+export const BASE_URL = "https://aura-ui-xd.vercel.app"

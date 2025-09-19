@@ -24,7 +24,7 @@ const navItems = [
   },
   {
     name: "Templates",
-    href: "https://pro.aura-ui.com/templates"
+    href: "https://aura-ui-xd.vercel.app/templates"
   }
 ]
 
