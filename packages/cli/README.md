@@ -49,4 +49,4 @@ We welcome contributions! Please see our [contributing guide](https://aura-ui-xd
 
 ## License
 
-ISC © [Saad](https://github.com/codewithevilxd)
+ISC © [RAj](https://github.com/codewithevilxd)

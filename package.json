@@ -1,6 +1,6 @@
 {
   "name": "@rajdevxd/aura-ui",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A comprehensive UI component library for modern web development, featuring pre-built components, blocks, and snippets to accelerate your development process.",
   "bin": {
     "aura-ui": "./packages/cli/dist/index.js"

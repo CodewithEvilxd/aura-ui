@@ -434,7 +434,7 @@ npm run generate-docs
 **MIT License** - feel free to use this project for personal and commercial projects.
 
 ```text
-Copyright (c) 2024 Saad (codewithevilxd)
+Copyright (c) 2025 RAj (codewithevilxd)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -477,7 +477,7 @@ copies or substantial portions of the Software.
 
 <div align="center">
 
-  ### Made with ❤️ by [Saad](https://github.com/codewithevilxd)
+  ### Made with ❤️ by [RAj](https://github.com/codewithevilxd)
 
   **"Building the future of web development, one component at a time"**
 
